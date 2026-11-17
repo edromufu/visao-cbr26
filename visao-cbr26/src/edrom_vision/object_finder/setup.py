@@ -24,8 +24,8 @@ setup(
         (os.path.join('share', package_name, 'modelo'), glob('modelo/*.pt')),
         (os.path.join('share', package_name, 'resource'), glob('resource/*')),
 
-        # Instala o modelo os arquivos de calibracao da camera  
-        (os.path.join('share', package_name, 'camera_calibration'), glob('camera_calibration/*')),
+        # Instala a config da câmera (usb_cam.yaml) e os arquivos de calibração
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
     ],
     
     # install_requires lista as dependências de Python que o pip deve instalar.

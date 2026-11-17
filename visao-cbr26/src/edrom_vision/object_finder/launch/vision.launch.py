@@ -5,21 +5,40 @@ from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch.conditions import IfCondition, UnlessCondition
+from ament_index_python.packages import get_package_share_directory
+import os
+import yaml
 
 def generate_launch_description():
 
+    # Configuração da câmera (mesmo arquivo usado pelo camera_calibrator)
+    usb_cam_params = os.path.join(
+        get_package_share_directory("object_finder"), "config", "usb_cam.yaml"
+    )
+    with open(usb_cam_params) as f:
+        usb_cam_cfg = next(iter(yaml.safe_load(f).values()))["ros__parameters"]
 
     return LaunchDescription([
 
         DeclareLaunchArgument(
             "video_device",
-            default_value="/dev/video0",
+            default_value=usb_cam_cfg["video_device"],
             description="Dispositivo da câmera USB",
         ),  
 
         DeclareLaunchArgument(
+            "camera_name",
+            default_value=usb_cam_cfg["camera_name"],
+            description="Câmera usada (verri ou milare): escolhe o arquivo de calibração",
+        ),
+
+        DeclareLaunchArgument(
             "camera_info_url",
-            default_value ="package://object_finder/camera_calibration/ex.yaml",
+            default_value=[
+                "package://object_finder/config/",
+                LaunchConfiguration("camera_name"),
+                "_camera-info.yaml",
+            ],
             description="URL do YAML de calibração intrínseca da câmera",
         ),
 
@@ -29,15 +48,12 @@ def generate_launch_description():
             name="usb_cam",
             namespace="camera",
             output="screen",
-            parameters=[{
+            # usb_cam.yaml primeiro; o dict abaixo sobrescreve com os argumentos do launch
+            parameters=[usb_cam_params, {
                 "use_sim_time": False,
+                "camera_name": LaunchConfiguration("camera_name"),
                 "video_device": LaunchConfiguration("video_device"),
                 "camera_info_url": LaunchConfiguration("camera_info_url"),
-                "image_width": 640,
-                "image_height": 480,
-                "framerate": 30.0,
-                "pixel_format": "yuyv2rgb",
-                "frame_id": "camera_optical_frame",
             }],
         ),
 
