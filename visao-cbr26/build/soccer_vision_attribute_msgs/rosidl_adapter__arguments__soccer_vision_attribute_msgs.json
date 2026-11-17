@@ -1,0 +1,8 @@
+{
+  "package_name": "soccer_vision_attribute_msgs",
+  "non_idl_tuples": [
+    "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs:msg/Confidence.msg",
+    "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs:msg/Goalpost.msg",
+    "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs:msg/Robot.msg"
+  ]
+}

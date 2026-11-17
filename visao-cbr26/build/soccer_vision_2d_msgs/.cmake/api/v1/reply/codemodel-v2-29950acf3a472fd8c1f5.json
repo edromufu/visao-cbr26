@@ -1,0 +1,267 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-61af97b91040780a28c4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						15,
+						16,
+						17,
+						18,
+						19
+					]
+				},
+				{
+					"build" : "soccer_vision_2d_msgs__py",
+					"jsonFile" : "directory-soccer_vision_2d_msgs__py-60f8b4b33e534de2547f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_vision_2d_msgs/soccer_vision_2d_msgs__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "soccer_vision_2d_msgs__rs",
+					"jsonFile" : "directory-soccer_vision_2d_msgs__rs-cec5e7d98b7d4f461e05.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_vision_2d_msgs/soccer_vision_2d_msgs__rs",
+					"targetIndexes" : 
+					[
+						14
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "soccer_vision_2d_msgs",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_soccer_vision_2d_msgs_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_soccer_vision_2d_msgs_egg-a86cc246b97ff890be66.json",
+					"name" : "ament_cmake_python_build_soccer_vision_2d_msgs_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_soccer_vision_2d_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_soccer_vision_2d_msgs-20e64c90972401779d2c.json",
+					"name" : "ament_cmake_python_copy_soccer_vision_2d_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs-69d872c60d663befdb67.json",
+					"name" : "soccer_vision_2d_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs__cpp-a476ba69911bfdbb8d94.json",
+					"name" : "soccer_vision_2d_msgs__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "soccer_vision_2d_msgs__py::@16216588d6aba3533a6c",
+					"jsonFile" : "target-soccer_vision_2d_msgs__py-9b75d67b9cad6e79f74f.json",
+					"name" : "soccer_vision_2d_msgs__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs__rosidl_generator_c-a9eae686d819a0749d30.json",
+					"name" : "soccer_vision_2d_msgs__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs__rosidl_generator_py-07e43cfba70f00fb1a58.json",
+					"name" : "soccer_vision_2d_msgs__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs__rosidl_generator_type_description::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs__rosidl_generator_type_description-34b21090dcedd44d3654.json",
+					"name" : "soccer_vision_2d_msgs__rosidl_generator_type_description",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs__rosidl_typesupport_c-1b2936a1a72f3e889c78.json",
+					"name" : "soccer_vision_2d_msgs__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs__rosidl_typesupport_cpp-5de24e8fdf3f4938c431.json",
+					"name" : "soccer_vision_2d_msgs__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs__rosidl_typesupport_fastrtps_c-e550d182f28e0774c0cb.json",
+					"name" : "soccer_vision_2d_msgs__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs__rosidl_typesupport_fastrtps_cpp-981aa0b635a79df8a916.json",
+					"name" : "soccer_vision_2d_msgs__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs__rosidl_typesupport_introspection_c-347fa95cbb8e24bd86e6.json",
+					"name" : "soccer_vision_2d_msgs__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs__rosidl_typesupport_introspection_cpp-c65eefb51b5c61f927d3.json",
+					"name" : "soccer_vision_2d_msgs__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "soccer_vision_2d_msgs__rs::@1a207f347b6a80487d63",
+					"jsonFile" : "target-soccer_vision_2d_msgs__rs-40906792af758070df82.json",
+					"name" : "soccer_vision_2d_msgs__rs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs_s__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs_s__rosidl_typesupport_c-25d05507cbadb0d448f9.json",
+					"name" : "soccer_vision_2d_msgs_s__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs_s__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs_s__rosidl_typesupport_fastrtps_c-07ac66afdffb73561bcb.json",
+					"name" : "soccer_vision_2d_msgs_s__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs_s__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs_s__rosidl_typesupport_introspection_c-b3134e1081f226b718cc.json",
+					"name" : "soccer_vision_2d_msgs_s__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_vision_2d_msgs_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_vision_2d_msgs_uninstall-a6d2117af6107b9b0097.json",
+					"name" : "soccer_vision_2d_msgs_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-cb24881abe0b62bf7bbf.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_vision_2d_msgs",
+		"source" : "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/edrom_vision/soccer_interfaces/soccer_vision_2d_msgs"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

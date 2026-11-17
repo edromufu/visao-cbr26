@@ -1,0 +1,19 @@
+// generated from rosidl_generator_c/resource/idl__type_support.c.em
+// with input from soccer_vision_2d_msgs:msg/Ball.idl
+// generated code does not contain a copyright notice
+
+#include <string.h>
+
+#include "soccer_vision_2d_msgs/msg/detail/ball__functions.h"
+#include "soccer_vision_2d_msgs/msg/detail/ball__type_support.h"
+#include "rosidl_typesupport_interface/macros.h"
+#include "soccer_vision_2d_msgs/msg/detail/ball__struct.h"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+#ifdef __cplusplus
+}
+#endif

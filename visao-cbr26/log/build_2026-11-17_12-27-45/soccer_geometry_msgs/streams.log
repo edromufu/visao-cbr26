@@ -1,0 +1,245 @@
+[0.014s] Invoking command in '/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_geometry_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ivan/temp/edrom-aruco/install/edrom_bringup:/home/ivan/temp/edrom-aruco/install/vision_controller:/home/ivan/temp/edrom-aruco/install/transitions_and_states:/home/ivan/temp/edrom-aruco/install/states_routine:/home/ivan/temp/edrom-aruco/install/soccer_ipm:/home/ivan/temp/edrom-aruco/install/sensor_observer:/home/ivan/temp/edrom-aruco/install/object_finder_onnx:/home/ivan/temp/edrom-aruco/install/object_finder:/home/ivan/temp/edrom-aruco/install/bhv_simulator:/home/ivan/temp/edrom-aruco/install/localization_pkg:/home/ivan/temp/edrom-aruco/install/ipm_service:/home/ivan/temp/edrom-aruco/install/ipm_image_node:/home/ivan/temp/edrom-aruco/install/ipm_library:/home/ivan/temp/edrom-aruco/install/imu_ros_arduino:/home/ivan/temp/edrom-aruco/install/edrom_imu_driver:/home/ivan/temp/edrom-aruco/install/edrom-aruco:/home/ivan/temp/edrom-aruco/install/aurea_webots:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/edrom_vision/soccer_interfaces/soccer_geometry_msgs -DCMAKE_INSTALL_PREFIX=/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs
+[0.184s] -- The C compiler identification is GNU 13.3.0
+[0.185s] -- The CXX compiler identification is GNU 13.3.0
+[0.185s] -- Detecting C compiler ABI info
+[0.188s] -- Detecting C compiler ABI info - done
+[0.197s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.197s] -- Detecting C compile features
+[0.197s] -- Detecting C compile features - done
+[0.204s] -- Detecting CXX compiler ABI info
+[0.286s] -- Detecting CXX compiler ABI info - done
+[0.296s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.296s] -- Detecting CXX compile features
+[0.296s] -- Detecting CXX compile features - done
+[0.298s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.441s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.530s] -- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[0.563s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.573s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.585s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.599s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.632s] -- Found rosidl_default_generators: 1.6.1 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[0.648s] -- Found rosidl_adapter: 4.6.9 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[1.188s] -- Found ament_cmake_ros: 0.12.2 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[1.890s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.177s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.179s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[2.304s] -- Found PythonExtra: /usr/bin/python3  
+[2.653s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[2.737s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[2.740s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[2.762s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.763s] -- Added test 'lint_cmake' to check CMake code style
+[2.764s] -- Added test 'xmllint' to check XML markup files
+[2.766s] -- Configuring done (2.7s)
+[2.789s] -- Generating done (0.0s)
+[2.797s] -- Build files have been written to: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_geometry_msgs
+[2.806s] Invoked command in '/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_geometry_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ivan/temp/edrom-aruco/install/edrom_bringup:/home/ivan/temp/edrom-aruco/install/vision_controller:/home/ivan/temp/edrom-aruco/install/transitions_and_states:/home/ivan/temp/edrom-aruco/install/states_routine:/home/ivan/temp/edrom-aruco/install/soccer_ipm:/home/ivan/temp/edrom-aruco/install/sensor_observer:/home/ivan/temp/edrom-aruco/install/object_finder_onnx:/home/ivan/temp/edrom-aruco/install/object_finder:/home/ivan/temp/edrom-aruco/install/bhv_simulator:/home/ivan/temp/edrom-aruco/install/localization_pkg:/home/ivan/temp/edrom-aruco/install/ipm_service:/home/ivan/temp/edrom-aruco/install/ipm_image_node:/home/ivan/temp/edrom-aruco/install/ipm_library:/home/ivan/temp/edrom-aruco/install/imu_ros_arduino:/home/ivan/temp/edrom-aruco/install/edrom_imu_driver:/home/ivan/temp/edrom-aruco/install/edrom-aruco:/home/ivan/temp/edrom-aruco/install/aurea_webots:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/edrom_vision/soccer_interfaces/soccer_geometry_msgs -DCMAKE_INSTALL_PREFIX=/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs
+[2.806s] Invoking command in '/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_geometry_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ivan/temp/edrom-aruco/install/edrom_bringup:/home/ivan/temp/edrom-aruco/install/vision_controller:/home/ivan/temp/edrom-aruco/install/transitions_and_states:/home/ivan/temp/edrom-aruco/install/states_routine:/home/ivan/temp/edrom-aruco/install/soccer_ipm:/home/ivan/temp/edrom-aruco/install/sensor_observer:/home/ivan/temp/edrom-aruco/install/object_finder_onnx:/home/ivan/temp/edrom-aruco/install/object_finder:/home/ivan/temp/edrom-aruco/install/bhv_simulator:/home/ivan/temp/edrom-aruco/install/localization_pkg:/home/ivan/temp/edrom-aruco/install/ipm_service:/home/ivan/temp/edrom-aruco/install/ipm_image_node:/home/ivan/temp/edrom-aruco/install/ipm_library:/home/ivan/temp/edrom-aruco/install/imu_ros_arduino:/home/ivan/temp/edrom-aruco/install/edrom_imu_driver:/home/ivan/temp/edrom-aruco/install/edrom-aruco:/home/ivan/temp/edrom-aruco/install/aurea_webots:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_geometry_msgs -- -j22 -l22
+[2.856s] [  5%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[2.856s] [  5%] [34m[1mGenerating Rust code for ROS interfaces[0m
+[2.865s] [  5%] Built target ament_cmake_python_copy_soccer_geometry_msgs
+[3.057s] [  5%] Built target soccer_geometry_msgs__rosidl_generator_type_description
+[3.067s] [  8%] [34m[1mGenerating C code for ROS interfaces[0m
+[3.074s] [ 11%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[3.075s] [ 11%] Built target soccer_geometry_msgs__rs
+[3.083s] running egg_info
+[3.084s] creating soccer_geometry_msgs.egg-info
+[3.103s] writing soccer_geometry_msgs.egg-info/PKG-INFO
+[3.104s] writing dependency_links to soccer_geometry_msgs.egg-info/dependency_links.txt
+[3.104s] writing top-level names to soccer_geometry_msgs.egg-info/top_level.txt
+[3.104s] writing manifest file 'soccer_geometry_msgs.egg-info/SOURCES.txt'
+[3.166s] reading manifest file 'soccer_geometry_msgs.egg-info/SOURCES.txt'
+[3.166s] writing manifest file 'soccer_geometry_msgs.egg-info/SOURCES.txt'
+[3.188s] [ 11%] Built target ament_cmake_python_build_soccer_geometry_msgs_egg
+[3.257s] [ 11%] Built target soccer_geometry_msgs__cpp
+[3.263s] [ 14%] [32mBuilding C object CMakeFiles/soccer_geometry_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_geometry_msgs/msg/detail/point_with_covariance__description.c.o[0m
+[3.263s] [ 17%] [32mBuilding C object CMakeFiles/soccer_geometry_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_geometry_msgs/msg/detail/point_with_covariance__functions.c.o[0m
+[3.270s] [ 20%] [32mBuilding C object CMakeFiles/soccer_geometry_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support.c.o[0m
+[3.305s] [ 22%] [32m[1mLinking C shared library libsoccer_geometry_msgs__rosidl_generator_c.so[0m
+[3.329s] [ 22%] Built target soccer_geometry_msgs__rosidl_generator_c
+[3.335s] [ 34%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[3.335s] [ 34%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[3.336s] [ 34%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[3.336s] [ 34%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[3.338s] [ 37%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[3.339s] [ 40%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[3.560s] [ 42%] [32mBuilding C object CMakeFiles/soccer_geometry_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support.c.o[0m
+[3.583s] [ 45%] [32mBuilding CXX object CMakeFiles/soccer_geometry_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/soccer_geometry_msgs/msg/point_with_covariance__type_support.cpp.o[0m
+[3.586s] [ 48%] [32mBuilding CXX object CMakeFiles/soccer_geometry_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/soccer_geometry_msgs/msg/detail/dds_fastrtps/point_with_covariance__type_support.cpp.o[0m
+[3.597s] [ 51%] [32mBuilding CXX object CMakeFiles/soccer_geometry_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/soccer_geometry_msgs/msg/point_with_covariance__type_support.cpp.o[0m
+[3.604s] [ 54%] [32m[1mLinking C shared library libsoccer_geometry_msgs__rosidl_typesupport_introspection_c.so[0m
+[3.619s] [ 57%] [32mBuilding CXX object CMakeFiles/soccer_geometry_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support.cpp.o[0m
+[3.632s] [ 60%] [32m[1mLinking CXX shared library libsoccer_geometry_msgs__rosidl_typesupport_c.so[0m
+[3.635s] [ 62%] [32mBuilding CXX object CMakeFiles/soccer_geometry_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support_c.cpp.o[0m
+[3.639s] [ 62%] Built target soccer_geometry_msgs__rosidl_typesupport_introspection_c
+[3.677s] [ 62%] Built target soccer_geometry_msgs__rosidl_typesupport_c
+[3.923s] [ 65%] [32m[1mLinking CXX shared library libsoccer_geometry_msgs__rosidl_typesupport_cpp.so[0m
+[3.956s] [ 68%] [32m[1mLinking CXX shared library libsoccer_geometry_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[3.979s] [ 68%] Built target soccer_geometry_msgs__rosidl_typesupport_cpp
+[4.064s] [ 68%] Built target soccer_geometry_msgs__rosidl_typesupport_introspection_cpp
+[4.111s] [ 71%] [32m[1mLinking CXX shared library libsoccer_geometry_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[4.116s] [ 74%] [32m[1mLinking CXX shared library libsoccer_geometry_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[4.165s] [ 74%] Built target soccer_geometry_msgs__rosidl_typesupport_fastrtps_cpp
+[4.169s] [ 74%] Built target soccer_geometry_msgs__rosidl_typesupport_fastrtps_c
+[4.183s] [ 74%] Built target soccer_geometry_msgs
+[4.201s] [ 77%] [34m[1mGenerating Python code for ROS interfaces[0m
+[4.478s] [ 77%] Built target soccer_geometry_msgs__py
+[4.497s] [ 80%] [32mBuilding C object CMakeFiles/soccer_geometry_msgs__rosidl_generator_py.dir/rosidl_generator_py/soccer_geometry_msgs/msg/_point_with_covariance_s.c.o[0m
+[4.581s] [ 82%] [32m[1mLinking C shared library libsoccer_geometry_msgs__rosidl_generator_py.so[0m
+[4.612s] [ 82%] Built target soccer_geometry_msgs__rosidl_generator_py
+[4.627s] [ 85%] [32mBuilding C object CMakeFiles/soccer_geometry_msgs_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/soccer_geometry_msgs/_soccer_geometry_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[4.628s] [ 88%] [32mBuilding C object CMakeFiles/soccer_geometry_msgs_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/soccer_geometry_msgs/_soccer_geometry_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[4.630s] [ 91%] [32mBuilding C object CMakeFiles/soccer_geometry_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/soccer_geometry_msgs/_soccer_geometry_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[4.699s] [ 97%] [32m[1mLinking C shared module rosidl_generator_py/soccer_geometry_msgs/soccer_geometry_msgs_s__rosidl_typesupport_fastrtps_c.so[0m
+[4.699s] [ 97%] [32m[1mLinking C shared module rosidl_generator_py/soccer_geometry_msgs/soccer_geometry_msgs_s__rosidl_typesupport_introspection_c.so[0m
+[4.720s] [ 97%] Built target soccer_geometry_msgs_s__rosidl_typesupport_introspection_c
+[4.720s] [ 97%] Built target soccer_geometry_msgs_s__rosidl_typesupport_fastrtps_c
+[4.727s] [100%] [32m[1mLinking C shared module rosidl_generator_py/soccer_geometry_msgs/soccer_geometry_msgs_s__rosidl_typesupport_c.so[0m
+[4.752s] [100%] Built target soccer_geometry_msgs_s__rosidl_typesupport_c
+[4.764s] Invoked command in '/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_geometry_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ivan/temp/edrom-aruco/install/edrom_bringup:/home/ivan/temp/edrom-aruco/install/vision_controller:/home/ivan/temp/edrom-aruco/install/transitions_and_states:/home/ivan/temp/edrom-aruco/install/states_routine:/home/ivan/temp/edrom-aruco/install/soccer_ipm:/home/ivan/temp/edrom-aruco/install/sensor_observer:/home/ivan/temp/edrom-aruco/install/object_finder_onnx:/home/ivan/temp/edrom-aruco/install/object_finder:/home/ivan/temp/edrom-aruco/install/bhv_simulator:/home/ivan/temp/edrom-aruco/install/localization_pkg:/home/ivan/temp/edrom-aruco/install/ipm_service:/home/ivan/temp/edrom-aruco/install/ipm_image_node:/home/ivan/temp/edrom-aruco/install/ipm_library:/home/ivan/temp/edrom-aruco/install/imu_ros_arduino:/home/ivan/temp/edrom-aruco/install/edrom_imu_driver:/home/ivan/temp/edrom-aruco/install/edrom-aruco:/home/ivan/temp/edrom-aruco/install/aurea_webots:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_geometry_msgs -- -j22 -l22
+[4.775s] Invoking command in '/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_geometry_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ivan/temp/edrom-aruco/install/edrom_bringup:/home/ivan/temp/edrom-aruco/install/vision_controller:/home/ivan/temp/edrom-aruco/install/transitions_and_states:/home/ivan/temp/edrom-aruco/install/states_routine:/home/ivan/temp/edrom-aruco/install/soccer_ipm:/home/ivan/temp/edrom-aruco/install/sensor_observer:/home/ivan/temp/edrom-aruco/install/object_finder_onnx:/home/ivan/temp/edrom-aruco/install/object_finder:/home/ivan/temp/edrom-aruco/install/bhv_simulator:/home/ivan/temp/edrom-aruco/install/localization_pkg:/home/ivan/temp/edrom-aruco/install/ipm_service:/home/ivan/temp/edrom-aruco/install/ipm_image_node:/home/ivan/temp/edrom-aruco/install/ipm_library:/home/ivan/temp/edrom-aruco/install/imu_ros_arduino:/home/ivan/temp/edrom-aruco/install/edrom_imu_driver:/home/ivan/temp/edrom-aruco/install/edrom-aruco:/home/ivan/temp/edrom-aruco/install/aurea_webots:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_geometry_msgs
+[4.783s] -- Install configuration: ""
+[4.784s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/ament_index/resource_index/rosidl_interfaces/soccer_geometry_msgs
+[4.784s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/msg/PointWithCovariance.json
+[4.784s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs
+[4.784s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg
+[4.784s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/point_with_covariance.h
+[4.784s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail
+[4.784s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__functions.h
+[4.784s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__functions.c
+[4.784s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__description.c
+[4.784s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__struct.h
+[4.785s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support.h
+[4.785s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support.c
+[4.785s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/rosidl_generator_c__visibility_control.h
+[4.785s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/environment/library_path.sh
+[4.785s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/environment/library_path.dsv
+[4.785s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_generator_c.so
+[4.785s] -- Set non-toolchain portion of runtime path of "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_generator_c.so" to ""
+[4.785s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs
+[4.785s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg
+[4.786s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[4.786s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail
+[4.786s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__rosidl_typesupport_fastrtps_c.h
+[4.786s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_typesupport_fastrtps_c.so
+[4.786s] -- Set non-toolchain portion of runtime path of "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[4.786s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs
+[4.786s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg
+[4.786s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[4.786s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/point_with_covariance.hpp
+[4.786s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail
+[4.786s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support.hpp
+[4.786s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__traits.hpp
+[4.786s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__struct.hpp
+[4.787s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__builder.hpp
+[4.787s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs
+[4.787s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg
+[4.787s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail
+[4.787s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/dds_fastrtps
+[4.787s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__rosidl_typesupport_fastrtps_cpp.hpp
+[4.787s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[4.787s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_typesupport_fastrtps_cpp.so
+[4.787s] -- Set non-toolchain portion of runtime path of "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[4.787s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs
+[4.787s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg
+[4.787s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[4.787s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail
+[4.787s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__rosidl_typesupport_introspection_c.h
+[4.788s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support.c
+[4.788s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_typesupport_introspection_c.so
+[4.788s] -- Set non-toolchain portion of runtime path of "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_typesupport_introspection_c.so" to ""
+[4.788s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_typesupport_c.so
+[4.788s] -- Set non-toolchain portion of runtime path of "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_typesupport_c.so" to ""
+[4.788s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs
+[4.788s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg
+[4.788s] -- Up-to-date: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail
+[4.788s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__rosidl_typesupport_introspection_cpp.hpp
+[4.788s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/include/soccer_geometry_msgs/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support.cpp
+[4.788s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_typesupport_introspection_cpp.so
+[4.788s] -- Set non-toolchain portion of runtime path of "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[4.788s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_typesupport_cpp.so
+[4.789s] -- Set non-toolchain portion of runtime path of "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_typesupport_cpp.so" to ""
+[4.789s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/environment/pythonpath.sh
+[4.789s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/environment/pythonpath.dsv
+[4.789s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs-1.0.0-py3.12.egg-info
+[4.789s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs-1.0.0-py3.12.egg-info/SOURCES.txt
+[4.789s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs-1.0.0-py3.12.egg-info/top_level.txt
+[4.789s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs-1.0.0-py3.12.egg-info/PKG-INFO
+[4.789s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs-1.0.0-py3.12.egg-info/dependency_links.txt
+[4.789s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs
+[4.789s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/__init__.py
+[4.789s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/_soccer_geometry_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[4.790s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/_soccer_geometry_msgs_s.ep.rosidl_typesupport_c.c
+[4.790s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/msg
+[4.790s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/msg/__init__.py
+[4.790s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/msg/_point_with_covariance.py
+[4.790s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/msg/_point_with_covariance_s.c
+[4.790s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/_soccer_geometry_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[4.790s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/soccer_geometry_msgs_s__rosidl_typesupport_introspection_c.so
+[4.790s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/soccer_geometry_msgs_s__rosidl_typesupport_fastrtps_c.so
+[4.790s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/soccer_geometry_msgs_s__rosidl_typesupport_c.so
+[4.827s] Listing '/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs'...
+[4.827s] Compiling '/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/__init__.py'...
+[4.827s] Listing '/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/msg'...
+[4.827s] Compiling '/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/msg/__init__.py'...
+[4.828s] Compiling '/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/msg/_point_with_covariance.py'...
+[4.832s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/soccer_geometry_msgs_s__rosidl_typesupport_fastrtps_c.so
+[4.832s] -- Set non-toolchain portion of runtime path of "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/soccer_geometry_msgs_s__rosidl_typesupport_fastrtps_c.so" to ""
+[4.833s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/soccer_geometry_msgs_s__rosidl_typesupport_introspection_c.so
+[4.833s] -- Set non-toolchain portion of runtime path of "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/soccer_geometry_msgs_s__rosidl_typesupport_introspection_c.so" to ""
+[4.833s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/soccer_geometry_msgs_s__rosidl_typesupport_c.so
+[4.833s] -- Set non-toolchain portion of runtime path of "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/python3.12/site-packages/soccer_geometry_msgs/soccer_geometry_msgs_s__rosidl_typesupport_c.so" to ""
+[4.834s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_generator_py.so
+[4.834s] -- Set non-toolchain portion of runtime path of "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/lib/libsoccer_geometry_msgs__rosidl_generator_py.so" to ""
+[4.834s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/rust
+[4.834s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/rust/src
+[4.834s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/rust/src/msg
+[4.834s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/rust/src/msg/rmw.rs
+[4.834s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/rust/src/msg.rs
+[4.834s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/rust/src/lib.rs
+[4.834s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/rust/Cargo.toml
+[4.835s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/rust/build.rs
+[4.835s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/msg/PointWithCovariance.idl
+[4.835s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/msg/PointWithCovariance.msg
+[4.835s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/ament_index/resource_index/package_run_dependencies/soccer_geometry_msgs
+[4.835s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/ament_index/resource_index/parent_prefix_path/soccer_geometry_msgs
+[4.835s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/environment/ament_prefix_path.sh
+[4.835s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/environment/ament_prefix_path.dsv
+[4.835s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/environment/path.sh
+[4.835s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/environment/path.dsv
+[4.835s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/local_setup.bash
+[4.835s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/local_setup.sh
+[4.835s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/local_setup.zsh
+[4.835s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/local_setup.dsv
+[4.836s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/package.dsv
+[4.836s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/ament_index/resource_index/packages/soccer_geometry_msgs
+[4.836s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/export_soccer_geometry_msgs__rosidl_generator_cExport.cmake
+[4.836s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/export_soccer_geometry_msgs__rosidl_generator_cExport-noconfig.cmake
+[4.836s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/export_soccer_geometry_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[4.836s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/export_soccer_geometry_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[4.836s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/export_soccer_geometry_msgs__rosidl_generator_cppExport.cmake
+[4.836s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/export_soccer_geometry_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[4.836s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/export_soccer_geometry_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[4.836s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/soccer_geometry_msgs__rosidl_typesupport_introspection_cExport.cmake
+[4.836s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/soccer_geometry_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[4.836s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/soccer_geometry_msgs__rosidl_typesupport_cExport.cmake
+[4.836s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/soccer_geometry_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[4.837s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/soccer_geometry_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[4.837s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/soccer_geometry_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[4.837s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/soccer_geometry_msgs__rosidl_typesupport_cppExport.cmake
+[4.837s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/soccer_geometry_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[4.837s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/export_soccer_geometry_msgs__rosidl_generator_pyExport.cmake
+[4.837s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/export_soccer_geometry_msgs__rosidl_generator_pyExport-noconfig.cmake
+[4.837s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/rosidl_cmake-extras.cmake
+[4.837s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[4.837s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[4.837s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[4.837s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[4.837s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[4.837s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[4.838s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/rosidl_cmake_aggregate_target-extras.cmake
+[4.838s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/soccer_geometry_msgsConfig.cmake
+[4.838s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake/soccer_geometry_msgsConfig-version.cmake
+[4.838s] -- Installing: /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/package.xml
+[4.839s] Invoked command in '/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_geometry_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ivan/temp/edrom-aruco/install/edrom_bringup:/home/ivan/temp/edrom-aruco/install/vision_controller:/home/ivan/temp/edrom-aruco/install/transitions_and_states:/home/ivan/temp/edrom-aruco/install/states_routine:/home/ivan/temp/edrom-aruco/install/soccer_ipm:/home/ivan/temp/edrom-aruco/install/sensor_observer:/home/ivan/temp/edrom-aruco/install/object_finder_onnx:/home/ivan/temp/edrom-aruco/install/object_finder:/home/ivan/temp/edrom-aruco/install/bhv_simulator:/home/ivan/temp/edrom-aruco/install/localization_pkg:/home/ivan/temp/edrom-aruco/install/ipm_service:/home/ivan/temp/edrom-aruco/install/ipm_image_node:/home/ivan/temp/edrom-aruco/install/ipm_library:/home/ivan/temp/edrom-aruco/install/imu_ros_arduino:/home/ivan/temp/edrom-aruco/install/edrom_imu_driver:/home/ivan/temp/edrom-aruco/install/edrom-aruco:/home/ivan/temp/edrom-aruco/install/aurea_webots:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_geometry_msgs

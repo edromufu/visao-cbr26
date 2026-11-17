@@ -1,0 +1,19 @@
+// generated from rosidl_generator_c/resource/idl__type_support.c.em
+// with input from soccer_vision_3d_msgs:msg/MarkingSegment.idl
+// generated code does not contain a copyright notice
+
+#include <string.h>
+
+#include "rosidl_typesupport_interface/macros.h"
+#include "soccer_vision_3d_msgs/msg/detail/marking_segment__type_support.h"
+#include "soccer_vision_3d_msgs/msg/detail/marking_segment__struct.h"
+#include "soccer_vision_3d_msgs/msg/detail/marking_segment__functions.h"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+#ifdef __cplusplus
+}
+#endif

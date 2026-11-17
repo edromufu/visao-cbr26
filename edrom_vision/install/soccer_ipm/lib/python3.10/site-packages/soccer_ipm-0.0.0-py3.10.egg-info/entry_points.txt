@@ -1,3 +1,0 @@
-[console_scripts]
-ipm = soccer_ipm.soccer_ipm:main
-

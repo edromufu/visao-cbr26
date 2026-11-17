@@ -1,4 +1,0 @@
-shape_msgs/Plane plane
-sensor_msgs/PointCloud2 points
-string plane_frame_id
-string output_frame_id

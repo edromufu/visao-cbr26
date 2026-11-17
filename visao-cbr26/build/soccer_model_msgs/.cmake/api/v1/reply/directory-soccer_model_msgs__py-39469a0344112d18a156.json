@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "soccer_model_msgs__py",
+		"source" : "/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/soccer_model_msgs/soccer_model_msgs__py"
+	}
+}

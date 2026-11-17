@@ -1,3 +1,0 @@
-[console_scripts]
-finder = object_finder.connecting_and_showing:main
-

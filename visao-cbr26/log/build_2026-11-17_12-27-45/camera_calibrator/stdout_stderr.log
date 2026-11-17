@@ -1,0 +1,36 @@
+running egg_info
+creating ../../build/camera_calibrator/camera_calibrator.egg-info
+writing ../../build/camera_calibrator/camera_calibrator.egg-info/PKG-INFO
+writing dependency_links to ../../build/camera_calibrator/camera_calibrator.egg-info/dependency_links.txt
+writing entry points to ../../build/camera_calibrator/camera_calibrator.egg-info/entry_points.txt
+writing requirements to ../../build/camera_calibrator/camera_calibrator.egg-info/requires.txt
+writing top-level names to ../../build/camera_calibrator/camera_calibrator.egg-info/top_level.txt
+writing manifest file '../../build/camera_calibrator/camera_calibrator.egg-info/SOURCES.txt'
+reading manifest file '../../build/camera_calibrator/camera_calibrator.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/camera_calibrator/camera_calibrator.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/camera_calibrator/build
+creating /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/camera_calibrator/build/lib
+creating /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/camera_calibrator/build/lib/camera_calibrator
+copying camera_calibrator/__init__.py -> /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/camera_calibrator/build/lib/camera_calibrator
+copying camera_calibrator/camera_calibrator.py -> /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/camera_calibrator/build/lib/camera_calibrator
+running install
+running install_lib
+creating /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/camera_calibrator/lib/python3.12/site-packages/camera_calibrator
+copying /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/camera_calibrator/build/lib/camera_calibrator/__init__.py -> /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/camera_calibrator/lib/python3.12/site-packages/camera_calibrator
+copying /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/camera_calibrator/build/lib/camera_calibrator/camera_calibrator.py -> /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/camera_calibrator/lib/python3.12/site-packages/camera_calibrator
+byte-compiling /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/camera_calibrator/lib/python3.12/site-packages/camera_calibrator/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/camera_calibrator/lib/python3.12/site-packages/camera_calibrator/camera_calibrator.py to camera_calibrator.cpython-312.pyc
+running install_data
+creating /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/camera_calibrator/share/ament_index
+creating /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/camera_calibrator/share/ament_index/resource_index
+creating /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/camera_calibrator/share/ament_index/resource_index/packages
+copying resource/camera_calibrator -> /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/camera_calibrator/share/ament_index/resource_index/packages
+copying package.xml -> /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/camera_calibrator/share/camera_calibrator
+running install_egg_info
+Copying ../../build/camera_calibrator/camera_calibrator.egg-info to /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/camera_calibrator/lib/python3.12/site-packages/camera_calibrator-0.0.0-py3.12.egg-info
+running install_scripts
+Installing camera_calibrator script to /home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/install/camera_calibrator/lib/camera_calibrator
+writing list of installed files to '/home/ivan/tmp-edrom/visao-cbr26/visao-cbr26/build/camera_calibrator/install.log'
