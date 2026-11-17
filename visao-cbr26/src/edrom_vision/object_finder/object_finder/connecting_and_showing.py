@@ -7,7 +7,7 @@ import cv2
 from pathlib import Path
 from ultralytics import YOLO
 
-import edrom_vision.object_finder.object_finder.running_inference as ri
+from object_finder import running_inference as ri
 
 import soccer_vision_2d_msgs.msg as sv2dm 
 from sensor_msgs.msg import Image
