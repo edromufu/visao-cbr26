@@ -1,8 +1,0 @@
-Metadata-Version: 2.1
-Name: object-finder
-Version: 0.0.1
-Summary: Pacote de detecção de objetos para a EDROM
-Author: EDROM
-License: MIT
-
-Este programa detecta bola, robôs e outros elementos do campo de futebol de robôs.

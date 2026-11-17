@@ -1,2 +1,0 @@
-[console_scripts]
-ipm_calibrator = ipm_calibrator.ipm_calibrator:main

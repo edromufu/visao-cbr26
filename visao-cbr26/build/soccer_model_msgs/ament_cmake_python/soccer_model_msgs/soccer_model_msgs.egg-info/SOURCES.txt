@@ -1,6 +1,0 @@
-setup.py
-soccer_model_msgs/__init__.py
-soccer_model_msgs.egg-info/PKG-INFO
-soccer_model_msgs.egg-info/SOURCES.txt
-soccer_model_msgs.egg-info/dependency_links.txt
-soccer_model_msgs.egg-info/top_level.txt
