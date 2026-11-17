@@ -1,0 +1,42 @@
+[0.819s] Invoking command in '/home/ivan/visao-cbr26/edrom_vision/src/ipm/ipm_library': AMENT_PREFIX_PATH=/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces LD_LIBRARY_PATH=/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ivan/visao-cbr26/edrom_vision/build/ipm_library/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages:/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/ipm_library build --build-base /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/build install --record /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/install.log --single-version-externally-managed install_data
+[1.072s] running egg_info
+[1.073s] creating ../../../build/ipm_library/ipm_library.egg-info
+[1.073s] writing ../../../build/ipm_library/ipm_library.egg-info/PKG-INFO
+[1.073s] writing dependency_links to ../../../build/ipm_library/ipm_library.egg-info/dependency_links.txt
+[1.074s] writing entry points to ../../../build/ipm_library/ipm_library.egg-info/entry_points.txt
+[1.074s] writing requirements to ../../../build/ipm_library/ipm_library.egg-info/requires.txt
+[1.074s] writing top-level names to ../../../build/ipm_library/ipm_library.egg-info/top_level.txt
+[1.074s] writing manifest file '../../../build/ipm_library/ipm_library.egg-info/SOURCES.txt'
+[1.077s] reading manifest file '../../../build/ipm_library/ipm_library.egg-info/SOURCES.txt'
+[1.078s] writing manifest file '../../../build/ipm_library/ipm_library.egg-info/SOURCES.txt'
+[1.078s] running build
+[1.078s] running build_py
+[1.078s] creating /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/build
+[1.078s] creating /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/build/lib
+[1.078s] creating /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/build/lib/ipm_library
+[1.078s] copying ipm_library/utils.py -> /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/build/lib/ipm_library
+[1.079s] copying ipm_library/exceptions.py -> /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/build/lib/ipm_library
+[1.079s] copying ipm_library/__init__.py -> /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/build/lib/ipm_library
+[1.079s] copying ipm_library/ipm.py -> /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/build/lib/ipm_library
+[1.079s] running install
+[1.079s] running install_lib
+[1.080s] creating /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages/ipm_library
+[1.080s] copying /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/build/lib/ipm_library/utils.py -> /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages/ipm_library
+[1.080s] copying /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/build/lib/ipm_library/exceptions.py -> /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages/ipm_library
+[1.080s] copying /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/build/lib/ipm_library/__init__.py -> /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages/ipm_library
+[1.080s] copying /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/build/lib/ipm_library/ipm.py -> /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages/ipm_library
+[1.081s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages/ipm_library/utils.py to utils.cpython-310.pyc
+[1.082s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages/ipm_library/exceptions.py to exceptions.cpython-310.pyc
+[1.082s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages/ipm_library/__init__.py to __init__.cpython-310.pyc
+[1.083s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages/ipm_library/ipm.py to ipm.cpython-310.pyc
+[1.083s] running install_data
+[1.084s] creating /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/share/ament_index
+[1.084s] creating /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/share/ament_index/resource_index
+[1.084s] creating /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/share/ament_index/resource_index/packages
+[1.084s] copying resource/ipm_library -> /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/share/ament_index/resource_index/packages
+[1.084s] copying package.xml -> /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/share/ipm_library
+[1.084s] running install_egg_info
+[1.086s] Copying ../../../build/ipm_library/ipm_library.egg-info to /home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages/ipm_library-0.0.0-py3.10.egg-info
+[1.086s] running install_scripts
+[1.107s] writing list of installed files to '/home/ivan/visao-cbr26/edrom_vision/build/ipm_library/install.log'
+[1.146s] Invoked command in '/home/ivan/visao-cbr26/edrom_vision/src/ipm/ipm_library' returned '0': AMENT_PREFIX_PATH=/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces LD_LIBRARY_PATH=/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ivan/visao-cbr26/edrom_vision/build/ipm_library/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages:/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/ipm_library build --build-base /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/build install --record /home/ivan/visao-cbr26/edrom_vision/build/ipm_library/install.log --single-version-externally-managed install_data

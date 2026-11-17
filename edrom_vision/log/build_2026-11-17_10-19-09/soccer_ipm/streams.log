@@ -1,0 +1,65 @@
+[0.676s] Invoking command in '/home/ivan/visao-cbr26/edrom_vision/src/soccer_ipm/soccer_ipm': AMENT_PREFIX_PATH=/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_3d_msgs:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_2d_msgs:/home/ivan/visao-cbr26/edrom_vision/install/ipm_library:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_attribute_msgs:/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_3d_msgs:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_2d_msgs:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_attribute_msgs:/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces LD_LIBRARY_PATH=/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_3d_msgs/lib:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_2d_msgs/lib:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_attribute_msgs/lib:/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_3d_msgs/local/lib/python3.10/dist-packages:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_2d_msgs/local/lib/python3.10/dist-packages:/home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_attribute_msgs/local/lib/python3.10/dist-packages:/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/soccer_ipm build --build-base /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build install --record /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/install.log --single-version-externally-managed install_data
+[0.914s] running egg_info
+[0.915s] creating ../../../build/soccer_ipm/soccer_ipm.egg-info
+[0.915s] writing ../../../build/soccer_ipm/soccer_ipm.egg-info/PKG-INFO
+[0.915s] writing dependency_links to ../../../build/soccer_ipm/soccer_ipm.egg-info/dependency_links.txt
+[0.915s] writing entry points to ../../../build/soccer_ipm/soccer_ipm.egg-info/entry_points.txt
+[0.916s] writing requirements to ../../../build/soccer_ipm/soccer_ipm.egg-info/requires.txt
+[0.916s] writing top-level names to ../../../build/soccer_ipm/soccer_ipm.egg-info/top_level.txt
+[0.916s] writing manifest file '../../../build/soccer_ipm/soccer_ipm.egg-info/SOURCES.txt'
+[0.917s] reading manifest file '../../../build/soccer_ipm/soccer_ipm.egg-info/SOURCES.txt'
+[0.918s] writing manifest file '../../../build/soccer_ipm/soccer_ipm.egg-info/SOURCES.txt'
+[0.918s] running build
+[0.918s] running build_py
+[0.918s] creating /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build
+[0.918s] creating /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib
+[0.918s] creating /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm
+[0.918s] copying soccer_ipm/utils.py -> /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm
+[0.918s] copying soccer_ipm/__init__.py -> /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm
+[0.918s] copying soccer_ipm/soccer_ipm.py -> /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm
+[0.919s] creating /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs
+[0.919s] copying soccer_ipm/msgs/obstacles.py -> /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs
+[0.919s] copying soccer_ipm/msgs/__init__.py -> /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs
+[0.919s] copying soccer_ipm/msgs/markings.py -> /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs
+[0.919s] copying soccer_ipm/msgs/robots.py -> /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs
+[0.919s] copying soccer_ipm/msgs/ball.py -> /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs
+[0.919s] copying soccer_ipm/msgs/goalpost.py -> /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs
+[0.919s] copying soccer_ipm/msgs/field_boundary.py -> /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs
+[0.919s] running install
+[0.920s] running install_lib
+[0.921s] creating /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm
+[0.921s] copying /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/utils.py -> /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm
+[0.921s] copying /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/__init__.py -> /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm
+[0.921s] creating /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs
+[0.921s] copying /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs/obstacles.py -> /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs
+[0.921s] copying /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs/__init__.py -> /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs
+[0.921s] copying /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs/markings.py -> /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs
+[0.921s] copying /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs/robots.py -> /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs
+[0.921s] copying /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs/ball.py -> /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs
+[0.921s] copying /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs/goalpost.py -> /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs
+[0.921s] copying /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/msgs/field_boundary.py -> /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs
+[0.922s] copying /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build/lib/soccer_ipm/soccer_ipm.py -> /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm
+[0.922s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/utils.py to utils.cpython-310.pyc
+[0.923s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/__init__.py to __init__.cpython-310.pyc
+[0.923s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs/obstacles.py to obstacles.cpython-310.pyc
+[0.923s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs/__init__.py to __init__.cpython-310.pyc
+[0.923s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs/markings.py to markings.cpython-310.pyc
+[0.924s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs/robots.py to robots.cpython-310.pyc
+[0.925s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs/ball.py to ball.cpython-310.pyc
+[0.925s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs/goalpost.py to goalpost.cpython-310.pyc
+[0.925s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/msgs/field_boundary.py to field_boundary.cpython-310.pyc
+[0.926s] byte-compiling /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm/soccer_ipm.py to soccer_ipm.cpython-310.pyc
+[0.927s] running install_data
+[0.927s] creating /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/share/ament_index
+[0.927s] creating /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/share/ament_index/resource_index
+[0.927s] creating /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/share/ament_index/resource_index/packages
+[0.927s] copying resource/soccer_ipm -> /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/share/ament_index/resource_index/packages
+[0.927s] copying package.xml -> /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/share/soccer_ipm
+[0.927s] creating /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/share/soccer_ipm/config
+[0.927s] copying config/hl_kid.yaml -> /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/share/soccer_ipm/config
+[0.928s] running install_egg_info
+[0.930s] Copying ../../../build/soccer_ipm/soccer_ipm.egg-info to /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages/soccer_ipm-0.0.0-py3.10.egg-info
+[0.930s] running install_scripts
+[0.949s] Installing ipm script to /home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/soccer_ipm
+[0.949s] writing list of installed files to '/home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/install.log'
+[0.981s] Invoked command in '/home/ivan/visao-cbr26/edrom_vision/src/soccer_ipm/soccer_ipm' returned '0': AMENT_PREFIX_PATH=/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_3d_msgs:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_2d_msgs:/home/ivan/visao-cbr26/edrom_vision/install/ipm_library:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_attribute_msgs:/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_3d_msgs:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_2d_msgs:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_attribute_msgs:/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces LD_LIBRARY_PATH=/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_3d_msgs/lib:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_2d_msgs/lib:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_attribute_msgs/lib:/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ivan/visao-cbr26/edrom_vision/install/soccer_ipm/lib/python3.10/site-packages:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_3d_msgs/local/lib/python3.10/dist-packages:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_2d_msgs/local/lib/python3.10/dist-packages:/home/ivan/visao-cbr26/edrom_vision/install/ipm_library/lib/python3.10/site-packages:/home/ivan/visao-cbr26/edrom_vision/install/soccer_vision_attribute_msgs/local/lib/python3.10/dist-packages:/home/ivan/visao-cbr26/edrom_vision/install/ipm_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/soccer_ipm build --build-base /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/build install --record /home/ivan/visao-cbr26/edrom_vision/build/soccer_ipm/install.log --single-version-externally-managed install_data

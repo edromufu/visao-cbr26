@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "soccer_geometry_msgs__py",
+		"source" : "/home/ivan/visao-cbr26/edrom_vision/build/soccer_geometry_msgs/soccer_geometry_msgs__py"
+	}
+}
