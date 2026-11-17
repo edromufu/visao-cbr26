@@ -1,0 +1,498 @@
+{
+  "calibracao": "padrao_webots",
+  "modelo": "modelo/best.pt",
+  "overrides": {},
+  "cruzamentos": {
+    "gt": 30,
+    "det": 19,
+    "tp": 12,
+    "tp_tipo": 12,
+    "fp": 7,
+    "fn": 18,
+    "precisao": 0.632,
+    "recall": 0.4,
+    "precisao_tipo": 0.632,
+    "recall_tipo": 0.4,
+    "por_tipo": {
+      "L": {
+        "gt": 14,
+        "det": 9,
+        "tp": 5,
+        "tp_tipo": 5
+      },
+      "T": {
+        "gt": 10,
+        "det": 7,
+        "tp": 4,
+        "tp_tipo": 4
+      },
+      "X": {
+        "gt": 6,
+        "det": 3,
+        "tp": 3,
+        "tp_tipo": 3
+      }
+    }
+  },
+  "marcas_X": {
+    "gt": 7,
+    "tp": 3
+  },
+  "linhas": {
+    "gt_longas": 19,
+    "gt_longas_cobertas": 10,
+    "gt_curtas": 15,
+    "gt_curtas_cobertas": 0,
+    "det": 55,
+    "det_corretas": 34,
+    "recall_longas": 0.526,
+    "precisao": 0.618
+  },
+  "linhas_baseline_etapa1": {
+    "gt_longas": 19,
+    "gt_longas_cobertas": 11,
+    "gt_curtas": 15,
+    "gt_curtas_cobertas": 0,
+    "det": 112,
+    "det_corretas": 70,
+    "recall_longas": 0.579,
+    "precisao": 0.625
+  },
+  "tempo_medio_ms": {
+    "yolo": 359.4,
+    "etapa1": 47.7,
+    "III-C": 25.7,
+    "IV-B": 11.2,
+    "IV-A": 36.9,
+    "fusao": 0.9,
+    "total": 481.8
+  },
+  "por_imagem": {
+    "frame_webots.png": {
+      "cruzamentos": {
+        "gt": 4,
+        "det": 6,
+        "tp": 4,
+        "tp_tipo": 4,
+        "fp": 1,
+        "fn": 0,
+        "por_tipo": {
+          "L": {
+            "gt": 2,
+            "det": 3,
+            "tp": 2,
+            "tp_tipo": 2
+          },
+          "T": {
+            "gt": 2,
+            "det": 2,
+            "tp": 2,
+            "tp_tipo": 2
+          },
+          "X": {
+            "gt": 0,
+            "det": 0,
+            "tp": 0,
+            "tp_tipo": 0
+          }
+        },
+        "detectados": [
+          [
+            "L",
+            444,
+            508,
+            1.0,
+            "grafo"
+          ],
+          [
+            "L",
+            906,
+            549,
+            0.4,
+            "yolo"
+          ],
+          [
+            "T",
+            858,
+            522,
+            0.398,
+            "yolo"
+          ],
+          [
+            "T",
+            217,
+            524,
+            0.387,
+            "yolo"
+          ],
+          [
+            "L",
+            174,
+            548,
+            0.385,
+            "yolo"
+          ],
+          [
+            "X",
+            540,
+            590,
+            0.267,
+            "yolo"
+          ]
+        ]
+      },
+      "marcas": {
+        "gt": 1,
+        "tp": 1
+      },
+      "linhas": {
+        "gt_longas": 4,
+        "gt_longas_cobertas": 2,
+        "gt_curtas": 0,
+        "gt_curtas_cobertas": 0,
+        "det": 7,
+        "det_corretas": 5
+      },
+      "linhas_baseline_etapa1": {
+        "gt_longas": 4,
+        "gt_longas_cobertas": 4,
+        "gt_curtas": 0,
+        "gt_curtas_cobertas": 0,
+        "det": 10,
+        "det_corretas": 8
+      },
+      "elipse": {
+        "gt": false,
+        "det": 1
+      },
+      "tempos_ms": {
+        "yolo": 1337.3,
+        "etapa1": 41.71,
+        "III-C": 13.99,
+        "IV-B": 8.32,
+        "IV-A": 33.45,
+        "fusao": 0.98,
+        "total": 1435.77
+      }
+    },
+    "image.png": {
+      "cruzamentos": {
+        "gt": 8,
+        "det": 1,
+        "tp": 1,
+        "tp_tipo": 1,
+        "fp": 0,
+        "fn": 7,
+        "por_tipo": {
+          "L": {
+            "gt": 4,
+            "det": 1,
+            "tp": 1,
+            "tp_tipo": 1
+          },
+          "T": {
+            "gt": 2,
+            "det": 0,
+            "tp": 0,
+            "tp_tipo": 0
+          },
+          "X": {
+            "gt": 2,
+            "det": 0,
+            "tp": 0,
+            "tp_tipo": 0
+          }
+        },
+        "detectados": [
+          [
+            "L",
+            399,
+            547,
+            0.33,
+            "yolo"
+          ]
+        ]
+      },
+      "marcas": {
+        "gt": 2,
+        "tp": 0
+      },
+      "linhas": {
+        "gt_longas": 5,
+        "gt_longas_cobertas": 2,
+        "gt_curtas": 5,
+        "gt_curtas_cobertas": 0,
+        "det": 9,
+        "det_corretas": 8
+      },
+      "linhas_baseline_etapa1": {
+        "gt_longas": 5,
+        "gt_longas_cobertas": 2,
+        "gt_curtas": 5,
+        "gt_curtas_cobertas": 0,
+        "det": 23,
+        "det_corretas": 18
+      },
+      "elipse": {
+        "gt": true,
+        "det": 2,
+        "dist_centro_px": 14.0,
+        "razao_eixo_maior": 0.995,
+        "razao_eixo_menor": 0.902,
+        "acerto": true
+      },
+      "tempos_ms": {
+        "yolo": 40.64,
+        "etapa1": 79.4,
+        "III-C": 19.3,
+        "IV-B": 7.32,
+        "IV-A": 20.0,
+        "fusao": 0.84,
+        "total": 167.53
+      }
+    },
+    "image_1.png": {
+      "cruzamentos": {
+        "gt": 8,
+        "det": 8,
+        "tp": 3,
+        "tp_tipo": 3,
+        "fp": 4,
+        "fn": 5,
+        "por_tipo": {
+          "L": {
+            "gt": 4,
+            "det": 3,
+            "tp": 1,
+            "tp_tipo": 1
+          },
+          "T": {
+            "gt": 2,
+            "det": 3,
+            "tp": 1,
+            "tp_tipo": 1
+          },
+          "X": {
+            "gt": 2,
+            "det": 1,
+            "tp": 1,
+            "tp_tipo": 1
+          }
+        },
+        "detectados": [
+          [
+            "T",
+            1280,
+            566,
+            0.94,
+            "grafo"
+          ],
+          [
+            "T",
+            814,
+            638,
+            0.867,
+            "grafo"
+          ],
+          [
+            "L",
+            999,
+            670,
+            0.875,
+            "grafo"
+          ],
+          [
+            "X",
+            368,
+            661,
+            0.397,
+            "yolo"
+          ],
+          [
+            "X",
+            678,
+            661,
+            0.391,
+            "yolo"
+          ],
+          [
+            "L",
+            73,
+            556,
+            0.293,
+            "yolo"
+          ],
+          [
+            "L",
+            1213,
+            547,
+            0.283,
+            "yolo"
+          ],
+          [
+            "T",
+            450,
+            547,
+            0.268,
+            "yolo"
+          ]
+        ]
+      },
+      "marcas": {
+        "gt": 2,
+        "tp": 1
+      },
+      "linhas": {
+        "gt_longas": 5,
+        "gt_longas_cobertas": 3,
+        "gt_curtas": 5,
+        "gt_curtas_cobertas": 0,
+        "det": 8,
+        "det_corretas": 7
+      },
+      "linhas_baseline_etapa1": {
+        "gt_longas": 5,
+        "gt_longas_cobertas": 2,
+        "gt_curtas": 5,
+        "gt_curtas_cobertas": 0,
+        "det": 26,
+        "det_corretas": 20
+      },
+      "elipse": {
+        "gt": true,
+        "det": 1,
+        "dist_centro_px": 3.4,
+        "razao_eixo_maior": 0.979,
+        "razao_eixo_menor": 1.027,
+        "acerto": true
+      },
+      "tempos_ms": {
+        "yolo": 29.01,
+        "etapa1": 46.9,
+        "III-C": 23.1,
+        "IV-B": 6.17,
+        "IV-A": 31.46,
+        "fusao": 0.95,
+        "total": 137.6
+      }
+    },
+    "image_2.png": {
+      "cruzamentos": {
+        "gt": 10,
+        "det": 7,
+        "tp": 4,
+        "tp_tipo": 4,
+        "fp": 2,
+        "fn": 6,
+        "por_tipo": {
+          "L": {
+            "gt": 4,
+            "det": 2,
+            "tp": 1,
+            "tp_tipo": 1
+          },
+          "T": {
+            "gt": 4,
+            "det": 2,
+            "tp": 1,
+            "tp_tipo": 1
+          },
+          "X": {
+            "gt": 2,
+            "det": 2,
+            "tp": 2,
+            "tp_tipo": 2
+          }
+        },
+        "detectados": [
+          [
+            "L",
+            565,
+            367,
+            0.898,
+            "grafo"
+          ],
+          [
+            "T",
+            68,
+            375,
+            1.0,
+            "grafo"
+          ],
+          [
+            "X",
+            547,
+            398,
+            1.0,
+            "grafo+yolo"
+          ],
+          [
+            "X",
+            854,
+            416,
+            1.0,
+            "grafo+yolo"
+          ],
+          [
+            "T",
+            1231,
+            432,
+            1.0,
+            "grafo+yolo"
+          ],
+          [
+            "X",
+            615,
+            251,
+            0.296,
+            "yolo"
+          ],
+          [
+            "L",
+            960,
+            239,
+            0.254,
+            "yolo"
+          ]
+        ]
+      },
+      "marcas": {
+        "gt": 2,
+        "tp": 1
+      },
+      "linhas": {
+        "gt_longas": 5,
+        "gt_longas_cobertas": 3,
+        "gt_curtas": 5,
+        "gt_curtas_cobertas": 0,
+        "det": 31,
+        "det_corretas": 14
+      },
+      "linhas_baseline_etapa1": {
+        "gt_longas": 5,
+        "gt_longas_cobertas": 3,
+        "gt_curtas": 5,
+        "gt_curtas_cobertas": 0,
+        "det": 53,
+        "det_corretas": 24
+      },
+      "elipse": {
+        "gt": true,
+        "det": 1,
+        "dist_centro_px": 276.7,
+        "razao_eixo_maior": 0.396,
+        "razao_eixo_menor": 0.151,
+        "acerto": false
+      },
+      "tempos_ms": {
+        "yolo": 30.7,
+        "etapa1": 22.77,
+        "III-C": 46.23,
+        "IV-B": 23.0,
+        "IV-A": 62.79,
+        "fusao": 0.82,
+        "total": 186.34
+      }
+    }
+  }
+}

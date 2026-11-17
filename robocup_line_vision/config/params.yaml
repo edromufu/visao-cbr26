@@ -1,0 +1,103 @@
+# Parâmetros do robocup_line_vision (núcleo + fusão). Nenhum número mágico no
+# código: tudo que é limiar está aqui. Unidades: "células" = pixels da grade
+# 1/8 da imagem (como no artigo); px = pixels da imagem; graus.
+#
+# Este arquivo é lido por robocup_line_vision.params.load_params(). Chaves
+# ausentes ficam com o padrão do código (os valores abaixo SÃO os padrões).
+
+etapa1:                      # III-A/III-B (código original)
+  tpix: 20
+  trow: 10000
+  twin: 3000
+
+grafo:                       # III-C
+  min_node_distance: 2       # artigo: nós a pelo menos 2 pixels
+  max_degree: 4              # artigo: grau máximo 4
+  stretch_radius: 2
+  candidate_max_dist: 7.0
+  candidate_min_score: 0.55
+  w_continuity: 0.4
+  w_closure: 0.4
+  w_simplicity: 0.2
+  min_closure: 0.25
+  max_turn_deg: 50.0
+  collinear_deg: 145.0
+  min_hops_shortcut: 5
+  edge_first: true           # ponta->aresta (forma T/X) antes de ponta->nó
+
+cruzamentos:                 # IV-A
+  spur_max_len: 3.5
+  low_curv_deg: 25.0
+  merge_dist: 4.0
+  collinear_deg: 150.0
+  l_min_angle: 30.0
+  l_max_angle: 150.0
+  l_concentration: 0.6
+  arm_short: 2.5
+  arm_long: 6.0
+  min_arm_len: 2.5
+  ray_len: 4.0
+  circle_radii: [2.0, 3.0, 4.0]
+  white_frac: 0.35
+  white_min: 20.0
+  green_min: 100.0
+  path_len: 6.0
+  path_min_frac: 0.75
+  require_both: true         # artigo: círculo E caminho branco
+  curve_run: 3
+  complete_x: true           # T + 4 faixas no círculo + branco do lado oposto = X
+
+cruzamentos_retas:           # extensão (não está no artigo): retas/elipse da IV-B
+  min_angle_deg: 20.0
+  end_tol: 2.5
+  gap_tol: 3.0
+  dedupe_dist: 2.5
+  ellipse_pass_tol: 2.0
+
+linhas:                      # IV-B
+  split_dist: 0.9
+  min_nodes: 3
+  merge_angle_deg: 4.0
+  merge_dist: 1.0
+  min_length: 3.0
+  ellipse_min_nodes: 6
+  curve_rms: 0.6
+  ellipse_rms: 0.6
+  ellipse_min_span_deg: 120.0
+  ellipse_max_axis_ratio: 60.0
+
+fusao:                       # YOLO
+  mask_classes: [ball, robot, goalpost]
+  mask_margin_px: 4.0
+  reject_outside_field: true
+  field_tolerance_cells: 1
+  confirm_radius_px: 24.0
+  confirm_boost: 0.3
+  yolo_only_factor: 0.5
+  yolo_only_min_dist_px: 30.0
+  keep_yolo_only: true
+  upgrade_t_to_x_min_conf: 0.6  # T do grafo + X do YOLO no mesmo lugar -> X (4º raio oposto à haste)
+
+detector:                    # mesmos valores do nó finder
+  imgsz: 320
+  conf: 0.45
+  iou: 0.5
+  max_det: 10
+
+saida:
+  min_conf_cruzamento: 0.0   # filtro final (0 = publica todos os verificados)
+  ellipse_tol_px: 10.0       # L sobre a elipse do círculo central é descartado
+  cruzamentos_de_retas: true # liga a extensão cruzamentos_retas
+
+camera:                      # projeção ao chão (opcional)
+  modelo: nenhum             # nenhum | fov | edrom
+  # fov (Webots/AUREA, derivado do .wbt; confirme com camera_info):
+  hfov_rad: 0.785
+  altura_m: 0.70
+  pitch_rad: 0.0
+  # edrom (robô real): caminhos dos .npy do object_finder/localization_pkg
+  camera_matrix: ''
+  dist_coeffs: ''
+  homography: ''
+  calib_largura: 640
+  calib_altura: 480

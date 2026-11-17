@@ -1,0 +1,69 @@
+{
+  "n_frames": 40,
+  "seed": 11,
+  "variantes": true,
+  "overrides": {},
+  "campo_nao_detectado": 0,
+  "cruzamentos": {
+    "gt": 89,
+    "det": 27,
+    "tp": 13,
+    "tp_tipo": 8,
+    "fp": 14,
+    "fn": 76,
+    "precisao": 0.481,
+    "recall": 0.146,
+    "por_tipo": {
+      "L": {
+        "gt": 41,
+        "det": 10,
+        "tp": 3,
+        "tp_tipo": 3
+      },
+      "T": {
+        "gt": 35,
+        "det": 17,
+        "tp": 7,
+        "tp_tipo": 5
+      },
+      "X": {
+        "gt": 13,
+        "det": 0,
+        "tp": 3,
+        "tp_tipo": 0
+      }
+    }
+  },
+  "marcas": {
+    "gt": 10,
+    "tp": 0
+  },
+  "recall_por_distancia": {
+    "<2m": {
+      "gt": 14,
+      "tp": 6,
+      "recall": 0.429
+    },
+    "2-4m": {
+      "gt": 35,
+      "tp": 6,
+      "recall": 0.171
+    },
+    ">=4m": {
+      "gt": 40,
+      "tp": 1,
+      "recall": 0.025
+    }
+  },
+  "linhas": {
+    "gt_longas": 146,
+    "gt_longas_cobertas": 62,
+    "gt_curtas": 5,
+    "gt_curtas_cobertas": 0,
+    "det": 116,
+    "det_corretas": 111,
+    "recall_longas": 0.425,
+    "precisao": 0.957
+  },
+  "tempo_ms_mediana": 15.5
+}
