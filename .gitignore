@@ -3,3 +3,4 @@ visao-cbr26/install
 visao-cbr26/log
 __pycache__/
 *.pyc
+.claude
