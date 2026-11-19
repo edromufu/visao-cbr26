@@ -1,0 +1,9 @@
+/home/edrom/visao-cbr26/build/soccer_interfaces/CMakeFiles/uninstall.dir
+/home/edrom/visao-cbr26/build/soccer_interfaces/CMakeFiles/soccer_interfaces_uninstall.dir
+/home/edrom/visao-cbr26/build/soccer_interfaces/CMakeFiles/test.dir
+/home/edrom/visao-cbr26/build/soccer_interfaces/CMakeFiles/edit_cache.dir
+/home/edrom/visao-cbr26/build/soccer_interfaces/CMakeFiles/rebuild_cache.dir
+/home/edrom/visao-cbr26/build/soccer_interfaces/CMakeFiles/list_install_components.dir
+/home/edrom/visao-cbr26/build/soccer_interfaces/CMakeFiles/install.dir
+/home/edrom/visao-cbr26/build/soccer_interfaces/CMakeFiles/install/local.dir
+/home/edrom/visao-cbr26/build/soccer_interfaces/CMakeFiles/install/strip.dir

@@ -1,0 +1,1 @@
+Invoking command in '/home/edrom/visao-cbr26/build/soccer_geometry_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/edrom/visao-cbr26/build/soccer_geometry_msgs -- -j4 -l4

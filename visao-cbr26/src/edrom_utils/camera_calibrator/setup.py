@@ -22,7 +22,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'camera_calibrator = camera_calibrator.camera_calibrator:main'
+            'camera_calibrator = camera_calibrator.camera_calibrator:main',
+            'image_rotate = camera_calibrator.image_rotate:main',
+            'desempenho = camera_calibrator.desempenho:main',
         ],
     },
 )

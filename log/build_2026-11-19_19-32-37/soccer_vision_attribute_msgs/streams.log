@@ -1,0 +1,51 @@
+[0.195s] Invoking command in '/home/edrom/visao-cbr26/build/soccer_vision_attribute_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/edrom/visao-cbr26/build/soccer_vision_attribute_msgs -- -j4 -l4
+[0.301s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[0.302s] [  4%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[0.321s] [  4%] Built target ament_cmake_python_copy_soccer_vision_attribute_msgs
+[1.353s] running egg_info
+[1.408s] creating soccer_vision_attribute_msgs.egg-info
+[1.415s] writing soccer_vision_attribute_msgs.egg-info/PKG-INFO
+[1.418s] writing dependency_links to soccer_vision_attribute_msgs.egg-info/dependency_links.txt
+[1.419s] writing top-level names to soccer_vision_attribute_msgs.egg-info/top_level.txt
+[1.420s] writing manifest file 'soccer_vision_attribute_msgs.egg-info/SOURCES.txt'
+[1.525s] reading manifest file 'soccer_vision_attribute_msgs.egg-info/SOURCES.txt'
+[1.597s] Traceback (most recent call last):
+[1.597s]   File "/home/edrom/visao-cbr26/build/soccer_vision_attribute_msgs/ament_cmake_python/soccer_vision_attribute_msgs/setup.py", line 4, in <module>
+[1.598s]     setup(
+[1.599s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/__init__.py", line 117, in setup
+[1.599s]     return distutils.core.setup(**attrs)  # type: ignore[return-value]
+[1.599s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_distutils/core.py", line 168, in setup
+[1.599s]     return run_commands(dist)
+[1.600s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_distutils/core.py", line 184, in run_commands
+[1.603s]     dist.run_commands()
+[1.603s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1028, in run_commands
+[1.608s]     self.run_command(cmd)
+[1.608s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/dist.py", line 1106, in run_command
+[1.608s]     super().run_command(command)
+[1.609s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1047, in run_command
+[1.609s]     cmd_obj.run()
+[1.609s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/command/egg_info.py", line 342, in run
+[1.609s]     self.find_sources()
+[1.609s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/command/egg_info.py", line 350, in find_sources
+[1.609s]     mm.run()
+[1.610s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/command/egg_info.py", line 577, in run
+[1.612s]     self.prune_file_list()
+[1.612s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/command/sdist.py", line 166, in prune_file_list
+[1.619s]     super().prune_file_list()
+[1.620s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_distutils/command/sdist.py", line 397, in prune_file_list
+[1.620s]     base_dir = self.distribution.get_fullname()
+[1.620s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_core_metadata.py", line 275, in get_fullname
+[1.621s]     return _distribution_fullname(self.get_name(), self.get_version())
+[1.621s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_core_metadata.py", line 293, in _distribution_fullname
+[1.621s]     canonicalize_version(version, strip_trailing_zero=False),
+[1.622s] TypeError: canonicalize_version() got an unexpected keyword argument 'strip_trailing_zero'
+[1.799s] gmake[2]: *** [CMakeFiles/ament_cmake_python_build_soccer_vision_attribute_msgs_egg.dir/build.make:70: CMakeFiles/ament_cmake_python_build_soccer_vision_attribute_msgs_egg] Erro 1
+[1.799s] gmake[1]: *** [CMakeFiles/Makefile2:447: CMakeFiles/ament_cmake_python_build_soccer_vision_attribute_msgs_egg.dir/all] Erro 2
+[1.800s] gmake[1]: ** Esperando que outros processos terminem.
+[1.969s] [  6%] [32mBuilding C object CMakeFiles/soccer_vision_attribute_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_vision_attribute_msgs/msg/detail/goalpost__functions.c.o[0m
+[1.969s] [  8%] [32mBuilding C object CMakeFiles/soccer_vision_attribute_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_vision_attribute_msgs/msg/detail/confidence__functions.c.o[0m
+[1.985s] [ 10%] [32mBuilding C object CMakeFiles/soccer_vision_attribute_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_vision_attribute_msgs/msg/detail/robot__functions.c.o[0m
+[2.122s] [ 12%] [32m[1mLinking C shared library libsoccer_vision_attribute_msgs__rosidl_generator_c.so[0m
+[2.237s] [ 12%] Built target soccer_vision_attribute_msgs__rosidl_generator_c
+[2.249s] [ 12%] Built target soccer_vision_attribute_msgs__cpp
+[2.250s] gmake: *** [Makefile:146: all] Erro 2

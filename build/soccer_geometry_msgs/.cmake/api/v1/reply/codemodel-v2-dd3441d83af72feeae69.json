@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-3663728b710737805260.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "soccer_geometry_msgs__py",
+					"jsonFile" : "directory-soccer_geometry_msgs__py-4275912a4e802cc15c9d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/edrom/visao-cbr26/build/soccer_geometry_msgs/soccer_geometry_msgs__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "soccer_geometry_msgs",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_soccer_geometry_msgs_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_soccer_geometry_msgs_egg-471f5628761deeb26d4c.json",
+					"name" : "ament_cmake_python_build_soccer_geometry_msgs_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_soccer_geometry_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_soccer_geometry_msgs-9caf1826bf84bce14765.json",
+					"name" : "ament_cmake_python_copy_soccer_geometry_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs-f7cbc60d180b641e1d68.json",
+					"name" : "soccer_geometry_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs__cpp-ae2bf61abafd3de2e8b9.json",
+					"name" : "soccer_geometry_msgs__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "soccer_geometry_msgs__py::@02852f83053263fce753",
+					"jsonFile" : "target-soccer_geometry_msgs__py-7dc072d3c45c1e144aaa.json",
+					"name" : "soccer_geometry_msgs__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs__rosidl_generator_c-6bf1b63a79eb50fe055f.json",
+					"name" : "soccer_geometry_msgs__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs__rosidl_generator_py-45cd8e4add8fb69b2fe6.json",
+					"name" : "soccer_geometry_msgs__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs__rosidl_typesupport_c-959e6601845cc3b0f812.json",
+					"name" : "soccer_geometry_msgs__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs__rosidl_typesupport_c__pyext-f6a3d62c8a098768a8a9.json",
+					"name" : "soccer_geometry_msgs__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs__rosidl_typesupport_cpp-ba9d8b1c44d4ab2ea00a.json",
+					"name" : "soccer_geometry_msgs__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs__rosidl_typesupport_fastrtps_c-1ea18e2331d8aedbcf48.json",
+					"name" : "soccer_geometry_msgs__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs__rosidl_typesupport_fastrtps_c__pyext-4a0dabae4d577a136357.json",
+					"name" : "soccer_geometry_msgs__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs__rosidl_typesupport_fastrtps_cpp-635cfd3f57f5b216667f.json",
+					"name" : "soccer_geometry_msgs__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs__rosidl_typesupport_introspection_c-115ab6c8f1383f76b090.json",
+					"name" : "soccer_geometry_msgs__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs__rosidl_typesupport_introspection_c__pyext-8e65bd74832d2b0ab537.json",
+					"name" : "soccer_geometry_msgs__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs__rosidl_typesupport_introspection_cpp-a81951ca19850185b151.json",
+					"name" : "soccer_geometry_msgs__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "soccer_geometry_msgs_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-soccer_geometry_msgs_uninstall-08a527e07e251bedb21c.json",
+					"name" : "soccer_geometry_msgs_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-b29e678c0de7886d7143.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/edrom/visao-cbr26/build/soccer_geometry_msgs",
+		"source" : "/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

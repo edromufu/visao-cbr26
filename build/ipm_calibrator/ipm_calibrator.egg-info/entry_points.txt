@@ -1,0 +1,3 @@
+[console_scripts]
+aruco_record = ipm_calibrator.aruco_record:main
+

@@ -1,0 +1,21 @@
+[0.021s] Invoking command in '/home/edrom/visao-cbr26/build/ipm_interfaces': /usr/bin/cmake /home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/ipm/ipm_interfaces -DCMAKE_INSTALL_PREFIX=/home/edrom/visao-cbr26/install/ipm_interfaces
+[0.356s] -- Configuring incomplete, errors occurred!
+[0.356s] See also "/home/edrom/visao-cbr26/build/ipm_interfaces/CMakeFiles/CMakeOutput.log".
+[0.369s] [31mCMake Error at CMakeLists.txt:9 (find_package):
+[0.369s]   By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+[0.369s]   has asked CMake to find a package configuration file provided by
+[0.369s]   "ament_cmake", but CMake did not find one.
+[0.370s] 
+[0.370s]   Could not find a package configuration file provided by "ament_cmake" with
+[0.370s]   any of the following names:
+[0.370s] 
+[0.370s]     ament_cmakeConfig.cmake
+[0.370s]     ament_cmake-config.cmake
+[0.370s] 
+[0.370s]   Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+[0.370s]   "ament_cmake_DIR" to a directory containing one of the above files.  If
+[0.382s]   "ament_cmake" provides a separate development package or SDK, be sure it
+[0.382s]   has been installed.
+[0.382s] 
+[0.383s] [0m
+[0.390s] Invoked command in '/home/edrom/visao-cbr26/build/ipm_interfaces' returned '1': /usr/bin/cmake /home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/ipm/ipm_interfaces -DCMAKE_INSTALL_PREFIX=/home/edrom/visao-cbr26/install/ipm_interfaces

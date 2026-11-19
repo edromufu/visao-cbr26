@@ -1,0 +1,25 @@
+[0.891s] Invoking command in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_utils/camera_calibrator': PYTHONPATH=/home/edrom/visao-cbr26/build/camera_calibrator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../build/camera_calibrator build --build-base /home/edrom/visao-cbr26/build/camera_calibrator/build install --record /home/edrom/visao-cbr26/build/camera_calibrator/install.log --single-version-externally-managed install_data
+[1.202s] running egg_info
+[1.203s] writing ../../../../build/camera_calibrator/camera_calibrator.egg-info/PKG-INFO
+[1.203s] writing dependency_links to ../../../../build/camera_calibrator/camera_calibrator.egg-info/dependency_links.txt
+[1.204s] writing entry points to ../../../../build/camera_calibrator/camera_calibrator.egg-info/entry_points.txt
+[1.204s] writing requirements to ../../../../build/camera_calibrator/camera_calibrator.egg-info/requires.txt
+[1.205s] writing top-level names to ../../../../build/camera_calibrator/camera_calibrator.egg-info/top_level.txt
+[1.207s] reading manifest file '../../../../build/camera_calibrator/camera_calibrator.egg-info/SOURCES.txt'
+[1.207s] adding license file 'LICENSE'
+[1.209s] writing manifest file '../../../../build/camera_calibrator/camera_calibrator.egg-info/SOURCES.txt'
+[1.209s] running build
+[1.209s] running build_py
+[1.209s] copying camera_calibrator/camera_calibrator.py -> /home/edrom/visao-cbr26/build/camera_calibrator/build/lib/camera_calibrator
+[1.209s] running install
+[1.209s] running install_lib
+[1.210s] copying /home/edrom/visao-cbr26/build/camera_calibrator/build/lib/camera_calibrator/camera_calibrator.py -> /home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages/camera_calibrator
+[1.211s] byte-compiling /home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages/camera_calibrator/camera_calibrator.py to camera_calibrator.cpython-310.pyc
+[1.212s] running install_data
+[1.212s] running install_egg_info
+[1.215s] removing '/home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages/camera_calibrator-0.0.0-py3.10.egg-info' (and everything under it)
+[1.215s] Copying ../../../../build/camera_calibrator/camera_calibrator.egg-info to /home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages/camera_calibrator-0.0.0-py3.10.egg-info
+[1.216s] running install_scripts
+[1.247s] Installing camera_calibrator script to /home/edrom/visao-cbr26/install/camera_calibrator/lib/camera_calibrator
+[1.249s] writing list of installed files to '/home/edrom/visao-cbr26/build/camera_calibrator/install.log'
+[1.292s] Invoked command in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_utils/camera_calibrator' returned '0': PYTHONPATH=/home/edrom/visao-cbr26/build/camera_calibrator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../build/camera_calibrator build --build-base /home/edrom/visao-cbr26/build/camera_calibrator/build install --record /home/edrom/visao-cbr26/build/camera_calibrator/install.log --single-version-externally-managed install_data

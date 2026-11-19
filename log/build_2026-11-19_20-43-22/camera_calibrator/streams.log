@@ -1,0 +1,28 @@
+[0.999s] Invoking command in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_utils/camera_calibrator': AMENT_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_3d_msgs:/home/edrom/visao-cbr26/install/soccer_vision_2d_msgs:/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_3d_msgs:/home/edrom/visao-cbr26/install/soccer_vision_2d_msgs:/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs LD_LIBRARY_PATH=/home/edrom/visao-cbr26/install/soccer_vision_3d_msgs/lib:/home/edrom/visao-cbr26/install/soccer_vision_2d_msgs/lib:/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/edrom/visao-cbr26/build/camera_calibrator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages:/home/edrom/visao-cbr26/install/soccer_vision_3d_msgs/local/lib/python3.10/dist-packages:/home/edrom/visao-cbr26/install/soccer_vision_2d_msgs/local/lib/python3.10/dist-packages:/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../build/camera_calibrator build --build-base /home/edrom/visao-cbr26/build/camera_calibrator/build install --record /home/edrom/visao-cbr26/build/camera_calibrator/install.log --single-version-externally-managed install_data
+[1.304s] running egg_info
+[1.305s] writing ../../../../build/camera_calibrator/camera_calibrator.egg-info/PKG-INFO
+[1.305s] writing dependency_links to ../../../../build/camera_calibrator/camera_calibrator.egg-info/dependency_links.txt
+[1.306s] writing entry points to ../../../../build/camera_calibrator/camera_calibrator.egg-info/entry_points.txt
+[1.306s] writing requirements to ../../../../build/camera_calibrator/camera_calibrator.egg-info/requires.txt
+[1.306s] writing top-level names to ../../../../build/camera_calibrator/camera_calibrator.egg-info/top_level.txt
+[1.308s] reading manifest file '../../../../build/camera_calibrator/camera_calibrator.egg-info/SOURCES.txt'
+[1.309s] adding license file 'LICENSE'
+[1.310s] writing manifest file '../../../../build/camera_calibrator/camera_calibrator.egg-info/SOURCES.txt'
+[1.310s] running build
+[1.311s] running build_py
+[1.311s] copying camera_calibrator/desempenho.py -> /home/edrom/visao-cbr26/build/camera_calibrator/build/lib/camera_calibrator
+[1.311s] running install
+[1.311s] running install_lib
+[1.312s] copying /home/edrom/visao-cbr26/build/camera_calibrator/build/lib/camera_calibrator/desempenho.py -> /home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages/camera_calibrator
+[1.313s] byte-compiling /home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages/camera_calibrator/desempenho.py to desempenho.cpython-310.pyc
+[1.317s] running install_data
+[1.317s] copying package.xml -> /home/edrom/visao-cbr26/install/camera_calibrator/share/camera_calibrator
+[1.317s] running install_egg_info
+[1.318s] removing '/home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages/camera_calibrator-0.0.0-py3.10.egg-info' (and everything under it)
+[1.320s] Copying ../../../../build/camera_calibrator/camera_calibrator.egg-info to /home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages/camera_calibrator-0.0.0-py3.10.egg-info
+[1.324s] running install_scripts
+[1.348s] Installing camera_calibrator script to /home/edrom/visao-cbr26/install/camera_calibrator/lib/camera_calibrator
+[1.348s] Installing desempenho script to /home/edrom/visao-cbr26/install/camera_calibrator/lib/camera_calibrator
+[1.351s] Installing image_rotate script to /home/edrom/visao-cbr26/install/camera_calibrator/lib/camera_calibrator
+[1.351s] writing list of installed files to '/home/edrom/visao-cbr26/build/camera_calibrator/install.log'
+[1.388s] Invoked command in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_utils/camera_calibrator' returned '0': AMENT_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_3d_msgs:/home/edrom/visao-cbr26/install/soccer_vision_2d_msgs:/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_3d_msgs:/home/edrom/visao-cbr26/install/soccer_vision_2d_msgs:/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs LD_LIBRARY_PATH=/home/edrom/visao-cbr26/install/soccer_vision_3d_msgs/lib:/home/edrom/visao-cbr26/install/soccer_vision_2d_msgs/lib:/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/edrom/visao-cbr26/build/camera_calibrator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages:/home/edrom/visao-cbr26/install/soccer_vision_3d_msgs/local/lib/python3.10/dist-packages:/home/edrom/visao-cbr26/install/soccer_vision_2d_msgs/local/lib/python3.10/dist-packages:/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../build/camera_calibrator build --build-base /home/edrom/visao-cbr26/build/camera_calibrator/build install --record /home/edrom/visao-cbr26/build/camera_calibrator/install.log --single-version-externally-managed install_data

@@ -1,0 +1,467 @@
+[0.116s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.116s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x76a7fc0534f0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x76a7fc19c4f0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x76a7fc19c4f0>>, mixin_verb=('build',))
+[0.173s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.173s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.174s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.174s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.174s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.174s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.174s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/edrom/visao-cbr26'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extensions ['ignore', 'ignore_ament_install']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extension 'ignore'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extension 'ignore_ament_install'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extensions ['colcon_pkg']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extension 'colcon_pkg'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extensions ['colcon_meta']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extension 'colcon_meta'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extensions ['ros']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extension 'ros'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extensions ['cmake', 'python']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extension 'cmake'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extension 'python'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extensions ['python_setup_py']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26) by extension 'python_setup_py'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extensions ['ignore', 'ignore_ament_install']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extension 'ignore'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extension 'ignore_ament_install'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extensions ['colcon_pkg']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extension 'colcon_pkg'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extensions ['colcon_meta']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extension 'colcon_meta'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extensions ['ros']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extension 'ros'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extensions ['cmake', 'python']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extension 'cmake'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extension 'python'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extensions ['python_setup_py']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src) by extension 'python_setup_py'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extensions ['ignore', 'ignore_ament_install']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extension 'ignore'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extension 'ignore_ament_install'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extensions ['colcon_pkg']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extension 'colcon_pkg'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extensions ['colcon_meta']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extension 'colcon_meta'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extensions ['ros']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extension 'ros'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extensions ['cmake', 'python']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extension 'cmake'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extension 'python'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extensions ['python_setup_py']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils) by extension 'python_setup_py'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/camera_calibrator) by extensions ['ignore', 'ignore_ament_install']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/camera_calibrator) by extension 'ignore'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/camera_calibrator) by extension 'ignore_ament_install'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/camera_calibrator) by extensions ['colcon_pkg']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/camera_calibrator) by extension 'colcon_pkg'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/camera_calibrator) by extensions ['colcon_meta']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/camera_calibrator) by extension 'colcon_meta'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/camera_calibrator) by extensions ['ros']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/camera_calibrator) by extension 'ros'
+[0.185s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_utils/camera_calibrator' with type 'ros.ament_python' and name 'camera_calibrator'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/ipm_calibrator) by extensions ['ignore', 'ignore_ament_install']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/ipm_calibrator) by extension 'ignore'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/ipm_calibrator) by extension 'ignore_ament_install'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/ipm_calibrator) by extensions ['colcon_pkg']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/ipm_calibrator) by extension 'colcon_pkg'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/ipm_calibrator) by extensions ['colcon_meta']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/ipm_calibrator) by extension 'colcon_meta'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/ipm_calibrator) by extensions ['ros']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_utils/ipm_calibrator) by extension 'ros'
+[0.187s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_utils/ipm_calibrator' with type 'ros.ament_python' and name 'ipm_calibrator'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extensions ['ignore', 'ignore_ament_install']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extension 'ignore'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extension 'ignore_ament_install'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extensions ['colcon_pkg']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extension 'colcon_pkg'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extensions ['colcon_meta']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extension 'colcon_meta'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extensions ['ros']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extension 'ros'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extensions ['cmake', 'python']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extension 'cmake'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extension 'python'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extensions ['python_setup_py']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision) by extension 'python_setup_py'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extensions ['ignore', 'ignore_ament_install']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extension 'ignore'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extension 'ignore_ament_install'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extensions ['colcon_pkg']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extension 'colcon_pkg'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extensions ['colcon_meta']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extension 'colcon_meta'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extensions ['ros']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extension 'ros'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extensions ['cmake', 'python']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extension 'cmake'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extension 'python'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extensions ['python_setup_py']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm) by extension 'python_setup_py'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_image_node) by extensions ['ignore', 'ignore_ament_install']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_image_node) by extension 'ignore'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_image_node) by extension 'ignore_ament_install'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_image_node) by extensions ['colcon_pkg']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_image_node) by extension 'colcon_pkg'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_image_node) by extensions ['colcon_meta']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_image_node) by extension 'colcon_meta'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_image_node) by extensions ['ros']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_image_node) by extension 'ros'
+[0.190s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_vision/ipm/ipm_image_node' with type 'ros.ament_python' and name 'ipm_image_node'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_interfaces) by extension 'ignore'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_interfaces) by extension 'ignore_ament_install'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_interfaces) by extensions ['colcon_pkg']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_interfaces) by extension 'colcon_pkg'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_interfaces) by extensions ['colcon_meta']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_interfaces) by extension 'colcon_meta'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_interfaces) by extensions ['ros']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_interfaces) by extension 'ros'
+[0.192s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_vision/ipm/ipm_interfaces' with type 'ros.ament_cmake' and name 'ipm_interfaces'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_library) by extensions ['ignore', 'ignore_ament_install']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_library) by extension 'ignore'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_library) by extension 'ignore_ament_install'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_library) by extensions ['colcon_pkg']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_library) by extension 'colcon_pkg'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_library) by extensions ['colcon_meta']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_library) by extension 'colcon_meta'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_library) by extensions ['ros']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_library) by extension 'ros'
+[0.194s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_vision/ipm/ipm_library' with type 'ros.ament_python' and name 'ipm_library'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_service) by extensions ['ignore', 'ignore_ament_install']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_service) by extension 'ignore'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_service) by extension 'ignore_ament_install'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_service) by extensions ['colcon_pkg']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_service) by extension 'colcon_pkg'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_service) by extensions ['colcon_meta']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_service) by extension 'colcon_meta'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_service) by extensions ['ros']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/ipm/ipm_service) by extension 'ros'
+[0.196s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_vision/ipm/ipm_service' with type 'ros.ament_python' and name 'ipm_service'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/object_finder) by extensions ['ignore', 'ignore_ament_install']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/object_finder) by extension 'ignore'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/object_finder) by extension 'ignore_ament_install'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/object_finder) by extensions ['colcon_pkg']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/object_finder) by extension 'colcon_pkg'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/object_finder) by extensions ['colcon_meta']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/object_finder) by extension 'colcon_meta'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/object_finder) by extensions ['ros']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/object_finder) by extension 'ros'
+[0.197s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_vision/object_finder' with type 'ros.ament_python' and name 'object_finder'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extension 'ignore_ament_install'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extensions ['colcon_pkg']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extension 'colcon_pkg'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extensions ['colcon_meta']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extension 'colcon_meta'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extensions ['ros']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extension 'ros'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extensions ['cmake', 'python']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extension 'cmake'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extension 'python'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extensions ['python_setup_py']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces) by extension 'python_setup_py'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs) by extension 'ignore_ament_install'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs) by extensions ['colcon_pkg']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs) by extension 'colcon_pkg'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs) by extensions ['colcon_meta']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs) by extension 'colcon_meta'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs) by extensions ['ros']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs) by extension 'ros'
+[0.199s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs' with type 'ros.ament_cmake' and name 'soccer_geometry_msgs'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_interfaces) by extension 'ignore'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_interfaces) by extension 'ignore_ament_install'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_interfaces) by extensions ['colcon_pkg']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_interfaces) by extension 'colcon_pkg'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_interfaces) by extensions ['colcon_meta']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_interfaces) by extension 'colcon_meta'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_interfaces) by extensions ['ros']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_interfaces) by extension 'ros'
+[0.201s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_interfaces' with type 'ros.ament_cmake' and name 'soccer_interfaces'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_model_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_model_msgs) by extension 'ignore'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_model_msgs) by extension 'ignore_ament_install'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_model_msgs) by extensions ['colcon_pkg']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_model_msgs) by extension 'colcon_pkg'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_model_msgs) by extensions ['colcon_meta']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_model_msgs) by extension 'colcon_meta'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_model_msgs) by extensions ['ros']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_model_msgs) by extension 'ros'
+[0.202s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_model_msgs' with type 'ros.ament_cmake' and name 'soccer_model_msgs'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_2d_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_2d_msgs) by extension 'ignore'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_2d_msgs) by extension 'ignore_ament_install'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_2d_msgs) by extensions ['colcon_pkg']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_2d_msgs) by extension 'colcon_pkg'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_2d_msgs) by extensions ['colcon_meta']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_2d_msgs) by extension 'colcon_meta'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_2d_msgs) by extensions ['ros']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_2d_msgs) by extension 'ros'
+[0.204s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_2d_msgs' with type 'ros.ament_cmake' and name 'soccer_vision_2d_msgs'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_3d_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_3d_msgs) by extension 'ignore'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_3d_msgs) by extension 'ignore_ament_install'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_3d_msgs) by extensions ['colcon_pkg']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_3d_msgs) by extension 'colcon_pkg'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_3d_msgs) by extensions ['colcon_meta']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_3d_msgs) by extension 'colcon_meta'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_3d_msgs) by extensions ['ros']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_3d_msgs) by extension 'ros'
+[0.205s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_3d_msgs' with type 'ros.ament_cmake' and name 'soccer_vision_3d_msgs'
+[0.205s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs) by extension 'ignore'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs) by extension 'ignore_ament_install'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs) by extensions ['colcon_pkg']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs) by extension 'colcon_pkg'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs) by extensions ['colcon_meta']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs) by extension 'colcon_meta'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs) by extensions ['ros']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs) by extension 'ros'
+[0.207s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs' with type 'ros.ament_cmake' and name 'soccer_vision_attribute_msgs'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extensions ['ignore', 'ignore_ament_install']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extension 'ignore'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extension 'ignore_ament_install'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extensions ['colcon_pkg']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extension 'colcon_pkg'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extensions ['colcon_meta']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extension 'colcon_meta'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extensions ['ros']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extension 'ros'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extensions ['cmake', 'python']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extension 'cmake'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extension 'python'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extensions ['python_setup_py']
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm) by extension 'python_setup_py'
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm/soccer_ipm) by extensions ['ignore', 'ignore_ament_install']
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm/soccer_ipm) by extension 'ignore'
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm/soccer_ipm) by extension 'ignore_ament_install'
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm/soccer_ipm) by extensions ['colcon_pkg']
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm/soccer_ipm) by extension 'colcon_pkg'
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm/soccer_ipm) by extensions ['colcon_meta']
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm/soccer_ipm) by extension 'colcon_meta'
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm/soccer_ipm) by extensions ['ros']
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(visao-cbr26/src/edrom_vision/soccer_ipm/soccer_ipm) by extension 'ros'
+[0.209s] DEBUG:colcon.colcon_core.package_identification:Package 'visao-cbr26/src/edrom_vision/soccer_ipm/soccer_ipm' with type 'ros.ament_python' and name 'soccer_ipm'
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.236s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.236s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.239s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 280 installed packages in /opt/ros/humble
+[0.241s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'camera_calibrator' build argument 'cmake_args' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'camera_calibrator' build argument 'cmake_target' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'camera_calibrator' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'camera_calibrator' build argument 'cmake_clean_cache' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'camera_calibrator' build argument 'cmake_clean_first' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'camera_calibrator' build argument 'cmake_force_configure' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'camera_calibrator' build argument 'ament_cmake_args' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'camera_calibrator' build argument 'catkin_cmake_args' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'camera_calibrator' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.280s] DEBUG:colcon.colcon_core.verb:Building package 'camera_calibrator' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/camera_calibrator', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/camera_calibrator', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_utils/camera_calibrator', 'symlink_install': False, 'test_result_base': None}
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'ipm_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'ipm_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'ipm_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'ipm_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'ipm_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'ipm_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'ipm_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'ipm_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'ipm_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.281s] DEBUG:colcon.colcon_core.verb:Building package 'ipm_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/ipm_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/ipm_interfaces', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/ipm/ipm_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_geometry_msgs' build argument 'cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_geometry_msgs' build argument 'cmake_target' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_geometry_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_geometry_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_geometry_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_geometry_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_geometry_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_geometry_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_geometry_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.282s] DEBUG:colcon.colcon_core.verb:Building package 'soccer_geometry_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/soccer_geometry_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/soccer_geometry_msgs', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_attribute_msgs' build argument 'cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_attribute_msgs' build argument 'cmake_target' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_attribute_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_attribute_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_attribute_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_attribute_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_attribute_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_attribute_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_attribute_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.283s] DEBUG:colcon.colcon_core.verb:Building package 'soccer_vision_attribute_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/soccer_vision_attribute_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'ipm_library' build argument 'cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'ipm_library' build argument 'cmake_target' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'ipm_library' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'ipm_library' build argument 'cmake_clean_cache' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'ipm_library' build argument 'cmake_clean_first' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'ipm_library' build argument 'cmake_force_configure' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'ipm_library' build argument 'ament_cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'ipm_library' build argument 'catkin_cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'ipm_library' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.283s] DEBUG:colcon.colcon_core.verb:Building package 'ipm_library' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/ipm_library', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/ipm_library', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/ipm/ipm_library', 'symlink_install': False, 'test_result_base': None}
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_model_msgs' build argument 'cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_model_msgs' build argument 'cmake_target' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_model_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_model_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_model_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_model_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_model_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_model_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_model_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.284s] DEBUG:colcon.colcon_core.verb:Building package 'soccer_model_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/soccer_model_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/soccer_model_msgs', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_model_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_2d_msgs' build argument 'cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_2d_msgs' build argument 'cmake_target' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_2d_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_2d_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_2d_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_2d_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_2d_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_2d_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_2d_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.285s] DEBUG:colcon.colcon_core.verb:Building package 'soccer_vision_2d_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/soccer_vision_2d_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/soccer_vision_2d_msgs', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_2d_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_3d_msgs' build argument 'cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_3d_msgs' build argument 'cmake_target' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_3d_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_3d_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_3d_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_3d_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_3d_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_3d_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'soccer_vision_3d_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.285s] DEBUG:colcon.colcon_core.verb:Building package 'soccer_vision_3d_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/soccer_vision_3d_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/soccer_vision_3d_msgs', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_3d_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_image_node' build argument 'cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_image_node' build argument 'cmake_target' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_image_node' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_image_node' build argument 'cmake_clean_cache' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_image_node' build argument 'cmake_clean_first' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_image_node' build argument 'cmake_force_configure' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_image_node' build argument 'ament_cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_image_node' build argument 'catkin_cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_image_node' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.286s] DEBUG:colcon.colcon_core.verb:Building package 'ipm_image_node' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/ipm_image_node', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/ipm_image_node', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/ipm/ipm_image_node', 'symlink_install': False, 'test_result_base': None}
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_service' build argument 'cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_service' build argument 'cmake_target' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_service' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_service' build argument 'cmake_clean_cache' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'ipm_service' build argument 'cmake_clean_first' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'ipm_service' build argument 'cmake_force_configure' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'ipm_service' build argument 'ament_cmake_args' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'ipm_service' build argument 'catkin_cmake_args' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'ipm_service' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.287s] DEBUG:colcon.colcon_core.verb:Building package 'ipm_service' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/ipm_service', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/ipm_service', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/ipm/ipm_service', 'symlink_install': False, 'test_result_base': None}
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'soccer_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'soccer_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'soccer_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'soccer_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'soccer_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'soccer_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'soccer_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'soccer_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'soccer_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.287s] DEBUG:colcon.colcon_core.verb:Building package 'soccer_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/soccer_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/soccer_interfaces', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.288s] Level 5:colcon.colcon_core.verb:set package 'soccer_ipm' build argument 'cmake_args' from command line to 'None'
+[0.288s] Level 5:colcon.colcon_core.verb:set package 'soccer_ipm' build argument 'cmake_target' from command line to 'None'
+[0.288s] Level 5:colcon.colcon_core.verb:set package 'soccer_ipm' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.288s] Level 5:colcon.colcon_core.verb:set package 'soccer_ipm' build argument 'cmake_clean_cache' from command line to 'False'
+[0.288s] Level 5:colcon.colcon_core.verb:set package 'soccer_ipm' build argument 'cmake_clean_first' from command line to 'False'
+[0.288s] Level 5:colcon.colcon_core.verb:set package 'soccer_ipm' build argument 'cmake_force_configure' from command line to 'False'
+[0.288s] Level 5:colcon.colcon_core.verb:set package 'soccer_ipm' build argument 'ament_cmake_args' from command line to 'None'
+[0.288s] Level 5:colcon.colcon_core.verb:set package 'soccer_ipm' build argument 'catkin_cmake_args' from command line to 'None'
+[0.288s] Level 5:colcon.colcon_core.verb:set package 'soccer_ipm' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.288s] DEBUG:colcon.colcon_core.verb:Building package 'soccer_ipm' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/soccer_ipm', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/soccer_ipm', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_ipm/soccer_ipm', 'symlink_install': False, 'test_result_base': None}
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'object_finder' build argument 'cmake_args' from command line to 'None'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'object_finder' build argument 'cmake_target' from command line to 'None'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'object_finder' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'object_finder' build argument 'cmake_clean_cache' from command line to 'False'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'object_finder' build argument 'cmake_clean_first' from command line to 'False'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'object_finder' build argument 'cmake_force_configure' from command line to 'False'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'object_finder' build argument 'ament_cmake_args' from command line to 'None'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'object_finder' build argument 'catkin_cmake_args' from command line to 'None'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'object_finder' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.289s] DEBUG:colcon.colcon_core.verb:Building package 'object_finder' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/object_finder', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/object_finder', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/object_finder', 'symlink_install': False, 'test_result_base': None}
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'ipm_calibrator' build argument 'cmake_args' from command line to 'None'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'ipm_calibrator' build argument 'cmake_target' from command line to 'None'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'ipm_calibrator' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'ipm_calibrator' build argument 'cmake_clean_cache' from command line to 'False'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'ipm_calibrator' build argument 'cmake_clean_first' from command line to 'False'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'ipm_calibrator' build argument 'cmake_force_configure' from command line to 'False'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'ipm_calibrator' build argument 'ament_cmake_args' from command line to 'None'
+[0.289s] Level 5:colcon.colcon_core.verb:set package 'ipm_calibrator' build argument 'catkin_cmake_args' from command line to 'None'
+[0.290s] Level 5:colcon.colcon_core.verb:set package 'ipm_calibrator' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.290s] DEBUG:colcon.colcon_core.verb:Building package 'ipm_calibrator' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/edrom/visao-cbr26/build/ipm_calibrator', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/edrom/visao-cbr26/install/ipm_calibrator', 'merge_install': False, 'path': '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_utils/ipm_calibrator', 'symlink_install': False, 'test_result_base': None}
+[0.290s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.291s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.291s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs' with build type 'ament_cmake'
+[0.291s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs'
+[0.294s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.294s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.294s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.298s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/ipm/ipm_interfaces' with build type 'ament_cmake'
+[0.298s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/ipm/ipm_interfaces'
+[0.298s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.298s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.301s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs' with build type 'ament_cmake'
+[0.301s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs'
+[0.302s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.302s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.305s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_utils/camera_calibrator' with build type 'ament_python'
+[0.305s] Level 1:colcon.colcon_core.shell:create_environment_hook('camera_calibrator', 'ament_prefix_path')
+[0.306s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/edrom/visao-cbr26/install/camera_calibrator/share/camera_calibrator/hook/ament_prefix_path.ps1'
+[0.307s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/edrom/visao-cbr26/install/camera_calibrator/share/camera_calibrator/hook/ament_prefix_path.dsv'
+[0.308s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/edrom/visao-cbr26/install/camera_calibrator/share/camera_calibrator/hook/ament_prefix_path.sh'
+[0.309s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.309s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.319s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/edrom/visao-cbr26/build/soccer_vision_attribute_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/edrom/visao-cbr26/build/soccer_vision_attribute_msgs -- -j4 -l4
+[0.324s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/edrom/visao-cbr26/build/ipm_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/edrom/visao-cbr26/build/ipm_interfaces -- -j4 -l4
+[0.334s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/edrom/visao-cbr26/build/soccer_geometry_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/edrom/visao-cbr26/build/soccer_geometry_msgs -- -j4 -l4
+[1.128s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_utils/camera_calibrator'
+[1.129s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.129s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.855s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_utils/camera_calibrator': PYTHONPATH=/home/edrom/visao-cbr26/build/camera_calibrator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../build/camera_calibrator build --build-base /home/edrom/visao-cbr26/build/camera_calibrator/build install --record /home/edrom/visao-cbr26/build/camera_calibrator/install.log --single-version-externally-managed install_data
+[4.144s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_utils/camera_calibrator' returned '1': PYTHONPATH=/home/edrom/visao-cbr26/build/camera_calibrator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edrom/visao-cbr26/install/camera_calibrator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../build/camera_calibrator build --build-base /home/edrom/visao-cbr26/build/camera_calibrator/build install --record /home/edrom/visao-cbr26/build/camera_calibrator/install.log --single-version-externally-managed install_data
+[5.116s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[5.117s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[5.117s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[5.117s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[5.123s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[5.123s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[5.124s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[5.138s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[5.139s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/edrom/visao-cbr26/install/local_setup.ps1'
+[5.140s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/edrom/visao-cbr26/install/_local_setup_util_ps1.py'
+[5.142s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/edrom/visao-cbr26/install/setup.ps1'
+[5.143s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/edrom/visao-cbr26/install/local_setup.sh'
+[5.144s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/edrom/visao-cbr26/install/_local_setup_util_sh.py'
+[5.144s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/edrom/visao-cbr26/install/setup.sh'
+[5.146s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/edrom/visao-cbr26/install/local_setup.bash'
+[5.147s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/edrom/visao-cbr26/install/setup.bash'
+[5.150s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/edrom/visao-cbr26/install/local_setup.zsh'
+[5.151s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/edrom/visao-cbr26/install/setup.zsh'

@@ -1,0 +1,2 @@
+Invoking command in '/home/edrom/visao-cbr26/build/soccer_vision_attribute_msgs': /usr/bin/cmake /home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs -DCMAKE_INSTALL_PREFIX=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs
+Invoked command in '/home/edrom/visao-cbr26/build/soccer_vision_attribute_msgs' returned '1': /usr/bin/cmake /home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_vision_attribute_msgs -DCMAKE_INSTALL_PREFIX=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs

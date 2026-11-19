@@ -1,0 +1,16 @@
+[  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[  4%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[  4%] Built target ament_cmake_python_copy_soccer_vision_attribute_msgs
+running egg_info
+creating soccer_vision_attribute_msgs.egg-info
+writing soccer_vision_attribute_msgs.egg-info/PKG-INFO
+writing dependency_links to soccer_vision_attribute_msgs.egg-info/dependency_links.txt
+writing top-level names to soccer_vision_attribute_msgs.egg-info/top_level.txt
+writing manifest file 'soccer_vision_attribute_msgs.egg-info/SOURCES.txt'
+reading manifest file 'soccer_vision_attribute_msgs.egg-info/SOURCES.txt'
+[  6%] [32mBuilding C object CMakeFiles/soccer_vision_attribute_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_vision_attribute_msgs/msg/detail/goalpost__functions.c.o[0m
+[  8%] [32mBuilding C object CMakeFiles/soccer_vision_attribute_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_vision_attribute_msgs/msg/detail/confidence__functions.c.o[0m
+[ 10%] [32mBuilding C object CMakeFiles/soccer_vision_attribute_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_vision_attribute_msgs/msg/detail/robot__functions.c.o[0m
+[ 12%] [32m[1mLinking C shared library libsoccer_vision_attribute_msgs__rosidl_generator_c.so[0m
+[ 12%] Built target soccer_vision_attribute_msgs__rosidl_generator_c
+[ 12%] Built target soccer_vision_attribute_msgs__cpp

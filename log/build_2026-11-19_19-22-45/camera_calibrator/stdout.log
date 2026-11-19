@@ -1,0 +1,10 @@
+running egg_info
+creating ../../../../build/camera_calibrator/camera_calibrator.egg-info
+writing ../../../../build/camera_calibrator/camera_calibrator.egg-info/PKG-INFO
+writing dependency_links to ../../../../build/camera_calibrator/camera_calibrator.egg-info/dependency_links.txt
+writing entry points to ../../../../build/camera_calibrator/camera_calibrator.egg-info/entry_points.txt
+writing requirements to ../../../../build/camera_calibrator/camera_calibrator.egg-info/requires.txt
+writing top-level names to ../../../../build/camera_calibrator/camera_calibrator.egg-info/top_level.txt
+writing manifest file '../../../../build/camera_calibrator/camera_calibrator.egg-info/SOURCES.txt'
+reading manifest file '../../../../build/camera_calibrator/camera_calibrator.egg-info/SOURCES.txt'
+adding license file 'LICENSE'

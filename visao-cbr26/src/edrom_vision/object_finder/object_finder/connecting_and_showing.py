@@ -16,10 +16,43 @@ from cv_bridge import CvBridge
 from ament_index_python.packages import get_package_share_directory
 
 
+# Rotação (graus, sentido horário) -> código do cv2.rotate
+ROTACOES = {
+    90: cv2.ROTATE_90_CLOCKWISE,
+    180: cv2.ROTATE_180,
+    270: cv2.ROTATE_90_COUNTERCLOCKWISE,
+}
+
+
+def box_para_imagem_original(box, rotacao, w, h):
+    """
+    Converte uma caixa [cx, cy, bw, bh] detectada na imagem girada de volta
+    para as coordenadas da imagem original da câmera (w x h), que é o que o
+    camera_info e o TF descrevem — assim o IPM continua correto.
+    """
+    cx, cy, bw, bh = box
+    if rotacao == 90:
+        return [cy, h - cx, bh, bw]
+    if rotacao == 180:
+        return [w - cx, h - cy, bw, bh]
+    if rotacao == 270:
+        return [w - cy, cx, bh, bw]
+    return [cx, cy, bw, bh]
+
+
 class YoloSimulacao(Node):
 
     def __init__(self):
         super().__init__('vision')
+
+        # Rotação aplicada à imagem antes do YOLO (câmera montada girada).
+        # 0, 90, 180 ou 270 graus no sentido horário.
+        self.rotacao = int(self.declare_parameter('image_rotation', 0).value) % 360
+        if self.rotacao not in (0, *ROTACOES):
+            self.get_logger().error(
+                f'image_rotation={self.rotacao} inválido (use 0, 90, 180 ou 270); usando 0')
+            self.rotacao = 0
+        self.get_logger().info(f'Rotação da imagem: {self.rotacao} graus (horário)')
 
         self.bridge = CvBridge()
         model_path = (
@@ -32,8 +65,8 @@ class YoloSimulacao(Node):
 
         # Subscriber da camera
         self.camera_subscriber = self.create_subscription(
-            Image, 
-            "/camera/image_raw", 
+            Image,
+            "/camera/image_raw",
             self.image_callback, 
             qos_profile_sensor_data, 
         )
@@ -49,9 +82,17 @@ class YoloSimulacao(Node):
         try:
             # Converte o frame para cv2
             frame = self.bridge.imgmsg_to_cv2(ros_image_msg,desired_encoding="bgr8")
+            h, w = frame.shape[:2]
+
+            # Desfaz a rotação física da câmera para o YOLO ver a imagem em pé
+            if self.rotacao:
+                frame = cv2.rotate(frame, ROTACOES[self.rotacao])
 
             # Roda o YOLO
             classes, scores, boxes, inference_frame = ri.detect_model(self.model, frame)
+
+            # Caixas de volta para as coordenadas da imagem original (IPM)
+            boxes = [box_para_imagem_original(b, self.rotacao, w, h) for b in boxes]
 
             # ROS Header
     

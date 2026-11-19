@@ -4,7 +4,10 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 import yaml
 
 
@@ -16,6 +19,12 @@ def generate_launch_description():
         camera_name = next(iter(yaml.safe_load(f).values()))['ros__parameters']['camera_name']
 
     return LaunchDescription([
+        DeclareLaunchArgument(
+            'image_rotation',
+            default_value='180',
+            description='Rotação (graus, sentido horário: 0, 90, 180 ou 270) da janela, '
+                        'para compensar a câmera montada girada (mesmo do vision.launch)',
+        ),
         Node(
             package='usb_cam',
             executable='usb_cam_node_exe',
@@ -31,6 +40,10 @@ def generate_launch_description():
             package='ipm_calibrator',
             executable='aruco_record',
             output='screen',
+            parameters=[{
+                'image_rotation': ParameterValue(
+                    LaunchConfiguration('image_rotation'), value_type=int),
+            }],
             remappings=[
                 ('image_raw', '/camera/image_raw'),
                 ('camera_info', '/camera/camera_info'),

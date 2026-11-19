@@ -1,0 +1,25 @@
+[35m[1mConsolidate compiler generated dependencies of target soccer_geometry_msgs__rosidl_generator_c[0m
+[  0%] Built target ament_cmake_python_copy_soccer_geometry_msgs
+[  3%] Built target soccer_geometry_msgs__cpp
+[ 12%] Built target soccer_geometry_msgs__rosidl_generator_c
+[35m[1mConsolidate compiler generated dependencies of target soccer_geometry_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[35m[1mConsolidate compiler generated dependencies of target soccer_geometry_msgs__rosidl_typesupport_cpp[0m
+[ 16%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[ 25%] Built target soccer_geometry_msgs__rosidl_typesupport_cpp
+[ 35%] Built target soccer_geometry_msgs__rosidl_typesupport_fastrtps_cpp
+[ 38%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[ 41%] [34m[1mGenerating C introspection for ROS interfaces[0m
+running egg_info
+writing soccer_geometry_msgs.egg-info/PKG-INFO
+writing dependency_links to soccer_geometry_msgs.egg-info/dependency_links.txt
+writing top-level names to soccer_geometry_msgs.egg-info/top_level.txt
+reading manifest file 'soccer_geometry_msgs.egg-info/SOURCES.txt'
+[ 45%] [32mBuilding CXX object CMakeFiles/soccer_geometry_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support.cpp.o[0m
+[ 48%] [32mBuilding CXX object CMakeFiles/soccer_geometry_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support_c.cpp.o[0m
+[ 51%] [32mBuilding C object CMakeFiles/soccer_geometry_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support.c.o[0m
+[ 54%] [32m[1mLinking C shared library libsoccer_geometry_msgs__rosidl_typesupport_introspection_c.so[0m
+[ 54%] Built target soccer_geometry_msgs__rosidl_typesupport_introspection_c
+[ 58%] [32m[1mLinking CXX shared library libsoccer_geometry_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[ 58%] Built target soccer_geometry_msgs__rosidl_typesupport_introspection_cpp
+[ 61%] [32m[1mLinking CXX shared library libsoccer_geometry_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[ 61%] Built target soccer_geometry_msgs__rosidl_typesupport_fastrtps_c

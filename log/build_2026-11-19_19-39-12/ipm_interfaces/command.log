@@ -1,0 +1,4 @@
+Invoking command in '/home/edrom/visao-cbr26/build/ipm_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/edrom/visao-cbr26/build/ipm_interfaces -- -j4 -l4
+Invoked command in '/home/edrom/visao-cbr26/build/ipm_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/edrom/visao-cbr26/build/ipm_interfaces -- -j4 -l4
+Invoking command in '/home/edrom/visao-cbr26/build/ipm_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/edrom/visao-cbr26/build/ipm_interfaces
+Invoked command in '/home/edrom/visao-cbr26/build/ipm_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/edrom/visao-cbr26/build/ipm_interfaces

@@ -1,0 +1,37 @@
+[5.354s] Invoking command in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/ipm/ipm_service': AMENT_PREFIX_PATH=/home/edrom/visao-cbr26/install/ipm_library:/home/edrom/visao-cbr26/install/ipm_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/edrom/visao-cbr26/install/ipm_interfaces LD_LIBRARY_PATH=/home/edrom/visao-cbr26/install/ipm_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/edrom/visao-cbr26/build/ipm_service/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edrom/visao-cbr26/install/ipm_service/lib/python3.10/site-packages:/home/edrom/visao-cbr26/install/ipm_library/lib/python3.10/site-packages:/home/edrom/visao-cbr26/install/ipm_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../../build/ipm_service build --build-base /home/edrom/visao-cbr26/build/ipm_service/build install --record /home/edrom/visao-cbr26/build/ipm_service/install.log --single-version-externally-managed install_data
+[6.562s] running egg_info
+[6.569s] creating ../../../../../build/ipm_service/ipm_service.egg-info
+[6.569s] writing ../../../../../build/ipm_service/ipm_service.egg-info/PKG-INFO
+[6.572s] writing dependency_links to ../../../../../build/ipm_service/ipm_service.egg-info/dependency_links.txt
+[6.572s] writing entry points to ../../../../../build/ipm_service/ipm_service.egg-info/entry_points.txt
+[6.572s] writing requirements to ../../../../../build/ipm_service/ipm_service.egg-info/requires.txt
+[6.576s] writing top-level names to ../../../../../build/ipm_service/ipm_service.egg-info/top_level.txt
+[6.577s] writing manifest file '../../../../../build/ipm_service/ipm_service.egg-info/SOURCES.txt'
+[6.580s] reading manifest file '../../../../../build/ipm_service/ipm_service.egg-info/SOURCES.txt'
+[6.580s] writing manifest file '../../../../../build/ipm_service/ipm_service.egg-info/SOURCES.txt'
+[6.580s] running build
+[6.580s] running build_py
+[6.580s] creating /home/edrom/visao-cbr26/build/ipm_service/build
+[6.580s] creating /home/edrom/visao-cbr26/build/ipm_service/build/lib
+[6.581s] creating /home/edrom/visao-cbr26/build/ipm_service/build/lib/ipm_service
+[6.581s] copying ipm_service/__init__.py -> /home/edrom/visao-cbr26/build/ipm_service/build/lib/ipm_service
+[6.587s] copying ipm_service/ipm.py -> /home/edrom/visao-cbr26/build/ipm_service/build/lib/ipm_service
+[6.589s] running install
+[6.590s] running install_lib
+[6.591s] creating /home/edrom/visao-cbr26/install/ipm_service/lib/python3.10/site-packages/ipm_service
+[6.591s] copying /home/edrom/visao-cbr26/build/ipm_service/build/lib/ipm_service/__init__.py -> /home/edrom/visao-cbr26/install/ipm_service/lib/python3.10/site-packages/ipm_service
+[6.591s] copying /home/edrom/visao-cbr26/build/ipm_service/build/lib/ipm_service/ipm.py -> /home/edrom/visao-cbr26/install/ipm_service/lib/python3.10/site-packages/ipm_service
+[6.591s] byte-compiling /home/edrom/visao-cbr26/install/ipm_service/lib/python3.10/site-packages/ipm_service/__init__.py to __init__.cpython-310.pyc
+[6.591s] byte-compiling /home/edrom/visao-cbr26/install/ipm_service/lib/python3.10/site-packages/ipm_service/ipm.py to ipm.cpython-310.pyc
+[6.595s] running install_data
+[6.598s] creating /home/edrom/visao-cbr26/install/ipm_service/share/ament_index
+[6.599s] creating /home/edrom/visao-cbr26/install/ipm_service/share/ament_index/resource_index
+[6.599s] creating /home/edrom/visao-cbr26/install/ipm_service/share/ament_index/resource_index/packages
+[6.599s] copying resource/ipm_service -> /home/edrom/visao-cbr26/install/ipm_service/share/ament_index/resource_index/packages
+[6.599s] copying package.xml -> /home/edrom/visao-cbr26/install/ipm_service/share/ipm_service
+[6.599s] running install_egg_info
+[6.600s] Copying ../../../../../build/ipm_service/ipm_service.egg-info to /home/edrom/visao-cbr26/install/ipm_service/lib/python3.10/site-packages/ipm_service-0.0.0-py3.10.egg-info
+[6.608s] running install_scripts
+[6.678s] Installing ipm_service script to /home/edrom/visao-cbr26/install/ipm_service/lib/ipm_service
+[6.685s] writing list of installed files to '/home/edrom/visao-cbr26/build/ipm_service/install.log'
+[6.810s] Invoked command in '/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/ipm/ipm_service' returned '0': AMENT_PREFIX_PATH=/home/edrom/visao-cbr26/install/ipm_library:/home/edrom/visao-cbr26/install/ipm_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/edrom/visao-cbr26/install/ipm_interfaces LD_LIBRARY_PATH=/home/edrom/visao-cbr26/install/ipm_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/edrom/visao-cbr26/build/ipm_service/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edrom/visao-cbr26/install/ipm_service/lib/python3.10/site-packages:/home/edrom/visao-cbr26/install/ipm_library/lib/python3.10/site-packages:/home/edrom/visao-cbr26/install/ipm_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../../build/ipm_service build --build-base /home/edrom/visao-cbr26/build/ipm_service/build install --record /home/edrom/visao-cbr26/build/ipm_service/install.log --single-version-externally-managed install_data

@@ -1,0 +1,349 @@
+[0.043s] Invoking command in '/home/edrom/visao-cbr26/build/soccer_model_msgs': AMENT_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:/home/edrom/visao-cbr26/install/soccer_geometry_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:/home/edrom/visao-cbr26/install/soccer_geometry_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/lib:/home/edrom/visao-cbr26/install/soccer_geometry_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/local/lib/python3.10/dist-packages:/home/edrom/visao-cbr26/install/soccer_geometry_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_model_msgs -DCMAKE_INSTALL_PREFIX=/home/edrom/visao-cbr26/install/soccer_model_msgs
+[0.209s] -- The C compiler identification is GNU 11.4.0
+[0.335s] -- The CXX compiler identification is GNU 11.4.0
+[0.352s] -- Detecting C compiler ABI info
+[0.478s] -- Detecting C compiler ABI info - done
+[0.494s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.496s] -- Detecting C compile features
+[0.497s] -- Detecting C compile features - done
+[0.510s] -- Detecting CXX compiler ABI info
+[0.687s] -- Detecting CXX compiler ABI info - done
+[0.704s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.705s] -- Detecting CXX compile features
+[0.706s] -- Detecting CXX compile features - done
+[0.711s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.973s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.119s] -- Found geometry_msgs: 4.8.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.168s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.182s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.192s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.211s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.232s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.286s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[1.300s] -- Found soccer_geometry_msgs: 1.0.0 (/home/edrom/visao-cbr26/install/soccer_geometry_msgs/share/soccer_geometry_msgs/cmake)
+[1.318s] -- Found soccer_vision_attribute_msgs: 1.0.0 (/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/share/soccer_vision_attribute_msgs/cmake)
+[1.916s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[3.058s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.519s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.520s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[3.520s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[3.520s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[3.521s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[3.522s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[3.523s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[3.523s] -- Found PythonExtra: .so  
+[3.559s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[3.593s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.598s] -- Added test 'lint_cmake' to check CMake code style
+[3.598s] -- Added test 'xmllint' to check XML markup files
+[3.602s] -- Configuring done
+[3.679s] -- Generating done
+[3.714s] -- Build files have been written to: /home/edrom/visao-cbr26/build/soccer_model_msgs
+[3.726s] Invoked command in '/home/edrom/visao-cbr26/build/soccer_model_msgs' returned '0': AMENT_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:/home/edrom/visao-cbr26/install/soccer_geometry_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:/home/edrom/visao-cbr26/install/soccer_geometry_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/lib:/home/edrom/visao-cbr26/install/soccer_geometry_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/local/lib/python3.10/dist-packages:/home/edrom/visao-cbr26/install/soccer_geometry_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_model_msgs -DCMAKE_INSTALL_PREFIX=/home/edrom/visao-cbr26/install/soccer_model_msgs
+[3.727s] Invoking command in '/home/edrom/visao-cbr26/build/soccer_model_msgs': AMENT_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:/home/edrom/visao-cbr26/install/soccer_geometry_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:/home/edrom/visao-cbr26/install/soccer_geometry_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/lib:/home/edrom/visao-cbr26/install/soccer_geometry_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/local/lib/python3.10/dist-packages:/home/edrom/visao-cbr26/install/soccer_geometry_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/edrom/visao-cbr26/build/soccer_model_msgs -- -j4 -l4
+[3.834s] [  1%] Generating C code for ROS interfaces
+[3.836s] [  3%] Generating C++ code for ROS interfaces
+[3.878s] [  3%] Built target ament_cmake_python_copy_soccer_model_msgs
+[4.741s] running egg_info
+[4.742s] creating soccer_model_msgs.egg-info
+[4.743s] writing soccer_model_msgs.egg-info/PKG-INFO
+[4.744s] writing dependency_links to soccer_model_msgs.egg-info/dependency_links.txt
+[4.746s] writing top-level names to soccer_model_msgs.egg-info/top_level.txt
+[4.747s] writing manifest file 'soccer_model_msgs.egg-info/SOURCES.txt'
+[4.756s] reading manifest file 'soccer_model_msgs.egg-info/SOURCES.txt'
+[4.761s] writing manifest file 'soccer_model_msgs.egg-info/SOURCES.txt'
+[4.902s] [  3%] Built target ament_cmake_python_build_soccer_model_msgs_egg
+[5.898s] [  3%] Built target soccer_model_msgs__cpp
+[5.991s] [  4%] Generating C++ type support dispatch for ROS interfaces
+[6.014s] [  6%] Generating C++ type support for eProsima Fast-RTPS
+[6.273s] [  7%] Generating C++ introspection for ROS interfaces
+[7.816s] [  9%] Building C object CMakeFiles/soccer_model_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_model_msgs/msg/detail/ball__functions.c.o
+[7.816s] [ 11%] Building C object CMakeFiles/soccer_model_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_model_msgs/msg/detail/obstacle__functions.c.o
+[7.816s] [ 12%] Building C object CMakeFiles/soccer_model_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_model_msgs/msg/detail/obstacle_array__functions.c.o
+[7.816s] [ 14%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/soccer_model_msgs/msg/detail/ball__type_support.cpp.o
+[7.817s] [ 15%] Building C object CMakeFiles/soccer_model_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_model_msgs/msg/detail/robot__functions.c.o
+[7.817s] [ 17%] Building C object CMakeFiles/soccer_model_msgs__rosidl_generator_c.dir/rosidl_generator_c/soccer_model_msgs/msg/detail/robot_array__functions.c.o
+[7.817s] [ 19%] Linking C shared library libsoccer_model_msgs__rosidl_generator_c.so
+[7.817s] [ 19%] Built target soccer_model_msgs__rosidl_generator_c
+[7.817s] [ 20%] Generating C type support for eProsima Fast-RTPS
+[7.975s] [ 22%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/soccer_model_msgs/msg/detail/dds_fastrtps/ball__type_support.cpp.o
+[8.192s] [ 23%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/soccer_model_msgs/msg/ball__type_support.cpp.o
+[9.006s] [ 25%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/soccer_model_msgs/msg/detail/obstacle__type_support.cpp.o
+[9.238s] [ 26%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/soccer_model_msgs/msg/detail/ball__type_support_c.cpp.o
+[9.824s] [ 28%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/soccer_model_msgs/msg/detail/dds_fastrtps/obstacle__type_support.cpp.o
+[9.866s] [ 30%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/soccer_model_msgs/msg/obstacle__type_support.cpp.o
+[11.275s] [ 31%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/soccer_model_msgs/msg/detail/obstacle__type_support_c.cpp.o
+[13.200s] [ 33%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/soccer_model_msgs/msg/obstacle_array__type_support.cpp.o
+[13.203s] [ 34%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/soccer_model_msgs/msg/detail/obstacle_array__type_support.cpp.o
+[13.275s] [ 36%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/soccer_model_msgs/msg/detail/dds_fastrtps/obstacle_array__type_support.cpp.o
+[13.649s] [ 38%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/soccer_model_msgs/msg/detail/robot__type_support.cpp.o
+[14.079s] [ 39%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/soccer_model_msgs/msg/detail/obstacle_array__type_support_c.cpp.o
+[14.174s] [ 41%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/soccer_model_msgs/msg/robot__type_support.cpp.o
+[14.577s] [ 42%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/soccer_model_msgs/msg/detail/robot__type_support_c.cpp.o
+[14.941s] [ 44%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/soccer_model_msgs/msg/detail/robot_array__type_support.cpp.o
+[15.387s] [ 46%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/soccer_model_msgs/msg/robot_array__type_support.cpp.o
+[15.749s] [ 47%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/soccer_model_msgs/msg/detail/robot_array__type_support_c.cpp.o
+[16.943s] [ 49%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/soccer_model_msgs/msg/detail/dds_fastrtps/robot__type_support.cpp.o
+[17.042s] [ 50%] Linking CXX shared library libsoccer_model_msgs__rosidl_typesupport_fastrtps_c.so
+[17.508s] [ 52%] Linking CXX shared library libsoccer_model_msgs__rosidl_typesupport_cpp.so
+[17.646s] [ 52%] Built target soccer_model_msgs__rosidl_typesupport_fastrtps_c
+[17.702s] [ 52%] Built target soccer_model_msgs__rosidl_typesupport_cpp
+[18.338s] [ 53%] Linking CXX shared library libsoccer_model_msgs__rosidl_typesupport_introspection_cpp.so
+[18.837s] [ 53%] Built target soccer_model_msgs__rosidl_typesupport_introspection_cpp
+[19.038s] [ 55%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/soccer_model_msgs/msg/detail/dds_fastrtps/robot_array__type_support.cpp.o
+[20.968s] [ 57%] Linking CXX shared library libsoccer_model_msgs__rosidl_typesupport_fastrtps_cpp.so
+[21.138s] [ 57%] Built target soccer_model_msgs__rosidl_typesupport_fastrtps_cpp
+[21.184s] [ 58%] Generating C type support dispatch for ROS interfaces
+[21.967s] [ 60%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/soccer_model_msgs/msg/ball__type_support.cpp.o
+[22.040s] [ 61%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/soccer_model_msgs/msg/obstacle_array__type_support.cpp.o
+[22.133s] [ 63%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/soccer_model_msgs/msg/robot__type_support.cpp.o
+[22.197s] [ 65%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/soccer_model_msgs/msg/robot_array__type_support.cpp.o
+[22.269s] [ 66%] Building CXX object CMakeFiles/soccer_model_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/soccer_model_msgs/msg/obstacle__type_support.cpp.o
+[22.317s] [ 68%] Linking CXX shared library libsoccer_model_msgs__rosidl_typesupport_c.so
+[22.382s] [ 68%] Built target soccer_model_msgs__rosidl_typesupport_c
+[22.393s] [ 69%] Generating C introspection for ROS interfaces
+[24.070s] [ 71%] Building C object CMakeFiles/soccer_model_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/soccer_model_msgs/msg/detail/ball__type_support.c.o
+[24.218s] [ 73%] Building C object CMakeFiles/soccer_model_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/soccer_model_msgs/msg/detail/robot__type_support.c.o
+[24.354s] [ 74%] Building C object CMakeFiles/soccer_model_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/soccer_model_msgs/msg/detail/robot_array__type_support.c.o
+[24.485s] [ 76%] Building C object CMakeFiles/soccer_model_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/soccer_model_msgs/msg/detail/obstacle_array__type_support.c.o
+[24.600s] [ 77%] Building C object CMakeFiles/soccer_model_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/soccer_model_msgs/msg/detail/obstacle__type_support.c.o
+[24.716s] [ 79%] Linking C shared library libsoccer_model_msgs__rosidl_typesupport_introspection_c.so
+[24.832s] [ 79%] Built target soccer_model_msgs__rosidl_typesupport_introspection_c
+[24.884s] [ 79%] Built target soccer_model_msgs
+[24.945s] [ 80%] Generating Python code for ROS interfaces
+[27.862s] [ 80%] Built target soccer_model_msgs__py
+[27.891s] [ 82%] Building C object CMakeFiles/soccer_model_msgs__rosidl_generator_py.dir/rosidl_generator_py/soccer_model_msgs/msg/_ball_s.c.o
+[28.041s] [ 84%] Building C object CMakeFiles/soccer_model_msgs__rosidl_generator_py.dir/rosidl_generator_py/soccer_model_msgs/msg/_robot_s.c.o
+[28.208s] [ 85%] Building C object CMakeFiles/soccer_model_msgs__rosidl_generator_py.dir/rosidl_generator_py/soccer_model_msgs/msg/_robot_array_s.c.o
+[28.358s] [ 87%] Building C object CMakeFiles/soccer_model_msgs__rosidl_generator_py.dir/rosidl_generator_py/soccer_model_msgs/msg/_obstacle_array_s.c.o
+[28.516s] [ 88%] Building C object CMakeFiles/soccer_model_msgs__rosidl_generator_py.dir/rosidl_generator_py/soccer_model_msgs/msg/_obstacle_s.c.o
+[28.667s] [ 90%] Linking C shared library rosidl_generator_py/soccer_model_msgs/libsoccer_model_msgs__rosidl_generator_py.so
+[28.803s] [ 90%] Built target soccer_model_msgs__rosidl_generator_py
+[28.878s] [ 92%] Building C object CMakeFiles/soccer_model_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/soccer_model_msgs/_soccer_model_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o
+[29.089s] [ 93%] Linking C shared library rosidl_generator_py/soccer_model_msgs/soccer_model_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[29.242s] [ 93%] Built target soccer_model_msgs__rosidl_typesupport_fastrtps_c__pyext
+[29.321s] [ 95%] Building C object CMakeFiles/soccer_model_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/soccer_model_msgs/_soccer_model_msgs_s.ep.rosidl_typesupport_c.c.o
+[29.620s] [ 96%] Linking C shared library rosidl_generator_py/soccer_model_msgs/soccer_model_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[29.720s] [ 96%] Built target soccer_model_msgs__rosidl_typesupport_c__pyext
+[29.787s] [ 98%] Building C object CMakeFiles/soccer_model_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/soccer_model_msgs/_soccer_model_msgs_s.ep.rosidl_typesupport_introspection_c.c.o
+[30.177s] [100%] Linking C shared library rosidl_generator_py/soccer_model_msgs/soccer_model_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[30.307s] [100%] Built target soccer_model_msgs__rosidl_typesupport_introspection_c__pyext
+[30.335s] Invoked command in '/home/edrom/visao-cbr26/build/soccer_model_msgs' returned '0': AMENT_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:/home/edrom/visao-cbr26/install/soccer_geometry_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:/home/edrom/visao-cbr26/install/soccer_geometry_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/lib:/home/edrom/visao-cbr26/install/soccer_geometry_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/local/lib/python3.10/dist-packages:/home/edrom/visao-cbr26/install/soccer_geometry_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/edrom/visao-cbr26/build/soccer_model_msgs -- -j4 -l4
+[30.336s] Invoking command in '/home/edrom/visao-cbr26/build/soccer_model_msgs': AMENT_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:/home/edrom/visao-cbr26/install/soccer_geometry_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:/home/edrom/visao-cbr26/install/soccer_geometry_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/lib:/home/edrom/visao-cbr26/install/soccer_geometry_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/local/lib/python3.10/dist-packages:/home/edrom/visao-cbr26/install/soccer_geometry_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/edrom/visao-cbr26/build/soccer_model_msgs
+[30.353s] -- Install configuration: ""
+[30.353s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/ament_index/resource_index/rosidl_interfaces/soccer_model_msgs
+[30.354s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs
+[30.355s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg
+[30.355s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/obstacle_array.h
+[30.355s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/ball.h
+[30.357s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/rosidl_generator_c__visibility_control.h
+[30.357s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/obstacle.h
+[30.358s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/robot_array.h
+[30.359s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail
+[30.362s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__functions.c
+[30.362s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__functions.h
+[30.368s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__functions.h
+[30.368s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__functions.c
+[30.368s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__struct.h
+[30.368s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__type_support.h
+[30.369s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__type_support.h
+[30.369s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__functions.c
+[30.369s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__type_support.h
+[30.370s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__functions.h
+[30.370s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__struct.h
+[30.370s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__functions.c
+[30.370s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__type_support.h
+[30.371s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__functions.h
+[30.371s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__struct.h
+[30.372s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__type_support.h
+[30.372s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__functions.h
+[30.373s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__struct.h
+[30.374s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__struct.h
+[30.376s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__functions.c
+[30.376s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/robot.h
+[30.376s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/environment/library_path.sh
+[30.376s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/environment/library_path.dsv
+[30.376s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_generator_c.so
+[30.381s] -- Set runtime path of "/home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_generator_c.so" to ""
+[30.382s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs
+[30.382s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg
+[30.383s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail
+[30.383s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__rosidl_typesupport_fastrtps_c.h
+[30.385s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__rosidl_typesupport_fastrtps_c.h
+[30.386s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__rosidl_typesupport_fastrtps_c.h
+[30.386s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__rosidl_typesupport_fastrtps_c.h
+[30.387s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__rosidl_typesupport_fastrtps_c.h
+[30.387s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[30.388s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_typesupport_fastrtps_c.so
+[30.388s] -- Set runtime path of "/home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[30.388s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs
+[30.388s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg
+[30.389s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/ball.hpp
+[30.390s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[30.390s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/obstacle.hpp
+[30.390s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/obstacle_array.hpp
+[30.390s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/robot_array.hpp
+[30.391s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail
+[30.391s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__struct.hpp
+[30.391s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__traits.hpp
+[30.394s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__struct.hpp
+[30.395s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__type_support.hpp
+[30.395s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__type_support.hpp
+[30.401s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__builder.hpp
+[30.401s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__traits.hpp
+[30.402s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__traits.hpp
+[30.402s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__traits.hpp
+[30.402s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__builder.hpp
+[30.402s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__type_support.hpp
+[30.402s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__struct.hpp
+[30.402s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__traits.hpp
+[30.402s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__builder.hpp
+[30.402s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__type_support.hpp
+[30.402s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__type_support.hpp
+[30.404s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__struct.hpp
+[30.404s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__builder.hpp
+[30.405s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__builder.hpp
+[30.405s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__struct.hpp
+[30.406s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/robot.hpp
+[30.407s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs
+[30.407s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg
+[30.408s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[30.408s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail
+[30.408s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__rosidl_typesupport_fastrtps_cpp.hpp
+[30.410s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__rosidl_typesupport_fastrtps_cpp.hpp
+[30.411s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__rosidl_typesupport_fastrtps_cpp.hpp
+[30.411s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__rosidl_typesupport_fastrtps_cpp.hpp
+[30.412s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__rosidl_typesupport_fastrtps_cpp.hpp
+[30.412s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/dds_fastrtps
+[30.412s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_typesupport_fastrtps_cpp.so
+[30.412s] -- Set runtime path of "/home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[30.412s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs
+[30.413s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg
+[30.414s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[30.414s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail
+[30.414s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__rosidl_typesupport_introspection_c.h
+[30.415s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__type_support.c
+[30.416s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__rosidl_typesupport_introspection_c.h
+[30.416s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__rosidl_typesupport_introspection_c.h
+[30.417s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__type_support.c
+[30.417s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__type_support.c
+[30.419s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__rosidl_typesupport_introspection_c.h
+[30.420s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__rosidl_typesupport_introspection_c.h
+[30.421s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__type_support.c
+[30.421s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__type_support.c
+[30.422s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_typesupport_introspection_c.so
+[30.423s] -- Set runtime path of "/home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_typesupport_introspection_c.so" to ""
+[30.424s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_typesupport_c.so
+[30.424s] -- Set runtime path of "/home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_typesupport_c.so" to ""
+[30.424s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs
+[30.424s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg
+[30.424s] -- Up-to-date: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail
+[30.427s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__rosidl_typesupport_introspection_cpp.hpp
+[30.427s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__type_support.cpp
+[30.427s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__type_support.cpp
+[30.427s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__type_support.cpp
+[30.427s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot__rosidl_typesupport_introspection_cpp.hpp
+[30.427s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle__rosidl_typesupport_introspection_cpp.hpp
+[30.428s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__rosidl_typesupport_introspection_cpp.hpp
+[30.428s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/robot_array__rosidl_typesupport_introspection_cpp.hpp
+[30.428s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/obstacle_array__type_support.cpp
+[30.428s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/include/soccer_model_msgs/soccer_model_msgs/msg/detail/ball__type_support.cpp
+[30.428s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_typesupport_introspection_cpp.so
+[30.431s] -- Set runtime path of "/home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[30.433s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_typesupport_cpp.so
+[30.434s] -- Set runtime path of "/home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_typesupport_cpp.so" to ""
+[30.435s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/environment/pythonpath.sh
+[30.435s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/environment/pythonpath.dsv
+[30.436s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs-1.0.0-py3.10.egg-info
+[30.436s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs-1.0.0-py3.10.egg-info/PKG-INFO
+[30.437s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs-1.0.0-py3.10.egg-info/top_level.txt
+[30.437s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs-1.0.0-py3.10.egg-info/SOURCES.txt
+[30.438s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs-1.0.0-py3.10.egg-info/dependency_links.txt
+[30.438s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs
+[30.438s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/libsoccer_model_msgs__rosidl_generator_py.so
+[30.438s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/__init__.py
+[30.438s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/soccer_model_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[30.441s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg
+[30.441s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_obstacle.py
+[30.442s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_robot_array_s.c
+[30.442s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/__init__.py
+[30.443s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_obstacle_s.c
+[30.443s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_ball.py
+[30.444s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_robot_array.py
+[30.445s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_robot.py
+[30.446s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_obstacle_array.py
+[30.446s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_robot_s.c
+[30.446s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_obstacle_array_s.c
+[30.447s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_ball_s.c
+[30.447s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/_soccer_model_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[30.447s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/soccer_model_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[30.447s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/_soccer_model_msgs_s.ep.rosidl_typesupport_c.c
+[30.447s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/_soccer_model_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[30.448s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/soccer_model_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[30.511s] Listing '/home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs'...
+[30.512s] Compiling '/home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/__init__.py'...
+[30.512s] Listing '/home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg'...
+[30.512s] Compiling '/home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/__init__.py'...
+[30.512s] Compiling '/home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_ball.py'...
+[30.513s] Compiling '/home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_obstacle.py'...
+[30.513s] Compiling '/home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_obstacle_array.py'...
+[30.515s] Compiling '/home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_robot.py'...
+[30.515s] Compiling '/home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/msg/_robot_array.py'...
+[30.522s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/soccer_model_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[30.523s] -- Set runtime path of "/home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/soccer_model_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[30.524s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/soccer_model_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[30.526s] -- Set runtime path of "/home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/soccer_model_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[30.527s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/soccer_model_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[30.528s] -- Set runtime path of "/home/edrom/visao-cbr26/install/soccer_model_msgs/local/lib/python3.10/dist-packages/soccer_model_msgs/soccer_model_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[30.529s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_generator_py.so
+[30.533s] -- Set runtime path of "/home/edrom/visao-cbr26/install/soccer_model_msgs/lib/libsoccer_model_msgs__rosidl_generator_py.so" to ""
+[30.533s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/msg/Ball.idl
+[30.533s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/msg/Obstacle.idl
+[30.534s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/msg/ObstacleArray.idl
+[30.535s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/msg/Robot.idl
+[30.535s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/msg/RobotArray.idl
+[30.535s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/msg/Ball.msg
+[30.536s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/msg/Obstacle.msg
+[30.536s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/msg/ObstacleArray.msg
+[30.536s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/msg/Robot.msg
+[30.537s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/msg/RobotArray.msg
+[30.538s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/ament_index/resource_index/package_run_dependencies/soccer_model_msgs
+[30.538s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/ament_index/resource_index/parent_prefix_path/soccer_model_msgs
+[30.538s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/environment/ament_prefix_path.sh
+[30.538s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/environment/ament_prefix_path.dsv
+[30.538s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/environment/path.sh
+[30.540s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/environment/path.dsv
+[30.540s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/local_setup.bash
+[30.540s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/local_setup.sh
+[30.541s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/local_setup.zsh
+[30.542s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/local_setup.dsv
+[30.543s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/package.dsv
+[30.543s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/ament_index/resource_index/packages/soccer_model_msgs
+[30.544s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/export_soccer_model_msgs__rosidl_generator_cExport.cmake
+[30.544s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/export_soccer_model_msgs__rosidl_generator_cExport-noconfig.cmake
+[30.544s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/export_soccer_model_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[30.545s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/export_soccer_model_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[30.547s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/export_soccer_model_msgs__rosidl_generator_cppExport.cmake
+[30.548s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/export_soccer_model_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[30.548s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/export_soccer_model_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[30.549s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/soccer_model_msgs__rosidl_typesupport_introspection_cExport.cmake
+[30.550s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/soccer_model_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[30.550s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/soccer_model_msgs__rosidl_typesupport_cExport.cmake
+[30.550s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/soccer_model_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[30.551s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/soccer_model_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[30.552s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/soccer_model_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[30.552s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/soccer_model_msgs__rosidl_typesupport_cppExport.cmake
+[30.552s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/soccer_model_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[30.552s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/export_soccer_model_msgs__rosidl_generator_pyExport.cmake
+[30.554s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/export_soccer_model_msgs__rosidl_generator_pyExport-noconfig.cmake
+[30.554s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/rosidl_cmake-extras.cmake
+[30.556s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[30.557s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[30.557s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[30.557s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[30.558s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[30.558s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[30.559s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/soccer_model_msgsConfig.cmake
+[30.559s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/cmake/soccer_model_msgsConfig-version.cmake
+[30.559s] -- Installing: /home/edrom/visao-cbr26/install/soccer_model_msgs/share/soccer_model_msgs/package.xml
+[30.565s] Invoked command in '/home/edrom/visao-cbr26/build/soccer_model_msgs' returned '0': AMENT_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:/home/edrom/visao-cbr26/install/soccer_geometry_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs:/home/edrom/visao-cbr26/install/soccer_geometry_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/lib:/home/edrom/visao-cbr26/install/soccer_geometry_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/edrom/visao-cbr26/install/soccer_vision_attribute_msgs/local/lib/python3.10/dist-packages:/home/edrom/visao-cbr26/install/soccer_geometry_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/edrom/visao-cbr26/build/soccer_model_msgs

@@ -1,0 +1,21 @@
+[0.025s] Invoking command in '/home/edrom/visao-cbr26/build/soccer_geometry_msgs': /usr/bin/cmake /home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs -DCMAKE_INSTALL_PREFIX=/home/edrom/visao-cbr26/install/soccer_geometry_msgs
+[0.356s] -- Configuring incomplete, errors occurred!
+[0.362s] See also "/home/edrom/visao-cbr26/build/soccer_geometry_msgs/CMakeFiles/CMakeOutput.log".
+[0.363s] [31mCMake Error at CMakeLists.txt:9 (find_package):
+[0.363s]   By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+[0.363s]   has asked CMake to find a package configuration file provided by
+[0.363s]   "ament_cmake", but CMake did not find one.
+[0.363s] 
+[0.363s]   Could not find a package configuration file provided by "ament_cmake" with
+[0.363s]   any of the following names:
+[0.364s] 
+[0.364s]     ament_cmakeConfig.cmake
+[0.364s]     ament_cmake-config.cmake
+[0.366s] 
+[0.366s]   Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+[0.366s]   "ament_cmake_DIR" to a directory containing one of the above files.  If
+[0.366s]   "ament_cmake" provides a separate development package or SDK, be sure it
+[0.366s]   has been installed.
+[0.366s] 
+[0.366s] [0m
+[0.381s] Invoked command in '/home/edrom/visao-cbr26/build/soccer_geometry_msgs' returned '1': /usr/bin/cmake /home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/soccer_interfaces/soccer_geometry_msgs -DCMAKE_INSTALL_PREFIX=/home/edrom/visao-cbr26/install/soccer_geometry_msgs

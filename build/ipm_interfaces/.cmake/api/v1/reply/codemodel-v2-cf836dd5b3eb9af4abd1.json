@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-d42d1ef8fc47bf696a02.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "ipm_interfaces__py",
+					"jsonFile" : "directory-ipm_interfaces__py-be62b8a26d551da91c67.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/edrom/visao-cbr26/build/ipm_interfaces/ipm_interfaces__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "ipm_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_ipm_interfaces_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_ipm_interfaces_egg-ef752d105443d9977465.json",
+					"name" : "ament_cmake_python_build_ipm_interfaces_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_ipm_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_ipm_interfaces-ecd163be17156cdfa260.json",
+					"name" : "ament_cmake_python_copy_ipm_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces-b7c79aff4cd7fba9a091.json",
+					"name" : "ipm_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces__cpp-b3e94b8e9cef91b62367.json",
+					"name" : "ipm_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ipm_interfaces__py::@848992192e4cac75882e",
+					"jsonFile" : "target-ipm_interfaces__py-2a54e6956535c1c1e314.json",
+					"name" : "ipm_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces__rosidl_generator_c-d422dcdc53db10f3d5d7.json",
+					"name" : "ipm_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces__rosidl_generator_py-2e61ea18dfb4685a8a93.json",
+					"name" : "ipm_interfaces__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces__rosidl_typesupport_c-5b2ca67dc10b77fbc445.json",
+					"name" : "ipm_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces__rosidl_typesupport_c__pyext-7c2173edde5770522331.json",
+					"name" : "ipm_interfaces__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces__rosidl_typesupport_cpp-33b16600494c76c3745d.json",
+					"name" : "ipm_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces__rosidl_typesupport_fastrtps_c-d7b818259d5e829a45a5.json",
+					"name" : "ipm_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces__rosidl_typesupport_fastrtps_c__pyext-7be3c56a7a041be641ff.json",
+					"name" : "ipm_interfaces__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces__rosidl_typesupport_fastrtps_cpp-e570a41e9adb5f8c0c41.json",
+					"name" : "ipm_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces__rosidl_typesupport_introspection_c-f3de295de1e620c1f7bd.json",
+					"name" : "ipm_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces__rosidl_typesupport_introspection_c__pyext-b95ac6180e59e9756f71.json",
+					"name" : "ipm_interfaces__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces__rosidl_typesupport_introspection_cpp-c3bb4bb4e585b166b0e1.json",
+					"name" : "ipm_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ipm_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ipm_interfaces_uninstall-b58757ea01f887a069da.json",
+					"name" : "ipm_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-af700f97b40be903d5da.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/edrom/visao-cbr26/build/ipm_interfaces",
+		"source" : "/home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/ipm/ipm_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

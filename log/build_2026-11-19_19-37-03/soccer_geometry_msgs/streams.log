@@ -1,0 +1,61 @@
+[0.047s] Invoking command in '/home/edrom/visao-cbr26/build/soccer_geometry_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/edrom/visao-cbr26/build/soccer_geometry_msgs -- -j4 -l4
+[0.198s] [35m[1mConsolidate compiler generated dependencies of target soccer_geometry_msgs__rosidl_generator_c[0m
+[0.225s] [  0%] Built target ament_cmake_python_copy_soccer_geometry_msgs
+[0.254s] [  3%] Built target soccer_geometry_msgs__cpp
+[0.296s] [ 12%] Built target soccer_geometry_msgs__rosidl_generator_c
+[0.310s] [35m[1mConsolidate compiler generated dependencies of target soccer_geometry_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[0.310s] [35m[1mConsolidate compiler generated dependencies of target soccer_geometry_msgs__rosidl_typesupport_cpp[0m
+[0.367s] [ 16%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[0.386s] [ 25%] Built target soccer_geometry_msgs__rosidl_typesupport_cpp
+[0.435s] [ 35%] Built target soccer_geometry_msgs__rosidl_typesupport_fastrtps_cpp
+[0.454s] [ 38%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[0.504s] [ 41%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[1.029s] running egg_info
+[1.058s] writing soccer_geometry_msgs.egg-info/PKG-INFO
+[1.059s] writing dependency_links to soccer_geometry_msgs.egg-info/dependency_links.txt
+[1.061s] writing top-level names to soccer_geometry_msgs.egg-info/top_level.txt
+[1.251s] reading manifest file 'soccer_geometry_msgs.egg-info/SOURCES.txt'
+[1.315s] Traceback (most recent call last):
+[1.316s]   File "/home/edrom/visao-cbr26/build/soccer_geometry_msgs/ament_cmake_python/soccer_geometry_msgs/setup.py", line 4, in <module>
+[1.319s]     setup(
+[1.319s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/__init__.py", line 117, in setup
+[1.319s]     return distutils.core.setup(**attrs)  # type: ignore[return-value]
+[1.319s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_distutils/core.py", line 168, in setup
+[1.320s]     return run_commands(dist)
+[1.320s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_distutils/core.py", line 184, in run_commands
+[1.320s]     dist.run_commands()
+[1.320s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1028, in run_commands
+[1.331s]     self.run_command(cmd)
+[1.332s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/dist.py", line 1106, in run_command
+[1.334s]     super().run_command(command)
+[1.334s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1047, in run_command
+[1.334s]     cmd_obj.run()
+[1.335s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/command/egg_info.py", line 342, in run
+[1.335s]     self.find_sources()
+[1.335s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/command/egg_info.py", line 350, in find_sources
+[1.335s]     mm.run()
+[1.335s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/command/egg_info.py", line 577, in run
+[1.335s]     self.prune_file_list()
+[1.335s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/command/sdist.py", line 166, in prune_file_list
+[1.335s]     super().prune_file_list()
+[1.335s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_distutils/command/sdist.py", line 397, in prune_file_list
+[1.335s]     base_dir = self.distribution.get_fullname()
+[1.335s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_core_metadata.py", line 275, in get_fullname
+[1.336s]     return _distribution_fullname(self.get_name(), self.get_version())
+[1.336s]   File "/home/edrom/.local/lib/python3.10/site-packages/setuptools/_core_metadata.py", line 293, in _distribution_fullname
+[1.343s]     canonicalize_version(version, strip_trailing_zero=False),
+[1.343s] TypeError: canonicalize_version() got an unexpected keyword argument 'strip_trailing_zero'
+[1.502s] gmake[2]: *** [CMakeFiles/ament_cmake_python_build_soccer_geometry_msgs_egg.dir/build.make:70: CMakeFiles/ament_cmake_python_build_soccer_geometry_msgs_egg] Erro 1
+[1.507s] gmake[1]: *** [CMakeFiles/Makefile2:447: CMakeFiles/ament_cmake_python_build_soccer_geometry_msgs_egg.dir/all] Erro 2
+[1.507s] gmake[1]: ** Esperando que outros processos terminem.
+[1.816s] [ 45%] [32mBuilding CXX object CMakeFiles/soccer_geometry_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support.cpp.o[0m
+[1.841s] [ 48%] [32mBuilding CXX object CMakeFiles/soccer_geometry_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support_c.cpp.o[0m
+[2.078s] [ 51%] [32mBuilding C object CMakeFiles/soccer_geometry_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/soccer_geometry_msgs/msg/detail/point_with_covariance__type_support.c.o[0m
+[2.185s] [ 54%] [32m[1mLinking C shared library libsoccer_geometry_msgs__rosidl_typesupport_introspection_c.so[0m
+[2.275s] [ 54%] Built target soccer_geometry_msgs__rosidl_typesupport_introspection_c
+[2.963s] [ 58%] [32m[1mLinking CXX shared library libsoccer_geometry_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[3.265s] [ 58%] Built target soccer_geometry_msgs__rosidl_typesupport_introspection_cpp
+[3.266s] [ 61%] [32m[1mLinking CXX shared library libsoccer_geometry_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[3.580s] [ 61%] Built target soccer_geometry_msgs__rosidl_typesupport_fastrtps_c
+[3.585s] gmake: *** [Makefile:146: all] Erro 2
+[3.596s] Invoked command in '/home/edrom/visao-cbr26/build/soccer_geometry_msgs' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/edrom/visao-cbr26/build/soccer_geometry_msgs -- -j4 -l4

@@ -4,6 +4,7 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 from launch.conditions import IfCondition, UnlessCondition
 from ament_index_python.packages import get_package_share_directory
 import os
@@ -42,6 +43,13 @@ def generate_launch_description():
             description="URL do YAML de calibração intrínseca da câmera",
         ),
 
+        DeclareLaunchArgument(
+            "image_rotation",
+            default_value="180",
+            description="Rotação (graus, sentido horário: 0, 90, 180 ou 270) aplicada "
+                        "à imagem antes do YOLO, para compensar a câmera montada girada",
+        ),
+
         Node(
             package="usb_cam",
             executable="usb_cam_node_exe",
@@ -64,6 +72,8 @@ def generate_launch_description():
             output='screen',
             parameters=[{
                 "use_sim_time": False,
+                "image_rotation": ParameterValue(
+                    LaunchConfiguration("image_rotation"), value_type=int),
             }],
         ),
         
@@ -76,6 +86,7 @@ def generate_launch_description():
                 "use_sim_time": False,
                 "output_frame": "base_footprint",
                 "balls.ball_diameter": 0.14,
+                # Distorção da lente corrigida nos pontos detectados (K e D do camera_info)
                 "use_distortion": True,
                 "goalposts.footpoint_out_of_image_threshold": 0.8,
                 "robots.footpoint_out_of_image_threshold": 0.8,
