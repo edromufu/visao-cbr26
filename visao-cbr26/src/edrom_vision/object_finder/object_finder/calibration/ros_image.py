@@ -51,6 +51,7 @@ class RosImageSource:  # pragma: no cover - precisa de ROS 2 (NÃO TESTADO aqui)
         import rclpy
         from rclpy.node import Node
         from sensor_msgs.msg import Image
+        from rclpy.qos import qos_profile_sensor_data
 
         if not rclpy.ok():
             rclpy.init()
@@ -59,7 +60,7 @@ class RosImageSource:  # pragma: no cover - precisa de ROS 2 (NÃO TESTADO aqui)
         self._lock = threading.Lock()
         self._frame: Optional[np.ndarray] = None
         self.count = 0
-        self._node.create_subscription(Image, topic, self._cb, 5)
+        self._node.create_subscription(Image, topic, self._cb, qos_profile_sensor_data)
         self._thread = threading.Thread(target=rclpy.spin, args=(self._node,), daemon=True)
         self._thread.start()
 

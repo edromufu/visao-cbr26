@@ -30,8 +30,10 @@ setup(
         (os.path.join('share', package_name, 'modelo'), glob('modelo/*.pt')),
         (os.path.join('share', package_name, 'resource'), glob('resource/*')),
 
-        # Config da câmera (usb_cam.yaml), calibração da câmera e limiares (params.yaml)
-        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
+        # Config da câmera (usb_cam.yaml), calibração da câmera, limiares (params.yaml) e
+        # calibração de cor (green/white_pixels.csv + calib.json, reescritos pelo calibrador)
+        (os.path.join('share', package_name, 'config'),
+         glob('config/*.yaml') + glob('config/*.csv') + glob('config/*.json')),
 
         # Calibração de cor padrão (Webots): green_pixels.csv e white_pixels.csv
         (os.path.join('share', package_name, 'calib', 'padrao_webots'), glob('calib/padrao_webots/*')),
@@ -51,6 +53,7 @@ setup(
             'finder = object_finder.connecting_and_showing:main',
             'line_vision = object_finder.__main__:main',
             'calibrador = object_finder.calibration.calibrator_cv:main',
+            'importar_calibracao = object_finder.calibration.importar_json:main',
             'capture_frames = object_finder.calibration.capture_frames:main',
             'capture_frames_ros = object_finder.calibration.capture_frames_ros:main',
         ],

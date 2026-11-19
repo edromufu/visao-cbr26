@@ -62,7 +62,8 @@ class LineVisionNode(Node):
         P = self.declare_parameter
         self.img_output = bool(P('vision.img_output', False).value)
         self.processing_fps = float(P('vision.processing_fps', 0.0).value)  # 0 = todos os frames
-        calib_dir = str(P('calib_dir', '').value) or str(share / 'calib' / 'padrao_webots')
+        # calibração de cor: config/ (reescrita a cada calibração); calib_dir troca a pasta
+        calib_dir = str(P('calib_dir', '').value) or str(share / 'config')
         model_path = str(P('model_path', '').value) or str(share / 'modelo' / 'best.pt')
         use_yolo = bool(P('use_yolo', True).value)
         params_file = str(P('params_file', '').value) or str(default_params_file() or '')

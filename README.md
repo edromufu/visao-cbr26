@@ -60,19 +60,17 @@ cd visao-cbr26
 colcon build
 source install/setup.bash
 
-# robô real (usb_cam + visão)
+# robô real (usb_cam + visão), com a calibração de cor de object_finder/config/
 ros2 launch object_finder vision.launch.py
-# com calibração de cor do dia e projeção própria
-ros2 launch object_finder vision.launch.py calib_dir:=$HOME/calibracoes/ultima \
+# com projeção própria
+ros2 launch object_finder vision.launch.py \
     publish_projection:=True camera_altura_m:=0.45 camera_pitch_rad:=0.3
-# simulação (Webots/AUREA)
-ros2 launch object_finder vision.launch.py start_camera:=False use_sim_time:=True \
-    image_topic:=/AUREA/camera_optical_frame/image_color \
-    camera_info_topic:=/AUREA/camera_optical_frame/camera_info [start_webots:=True]
+# simulação (Webots/AUREA): mesmo argumento da branch diego
+ros2 launch object_finder vision.launch.py simulacao:=true [start_webots:=True]
 ```
 
-Argumentos do launch: `video_device`, `camera_name`, `camera_info_url`, `start_camera`,
-`start_webots`, `use_sim_time`, `image_topic`, `camera_info_topic`, `calib_dir`, `model_path`
+Argumentos do launch: `video_device`, `camera_name`, `camera_info_url`, `simulacao`,
+`start_webots`, `calib_dir` (padrão: `config/`), `model_path`
 (`.pt`/`.onnx`), `use_yolo`, `img_output` (janela OpenCV), `publish_debug_image`,
 `processing_fps` (taxa máxima; 0 = todos os frames), `params_file`, `publish_projection`,
 `camera_altura_m`, `camera_pitch_rad`. Liste com `ros2 launch object_finder vision.launch.py --show-args`.
@@ -83,7 +81,7 @@ Limiares do pipeline: `object_finder/config/params.yaml` (todas as chaves com os
 ### Sem ROS
 
 ```bash
-ros2 run object_finder line_vision --camera 0 --calib ~/calibracoes/ultima      # janela ao vivo
+ros2 run object_finder line_vision --camera 0      # janela ao vivo (calibração de config/; --calib troca)
 ros2 run object_finder line_vision --image foto.png pasta/ --sem-janela --saida out/   # overlays + JSON
 ros2 run object_finder line_vision --video jogo.mp4 --sem-yolo
 ```
@@ -92,23 +90,34 @@ ros2 run object_finder line_vision --video jogo.mp4 --sem-yolo
 ## Calibração de cor
 
 A etapa 1 precisa saber o verde do carpete (`green_pixels.csv`, LUT exata) e o branco das linhas
-(`white_pixels.csv`, limiar média ± 2 desvios). O padrão (`calib/padrao_webots`) é do Webots; no
-campo real, calibre antes do jogo.
+(`white_pixels.csv`, limiar média ± 2 desvios). A calibração fica em
+**`object_finder/config/`** (`green_pixels.csv`, `white_pixels.csv`, `calib.json`) e é a que o
+`vision.launch.py` usa. Ela começa com os valores do Webots (cópia de `calib/padrao_webots`, que fica
+como referência); no campo real, calibre antes do jogo.
 
-**Calibrador OpenCV** (câmera, tópico ROS ou imagens):
+**Calibrador OpenCV**:
 
 ```bash
-ros2 run object_finder calibrador --camera 0 --largura 640 --altura 480 --saida ~/calibracoes
-ros2 run object_finder calibrador --ros-topico /camera/image_raw --saida ~/calibracoes   # com o usb_cam rodando
-ros2 run object_finder calibrador --imagens ~/frames --saida ~/calibracoes
+ros2 run object_finder calibrador          # sobe o usb_cam junto (feche o vision.launch antes)
 ```
 
 Recalibração rápida: **R**, clique no carpete verde, clique no meio de uma linha branca, confira o
-painel (`campo SIM`; amarelo = fronteira, vermelho = esqueleto, magenta = branco) e **S** para salvar
-em `calibracoes/calib_<data>/` (atualiza `calibracoes/ultima/`). **H** mostra todas as teclas
+painel (`campo SIM`; amarelo = fronteira, vermelho = esqueleto, magenta = branco) e **S** para salvar.
+Salvar **sobrescreve** a calibração em `config/` (no `src/`, que vai para o git, e no `install/`, que
+o nó lê): o próximo `ros2 launch` já usa a nova, sem recompilar. O calibrador começa da calibração
+atual do `config/`. Outras fontes de imagem (não sobem o `usb_cam`):
+
+```bash
+ros2 run object_finder calibrador --camera 0 --largura 640 --altura 480
+ros2 run object_finder calibrador --ros-topico /AUREA/camera_optical_frame/image_color   # simulação
+ros2 run object_finder calibrador --imagens ~/frames
+```
+
+`--saida ~/calibracoes` guarda também um histórico datado (`calib_<data>/` + `ultima/`);
+`--sem-config` grava só nele. **H** mostra todas as teclas
 (**G**/**B** pintar verde/branco, **A** ajusta o branco da borda, **F** congela, **V** troca a vista,
 **U** desfaz...). Para conferir uma calibração sem janela:
-`ros2 run object_finder calibrador --avaliar --calib ~/calibracoes/ultima --imagens ~/frames --relatorio conferencia/`.
+`ros2 run object_finder calibrador --avaliar --calib visao-cbr26/src/edrom_vision/object_finder/config --imagens ~/frames --relatorio conferencia/`.
 
 **Calibrador HTML** (sem câmera no computador, offline): capture frames onde a câmera funciona
 
@@ -118,17 +127,17 @@ ros2 run object_finder capture_frames_ros --topico /camera/image_raw -n 20 -t 1.
 ```
 
 abra `object_finder/object_finder/calibration/calibrador.html` no navegador, siga as mesmas teclas e
-importe o JSON baixado:
+importe o JSON baixado (sobrescreve a calibração em `config/`, como o calibrador OpenCV):
 
 ```bash
-python3 -m object_finder.calibration.importar_json ~/Downloads/calib_<data>.json --saida ~/calibracoes
+ros2 run object_finder importar_calibracao ~/Downloads/calib_<data>.json
 ```
 
 O HTML é gerado por `object_finder/tools/html/build_html.py` (a partir de `calibrador_core.js` e
 `calibrador_template.html`); `tools/html/test_core_node.py <pasta>` confere o núcleo JS contra o OpenCV
 (precisa do `node`).
 
-Use a calibração com `calib_dir:=~/calibracoes/ultima` (launch) ou `--calib` (sem ROS).
+Para usar outra pasta (ex.: um histórico): `calib_dir:=~/calibracoes/ultima` (launch) ou `--calib` (sem ROS).
 
 ## Avaliação (`object_finder/tools/`)
 

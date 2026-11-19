@@ -1,21 +1,24 @@
 # vision.launch.py (Versão Unificada)
 #
-# Robô real (usb_cam):     ros2 launch object_finder vision.launch.py
-# Simulação (Webots/AUREA): ros2 launch object_finder vision.launch.py start_camera:=False use_sim_time:=True \
-#     image_topic:=/AUREA/camera_optical_frame/image_color \
-#     camera_info_topic:=/AUREA/camera_optical_frame/camera_info [start_webots:=True]
+# Robô real (usb_cam):      ros2 launch object_finder vision.launch.py
+# Simulação (Webots/AUREA): ros2 launch object_finder vision.launch.py simulacao:=true [start_webots:=True]
+# Calibração de cor: a de object_finder/config/ (reescrita pelo `ros2 run object_finder calibrador`).
 
 import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
-from launch.conditions import IfCondition
+from launch.conditions import IfCondition, UnlessCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 import yaml
+
+# Tópicos da câmera do robô AUREA no Webots
+SIM_IMAGE_TOPIC = '/AUREA/camera_optical_frame/image_color'
+SIM_INFO_TOPIC = '/AUREA/camera_optical_frame/camera_info'
 
 
 def _has_pkg(name):
@@ -36,7 +39,11 @@ def generate_launch_description():
         usb_cam_cfg = next(iter(yaml.safe_load(f).values()))['ros__parameters']
 
     LC = LaunchConfiguration
-    sim_time = ParameterValue(LC('use_sim_time'), value_type=bool)
+    simulacao = LC('simulacao')
+    sim_time = ParameterValue(simulacao, value_type=bool)
+
+    def topico(sim, real):
+        return PythonExpression(["'", sim, "' if '", simulacao, "'.lower() == 'true' else '", real, "'"])
 
     args = [
         DeclareLaunchArgument(
@@ -61,18 +68,17 @@ def generate_launch_description():
             description='URL do YAML de calibração intrínseca da câmera',
         ),
 
-        # Câmera / simulação
-        DeclareLaunchArgument('start_camera', default_value='True',
-                              description='Sobe o usb_cam (False na simulação)'),
+        # Simulação
+        DeclareLaunchArgument('simulacao', default_value='false',
+                              description='true = câmera do Webots (AUREA) em vez do usb_cam'),
         DeclareLaunchArgument('start_webots', default_value='False',
-                              description='Sobe o Webots + driver do AUREA (my_package/robot_launch.py)'),
-        DeclareLaunchArgument('use_sim_time', default_value='False'),
-        DeclareLaunchArgument('image_topic', default_value='/camera/image_raw'),
-        DeclareLaunchArgument('camera_info_topic', default_value='/camera/camera_info'),
+                              description='Com simulacao:=true, sobe o Webots + driver do AUREA '
+                                          '(my_package/robot_launch.py)'),
 
         # Visão (estrutura de linhas + YOLO)
-        DeclareLaunchArgument('calib_dir', default_value=os.path.join(share, 'calib', 'padrao_webots'),
-                              description='Pasta com green_pixels.csv e white_pixels.csv (calibração de cor)'),
+        DeclareLaunchArgument('calib_dir', default_value=os.path.join(share, 'config'),
+                              description='Pasta com green_pixels.csv e white_pixels.csv (calibração de cor); '
+                                          'padrão: config/, reescrita pelo calibrador'),
         DeclareLaunchArgument('model_path', default_value=os.path.join(share, 'modelo', 'best.pt'),
                               description='Modelo YOLO (.pt ou .onnx)'),
         DeclareLaunchArgument('use_yolo', default_value='True'),
@@ -98,7 +104,7 @@ def generate_launch_description():
         name='usb_cam',
         namespace='camera',
         output='screen',
-        condition=IfCondition(LC('start_camera')),
+        condition=UnlessCondition(simulacao),
         # usb_cam.yaml primeiro; o dict abaixo sobrescreve com os argumentos do launch
         parameters=[usb_cam_params, {
             'use_sim_time': sim_time,
@@ -116,8 +122,8 @@ def generate_launch_description():
         emulate_tty=True,
         parameters=[{
             'use_sim_time': sim_time,
-            'image_topic': LC('image_topic'),
-            'camera_info_topic': LC('camera_info_topic'),
+            'image_topic': topico(SIM_IMAGE_TOPIC, '/camera/image_raw'),
+            'camera_info_topic': topico(SIM_INFO_TOPIC, '/camera/camera_info'),
             'calib_dir': LC('calib_dir'),
             'model_path': LC('model_path'),
             'use_yolo': ParameterValue(LC('use_yolo'), value_type=bool),
@@ -136,6 +142,7 @@ def generate_launch_description():
         actions.append(IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(
                 get_package_share_directory('my_package'), 'launch', 'robot_launch.py')),
-            condition=IfCondition(LC('start_webots')),
+            condition=IfCondition(PythonExpression([
+                "'", simulacao, "'.lower() == 'true' and '", LC('start_webots'), "'.lower() == 'true'"])),
         ))
     return LaunchDescription(actions)

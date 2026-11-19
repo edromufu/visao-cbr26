@@ -1,12 +1,13 @@
 """
-Recria uma calibração versionada a partir do JSON do calibrador HTML.
+Aplica a calibração do calibrador HTML (o ``calib_*.json`` que ele baixa).
 
-O HTML baixa ``calib_*.json`` + CSVs. Se preferir não lidar com os CSVs (o do
-verde pode ter alguns MB), este comando regenera tudo a partir do JSON, no
-mesmo formato do calibrador OpenCV, e atualiza ``ultima/``::
+Regenera os CSVs a partir do JSON (o do verde pode ter alguns MB), no mesmo
+formato do calibrador OpenCV, e SOBRESCREVE a calibração em object_finder/config/
+(src/ e install/), que é a que o vision.launch usa::
 
-    python3 -m object_finder.calibration.importar_json ~/Downloads/calib_20261113_091500.json \
-        --saida calibracoes
+    ros2 run object_finder importar_calibracao ~/Downloads/calib_20261113_091500.json
+
+Com ``--saida PASTA`` também guarda um histórico datado (``calib_<data>/`` + ``ultima/``).
 """
 
 from __future__ import annotations
@@ -21,8 +22,8 @@ from typing import Optional, Sequence
 from . import core
 
 
-def importar(json_path: Path, out_root: Path) -> Path:
-    """Lê o JSON e grava ``out_root/calib_<data>/`` + ``ultima/``."""
+def _ler(json_path: Path) -> tuple:
+    """Lê o JSON do calibrador HTML: devolve (calibração, data de criação)."""
     data = json.loads(Path(json_path).read_text(encoding='utf-8'))
     cal = core.Calibration.from_dict(data)
     cal.observacoes = (cal.observacoes + ' ' if cal.observacoes else '') + \
@@ -33,17 +34,34 @@ def importar(json_path: Path, out_root: Path) -> Path:
             when = dt.datetime.fromisoformat(str(data['criada_em'])[:19])
         except ValueError:
             when = None
+    return cal, when
+
+
+def importar(json_path: Path, out_root: Path) -> Path:
+    """Lê o JSON e grava ``out_root/calib_<data>/`` + ``ultima/``."""
+    cal, when = _ler(json_path)
     return core.save_calibration(cal, out_root, now=when)
+
+
+def importar_para_config(json_path: Path, dirs) -> list:
+    """Lê o JSON e sobrescreve a calibração nas pastas ``config/``."""
+    cal, when = _ler(json_path)
+    return core.save_to_config(cal, dirs, now=when)
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     """Ponto de entrada."""
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument('json')
-    ap.add_argument('--saida', default='calibracoes')
+    ap.add_argument('--saida', default=None, help='opcional: também guarda histórico datado aqui')
+    ap.add_argument('--sem-config', action='store_true', help='não grava em object_finder/config')
     a = ap.parse_args(argv)
-    d = importar(Path(a.json), Path(a.saida))
-    print(f'calibracao gravada em {d} (e em {Path(a.saida) / "ultima"})')
+    if not a.sem_config:
+        for d in importar_para_config(Path(a.json), core.config_dirs()):
+            print(f'calibracao gravada em {d}')
+    if a.saida:
+        d = importar(Path(a.json), Path(a.saida))
+        print(f'calibracao gravada em {d} (e em {Path(a.saida) / "ultima"})')
     return 0
 
 

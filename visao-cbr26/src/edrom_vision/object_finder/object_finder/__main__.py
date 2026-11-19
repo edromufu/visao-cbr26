@@ -78,9 +78,20 @@ def build_pipeline(a: argparse.Namespace) -> LineVisionPipeline:
     if not a.sem_yolo and a.modelo:
         det = make_detector(a.modelo, imgsz=p.detector.imgsz, conf=p.detector.conf, iou=p.detector.iou,
                             max_det=p.detector.max_det)
-    if a.calib:
-        return LineVisionPipeline.from_calibration_dir(a.calib, p, det)
+    calib = a.calib or _calib_do_config()
+    if calib:
+        return LineVisionPipeline.from_calibration_dir(calib, p, det)
     return LineVisionPipeline(p, detector=det)
+
+
+def _calib_do_config() -> str:
+    """Pasta config/ do object_finder instalado, se tiver a calibração de cor ('' se não)."""
+    try:
+        from ament_index_python.packages import get_package_share_directory
+        d = Path(get_package_share_directory('object_finder')) / 'config'
+    except Exception:  # noqa: BLE001 - sem ROS: usa a calibração padrão do vendor
+        return ''
+    return str(d) if (d / 'green_pixels.csv').is_file() and (d / 'white_pixels.csv').is_file() else ''
 
 
 JANELA = 'object_finder'
@@ -119,7 +130,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     src.add_argument('--video', help='arquivo de video')
     ap.add_argument('--largura', type=int, default=0)
     ap.add_argument('--altura', type=int, default=0)
-    ap.add_argument('--calib', default='', help='pasta de calibracao (ex.: calibracoes/ultima)')
+    ap.add_argument('--calib', default='', help='pasta de calibracao (padrao: object_finder/config, se instalado)')
     ap.add_argument('--modelo', default='', help='best.pt ou best.onnx')
     ap.add_argument('--sem-yolo', action='store_true', help='so a segmentacao (sem detector)')
     ap.add_argument('--params', default='', help='YAML de parametros (padrao: config/params.yaml)')

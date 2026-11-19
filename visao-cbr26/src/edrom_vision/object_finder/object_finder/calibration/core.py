@@ -22,9 +22,10 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, field
 import datetime as _dt
 import json
+import os
 from pathlib import Path
 import shutil
-from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Tuple
 
 import cv2
 import numpy as np
@@ -441,6 +442,64 @@ def save_calibration(calib: Calibration, out_root: Path,
         shutil.rmtree(latest)
     tmp.rename(latest)
     return target
+
+
+def config_dirs() -> List[Path]:
+    """
+    Pastas ``config/`` do object_finder onde a calibração de cor fica.
+
+    1. ``<ws>/src/edrom_vision/object_finder/config`` (fonte: persiste no repositório);
+    2. ``<ws>/install/object_finder/share/object_finder/config`` (o que o nó lê,
+       sem precisar recompilar).
+    Mesmo esquema do ``camera_calibrator`` da branch ivan.
+    """
+    from ament_index_python.packages import get_package_prefix, get_package_share_directory
+    prefix = Path(get_package_prefix('object_finder'))
+    dirs = [prefix.parents[1] / 'src' / 'edrom_vision' / 'object_finder' / 'config',
+            Path(get_package_share_directory('object_finder')) / 'config']
+    return [d for d in dirs if d.is_dir()]
+
+
+def _write_atomic(path: Path, write: Callable[[Path], Any]) -> Any:
+    """Escreve num arquivo temporário e troca de uma vez (o nó nunca lê pela metade)."""
+    tmp = path.with_name('.' + path.name + '.tmp')
+    out = write(tmp)
+    os.replace(tmp, path)
+    return out
+
+
+def save_to_config(calib: Calibration, dirs: Sequence[Path],
+                   now: Optional[_dt.datetime] = None) -> List[Path]:
+    """
+    Grava a calibração em cada pasta, sobrescrevendo a anterior.
+
+    Escreve ``green_pixels.csv``, ``white_pixels.csv`` e ``calib.json``.
+    Devolve as pastas gravadas.
+    """
+    now = now or _dt.datetime.now()
+    calib.criada_em = now.isoformat(timespec='seconds')
+    done: List[Path] = []
+    seen = set()
+    for d in dirs:
+        d = Path(d)
+        d.mkdir(parents=True, exist_ok=True)
+        files = [d / 'green_pixels.csv', d / 'white_pixels.csv', d / 'calib.json']
+        key = tuple(f.resolve() for f in files)
+        if key in seen:  # symlink-install: share aponta para o src
+            continue
+        seen.add(key)
+        n_green = _write_atomic(files[0], lambda t: write_green_csv(t, calib.green))
+        n_white = _write_atomic(files[1], lambda t: write_white_csv(t, calib.white))
+        data = calib.to_dict()
+        data['n_triades_verde'] = n_green
+        data['n_linhas_branco'] = n_white
+
+        def _json(t: Path) -> None:
+            with open(t, 'w', encoding='utf-8') as fh:
+                json.dump(data, fh, ensure_ascii=False, indent=2)
+        _write_atomic(files[2], _json)
+        done.append(d)
+    return done
 
 
 def load_calibration_dir(path: Path) -> Tuple[Calibration, Path, Path]:

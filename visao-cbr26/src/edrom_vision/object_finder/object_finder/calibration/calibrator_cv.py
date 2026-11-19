@@ -1,7 +1,15 @@
 """
 Calibrador de cor ao vivo (HighGUI do OpenCV).
 
-Uso (na pasta do pacote ou com ele instalado)::
+Uso normal (sobe o usb_cam junto e grava em object_finder/config/)::
+
+    ros2 run object_finder calibrador
+
+Ao salvar (S), green_pixels.csv, white_pixels.csv e calib.json do config/ são
+SOBRESCRITOS (no src/ e no install/), e o vision.launch passa a usá-los na próxima
+execução, sem recompilar. Com --saida PASTA também guarda um histórico datado.
+
+Outras fontes de imagem (não sobem o usb_cam)::
 
     # imagens salvas
     python3 -m object_finder.calibration.calibrator_cv --imagens frames/*.png
@@ -33,6 +41,8 @@ import datetime as dt
 import glob
 import json
 from pathlib import Path
+import signal
+import subprocess
 import sys
 import time
 from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
@@ -70,14 +80,16 @@ class Calibrador:
     """
 
     def __init__(self, frames: Optional[Dict[str, np.ndarray]] = None,
-                 out_root: Path = Path('calibracoes'),
+                 out_root: Optional[Path] = Path('calibracoes'),
                  initial: Optional[core.Calibration] = None,
                  params: core.ProposalParams = core.ProposalParams(),
-                 clock: Callable[[], float] = time.time) -> None:
+                 clock: Callable[[], float] = time.time,
+                 config_dirs: Optional[Sequence[Path]] = None) -> None:
         self.frames: Dict[str, np.ndarray] = dict(frames or {})
         self.names: List[str] = list(self.frames)
         self.idx = 0
-        self.out_root = Path(out_root)
+        self.out_root = Path(out_root) if out_root is not None else None
+        self.config_dirs = [Path(d) for d in (config_dirs or [])]
         self.params = params
         self.clock = clock
         self.samples: List[core.Sample] = []
@@ -406,9 +418,16 @@ class Calibrador:
             frames = {'frame_atual': cur}
         cal = self.calibration()
         cal.metricas = dict(self.last_metrics)
-        self.saved_dir = core.save_calibration(cal, self.out_root, frames)
+        partes = []
+        if self.config_dirs:
+            gravadas = core.save_to_config(cal, self.config_dirs)
+            self.saved_dir = gravadas[0]
+            partes.append(f'config ({len(gravadas)} pasta(s))')
+        if self.out_root is not None:
+            self.saved_dir = core.save_calibration(cal, self.out_root, frames)
+            partes.append(f'{self.saved_dir} (e em {self.out_root / "ultima"})')
         self.dirty = False
-        self.message = f'SALVO em {self.saved_dir} (e em {self.out_root / "ultima"})'
+        self.message = 'SALVO em ' + ' + '.join(partes)
         self._log('salvar')
         return self.saved_dir
 
@@ -614,9 +633,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument('--largura', type=int, default=0)
     ap.add_argument('--altura', type=int, default=0)
     ap.add_argument('--ros-topico', default=None, help='topico sensor_msgs/Image (opcional)')
-    ap.add_argument('--saida', default='calibracoes', help='pasta das calibracoes versionadas')
+    ap.add_argument('--saida', default=None,
+                    help='opcional: tambem guarda um historico datado nesta pasta (calib_<data>/ + ultima/)')
+    ap.add_argument('--sem-config', action='store_true',
+                    help='nao grava em object_finder/config (so no --saida)')
     ap.add_argument('--inicial', default=None,
-                    help='pasta de calibracao para comecar (ex.: calibracoes/ultima)')
+                    help='pasta de calibracao para comecar (padrao: a do config/, se houver calib.json)')
     ap.add_argument('--avaliar', action='store_true',
                     help='sem janela: avalia --calib nas --imagens')
     ap.add_argument('--calib', default=None, help='pasta de calibracao para --avaliar')
@@ -629,20 +651,50 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         r = avaliar(Path(a.calib), images, Path(a.relatorio) if a.relatorio else None)
         print(json.dumps(r, indent=2, ensure_ascii=False))
         return 0
-    initial = core.load_calibration_dir(Path(a.inicial))[0] if a.inicial else None
-    cal = Calibrador(images, Path(a.saida), initial)
+    dirs = [] if a.sem_config else core.config_dirs()
+    if not dirs and not a.saida:
+        ap.error('object_finder/config nao encontrado (pacote compilado?); use --saida PASTA')
+    initial = None
+    if a.inicial:
+        initial = core.load_calibration_dir(Path(a.inicial))[0]
+    elif dirs and (dirs[0] / 'calib.json').is_file():
+        initial = core.load_calibration_dir(dirs[0])[0]
+    cal = Calibrador(images, Path(a.saida) if a.saida else None, initial, config_dirs=dirs)
     source: Any = None
+    camera_proc = None
     if a.camera is not None:
         source = _CameraSource(a.camera, a.largura, a.altura)
     elif a.ros_topico:
         from .ros_image import RosImageSource
         source = RosImageSource(a.ros_topico)
-    if not images and source is None:
-        ap.error('informe --imagens, --camera ou --ros-topico')
-    run_gui(cal, source)
+    elif not images:
+        # padrão: sobe o usb_cam (mesma config do vision.launch) e lê /camera/image_raw
+        camera_proc = _start_usb_cam()
+        from .ros_image import RosImageSource
+        source = RosImageSource('/camera/image_raw')
+    try:
+        run_gui(cal, source)
+    finally:
+        if source is not None and hasattr(source, 'close'):
+            source.close()
+        if camera_proc is not None:
+            camera_proc.send_signal(signal.SIGINT)
+            camera_proc.wait()
     if cal.saved_dir:
         print(f'calibracao salva em {cal.saved_dir}')
     return 0
+
+
+def _start_usb_cam() -> Any:  # pragma: no cover - precisa de ROS 2 e câmera
+    """Sobe o usb_cam com o config/usb_cam.yaml do object_finder (namespace /camera)."""
+    from ament_index_python.packages import get_package_share_directory
+    params = Path(get_package_share_directory('object_finder')) / 'config' / 'usb_cam.yaml'
+    proc = subprocess.Popen(['ros2', 'run', 'usb_cam', 'usb_cam_node_exe', '--ros-args',
+                             '-r', '__ns:=/camera', '--params-file', str(params)])
+    time.sleep(2)
+    if proc.poll() is not None:
+        raise SystemExit('usb_cam nao iniciou. A camera ja esta em uso (vision.launch rodando?)')
+    return proc
 
 
 if __name__ == '__main__':  # pragma: no cover
