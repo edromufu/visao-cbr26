@@ -14,11 +14,11 @@
 
 from builtin_interfaces.msg import Time
 from geometry_msgs.msg import TransformStamped
-from edrom_vision.ipm.ipm_library.ipm_library.exceptions import (
+from ipm_library.exceptions import (
     CameraInfoNotSetException,
     InvalidPlaneException,
     NoIntersectionError)
-from edrom_vision.ipm.ipm_library.ipm_library.ipm import IPM
+from ipm_library.ipm import IPM
 import numpy as np
 import pytest
 from sensor_msgs.msg import CameraInfo

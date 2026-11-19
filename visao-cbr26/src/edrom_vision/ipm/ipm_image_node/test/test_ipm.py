@@ -23,7 +23,7 @@ sys.modules['bitbots_tf_buffer'] = types.ModuleType('bitbots_tf_buffer')
 
 from cv_bridge import CvBridge
 from geometry_msgs.msg import TransformStamped
-from edrom_vision.ipm.ipm_image_node.ipm_image_node.ipm import IPMImageNode
+from ipm_image_node.ipm import IPMImageNode
 import numpy as np
 from numpy.lib import recfunctions as rfn
 import rclpy

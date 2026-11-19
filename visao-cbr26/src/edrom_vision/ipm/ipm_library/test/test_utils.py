@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from edrom_vision.ipm.ipm_library.ipm_library.utils import plane_general_to_point_normal
+from ipm_library.utils import plane_general_to_point_normal
 import numpy as np
 from shape_msgs.msg import Plane
 

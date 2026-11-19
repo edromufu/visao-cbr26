@@ -22,7 +22,7 @@ sys.modules['bitbots_tf_buffer'] = types.ModuleType('bitbots_tf_buffer')
 from builtin_interfaces.msg import Time
 from ipm_interfaces.srv import MapPoint, MapPointCloud2
 from ipm_library.ipm import IPM
-from edrom_vision.ipm.ipm_service.ipm_service.ipm import IPMService
+from ipm_service.ipm import IPMService
 import numpy as np
 import rclpy
 from sensor_msgs.msg import CameraInfo

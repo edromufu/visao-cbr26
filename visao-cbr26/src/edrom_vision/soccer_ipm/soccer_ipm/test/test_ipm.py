@@ -20,8 +20,8 @@ import numpy as np
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import CameraInfo
-from edrom_vision.soccer_ipm.soccer_ipm.soccer_ipm.soccer_ipm import SoccerIPM
-from edrom_vision.soccer_ipm.soccer_ipm.soccer_ipm.utils import object_at_bottom_of_image
+from soccer_ipm.soccer_ipm import SoccerIPM
+from soccer_ipm.utils import object_at_bottom_of_image
 import soccer_vision_2d_msgs.msg as sv2dm
 import soccer_vision_3d_msgs.msg as sv3dm
 import soccer_vision_attribute_msgs.msg as sva

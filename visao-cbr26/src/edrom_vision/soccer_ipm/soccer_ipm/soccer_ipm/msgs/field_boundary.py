@@ -16,7 +16,7 @@ from geometry_msgs.msg import Point
 from ipm_library.ipm import IPM
 import numpy as np
 from rclpy.impl.rcutils_logger import RcutilsLogger
-from edrom_vision.soccer_ipm.soccer_ipm.soccer_ipm.utils import create_horizontal_plane
+from soccer_ipm.utils import create_horizontal_plane
 import soccer_vision_2d_msgs.msg as sv2dm
 import soccer_vision_3d_msgs.msg as sv3dm
 

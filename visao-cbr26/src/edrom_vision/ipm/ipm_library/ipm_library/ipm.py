@@ -15,8 +15,8 @@
 from typing import Optional
 
 from builtin_interfaces.msg import Time
-from edrom_vision.ipm.ipm_library.ipm_library import utils
-from edrom_vision.ipm.ipm_library.ipm_library.exceptions import (
+from ipm_library import utils
+from ipm_library.exceptions import (
     CameraInfoNotSetException,
     InvalidPlaneException,
     NoIntersectionError)
