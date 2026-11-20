@@ -31,6 +31,10 @@ def generate_launch_description():
 
     # Parâmetros do nó de visão (segmentação, validação, HSV)
     vision_params = os.path.join(config_dir, "vision_params.yaml")
+    # Faixas HSV da calibração de cor (ros2 run object_finder aplicar_calibracao_cores);
+    # se existir, sobrescreve o hsv do vision_params.yaml
+    hsv_calibrado = os.path.join(config_dir, "hsv_calibrado.yaml")
+    params_cores = [hsv_calibrado] if os.path.isfile(hsv_calibrado) else []
 
     simulacao = LaunchConfiguration("simulacao")
 
@@ -118,7 +122,7 @@ def generate_launch_description():
             name='vision',
             output='screen',
             emulate_tty=True,
-            parameters=[vision_params, LaunchConfiguration("params_file"), {
+            parameters=[vision_params, LaunchConfiguration("params_file"), *params_cores, {
                 "use_sim_time": ParameterValue(simulacao, value_type=bool),
                 "show_window": ParameterValue(LaunchConfiguration("show_window"), value_type=bool),
                 "model_file": ParameterValue(LaunchConfiguration("model_file"), value_type=str),

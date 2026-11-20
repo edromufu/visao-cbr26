@@ -10,7 +10,14 @@ setup(
     version=__version__,
     
     packages=find_packages(exclude=['docs', 'tests*']),
-    
+
+    # Arquivos do calibrador de cor (vindo do robocup_line_vision): página HTML
+    # offline e CSVs/README do código original da etapa 1 (vendor/)
+    package_data={
+        'object_finder.calibracao_cores': ['calibrador.html'],
+        'object_finder.calibracao_cores.vendor': ['*.csv', '*.md'],
+    },
+
     # data_files informa ao colcon quais arquivos adicionais instalar.
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -48,6 +55,12 @@ setup(
             # benchmark/acurácia entre modelos e receita de treino do YOLO26n
             'comparar_modelos = object_finder.tools.compare_models:main',
             'treinar_yolo26n = object_finder.tools.train_yolo26n:main',
+            # calibração de cor (verde/branco) com a câmera real — do robocup_line_vision
+            'calibrar_cores = object_finder.calibracao_cores.calibrator_cv:main',
+            'aplicar_calibracao_cores = object_finder.calibracao_cores.aplicar:main',
+            'capturar_frames = object_finder.calibracao_cores.capture_frames:main',
+            'capturar_frames_ros = object_finder.calibracao_cores.capture_frames_ros:main',
+            'importar_calibracao_json = object_finder.calibracao_cores.importar_json:main',
         ],
     },
     
