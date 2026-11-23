@@ -12,6 +12,7 @@ import numpy as np
 from .camera_model import CameraModel
 from .crossings import combine_crossings, crossings_from_lines, detect_crossings, keynode_graph
 from .detector import Detector, NullDetector
+from .dynamic_color import maybe_create
 from .features import CrossingFeature, Detection, EllipseFeature, LineFeature
 from .fusion import fuse, mask_boxes
 from .graph_nodes import build_graph, NodeGraph
@@ -76,6 +77,9 @@ class LineVisionPipeline:
         self.detector = detector or NullDetector()
         self.camera = camera
         self._camera_auto = camera is None
+        vd = self.p.verde_dinamico
+        self.seg.set_dynamic(maybe_create(vd.ativo, vd.limiar, vd.janela, vd.historico))
+        self._frames = 0
 
     @staticmethod
     def from_calibration_dir(calib_dir: str, params: Optional[Params] = None,
@@ -97,6 +101,9 @@ class LineVisionPipeline:
         t1 = time.perf_counter()
         # a fronteira do campo sai sem máscara; depois mascara o branco das caixas aceitas
         s1 = self.seg.process(frame_bgr)
+        self._frames += 1
+        if self._frames % max(1, self.p.verde_dinamico.a_cada_n_frames) == 0:
+            self.seg.learn(s1)              # verde dinâmico: vale a partir do próximo frame
         if dets:
             from .fusion import check_field
             checked = check_field(dets, s1, self.p.fusao)
@@ -130,5 +137,8 @@ class LineVisionPipeline:
                     c.distancia_m, c.angulo_rad = (round(v, 4) for v in CameraModel.polar(*gp))
         t['fusao'] = (time.perf_counter() - t5) * 1e3
         t['total'] = (time.perf_counter() - t0) * 1e3
+        info = dict(fr.info)
+        if self.seg.dynamic is not None:
+            info['verde_aprendido'] = self.seg.dynamic.n_colors
         return FrameResult(s1, g, kg, out, lines, ellipses, fr.detections,
-                           {k: round(v, 2) for k, v in t.items()}, fr.info)
+                           {k: round(v, 2) for k, v in t.items()}, info)

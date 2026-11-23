@@ -22,6 +22,17 @@ class Stage1Params:
 
 
 @dataclass
+class DynamicGreenParams:
+    """Verde dinâmico (artigo Bit-Bots, Seção 3.1; ver dynamic_color.py)."""
+
+    ativo: bool = True
+    limiar: float = 0.6          # fração mínima de vizinhos que já são campo
+    janela: int = 3              # vizinhança (px)
+    historico: int = 10          # atualizações lembradas: uma cor que some sai depois disso
+    a_cada_n_frames: int = 3     # atualiza a cada N frames
+
+
+@dataclass
 class DetectorParams:
     """YOLO (valores do nó finder)."""
 
@@ -60,6 +71,7 @@ class Params:
     """Todos os parâmetros."""
 
     etapa1: Stage1Params = field(default_factory=Stage1Params)
+    verde_dinamico: DynamicGreenParams = field(default_factory=DynamicGreenParams)
     grafo: GraphParams = field(default_factory=GraphParams)
     cruzamentos: CrossingParams = field(default_factory=CrossingParams)
     cruzamentos_retas: LineCrossingParams = field(default_factory=LineCrossingParams)

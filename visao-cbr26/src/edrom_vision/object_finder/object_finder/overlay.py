@@ -135,6 +135,7 @@ def render_result(frame: np.ndarray, r: Any, fps: float, view: int = 0) -> np.nd
     draw_text_block(out, [
         f'FPS {fps:5.1f} | total {r.timings_ms.get("total", 0):.0f} ms (yolo {r.timings_ms.get("yolo", 0):.0f})',
         f'campo {"SIM" if r.stage1.field_detected else "NAO"} | L {n["L"]} T {n["T"]} X {n["X"]} | '
-        f'linhas {len(r.lines)} | elipses {len(r.ellipses)} | yolo {len(r.detections)}',
+        f'linhas {len(r.lines)} | elipses {len(r.ellipses)} | yolo {len(r.detections)}'
+        + (f' | verde aprendido {r.info["verde_aprendido"]}' if 'verde_aprendido' in r.info else ''),
     ], (10, 22), scale=0.6, dy=24)
     return out

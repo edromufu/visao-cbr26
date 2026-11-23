@@ -42,6 +42,12 @@ Sem câmera no computador: grave fotos com
 `calibrador --imagens frames/`, ou abra `object_finder/calibration/calibrador.html` no navegador e
 importe o JSON com `ros2 run object_finder importar_calibracao calib_<data>.json`.
 
+**Verde dinâmico** (como no artigo dos Bit-Bots, Seção 3.1): com a visão rodando, o nó aprende sozinho os
+tons de verde que estão cercados de campo e abaixo da fronteira, e assim acompanha sombra e mudanças de luz.
+Cores que aparecem acima da fronteira nunca entram, e uma cor que some é esquecida depois de 10 atualizações.
+O aprendido se soma à calibração e **não altera os arquivos** do `config/`. Vem ligado. Para desligar ou
+ajustar, use `verde_dinamico:` em `config/params.yaml`. A imagem de debug mostra quantas cores foram aprendidas.
+
 ## Sem ROS
 
 ```bash
@@ -66,6 +72,7 @@ Caminhos dentro de `src/edrom_vision/object_finder/object_finder/`.
 | Imagem de debug (fronteira, esqueleto, linhas, cruzamentos, YOLO, FPS) | `overlay.py` |
 | Modo sem ROS (`line_vision`) | `__main__.py`, `pipeline.py` |
 | Calibração de cor (OpenCV, HTML, captura de fotos, importação) | `calibration/` |
+| Verde dinâmico: aprende o verde com a visão rodando (artigo Bit-Bots) | `dynamic_color.py` |
 | Simulação no Webots (`simulacao:=true`) | `../launch/vision.launch.py` |
 | Campo sintético e métricas | `synthetic.py`, `evaluation.py`, `../tools/` |
 

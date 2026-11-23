@@ -10,6 +10,13 @@ etapa1:                      # III-A/III-B (código original)
   trow: 10000
   twin: 3000
 
+verde_dinamico:              # artigo Bit-Bots, Seção 3.1: aprende o verde com a visão rodando
+  ativo: true                # tons cercados de campo e abaixo da fronteira; nunca os de cima dela
+  limiar: 0.6                # fração mínima de vizinhos que já são campo
+  janela: 3                  # vizinhança (px)
+  historico: 10              # atualizações lembradas: uma cor que some sai depois disso
+  a_cada_n_frames: 3         # atualiza a cada N frames
+
 grafo:                       # III-C
   min_node_distance: 2       # artigo: nós a pelo menos 2 pixels
   max_degree: 4              # artigo: grau máximo 4

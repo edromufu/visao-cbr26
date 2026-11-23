@@ -26,6 +26,8 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
+from .dynamic_color import DynamicColorSpace, HSV_SHAPE
+
 VENDOR_DIR = Path(__file__).resolve().parent / 'vendor'
 DEFAULT_GREEN_CSV = VENDOR_DIR / 'green_pixels.csv'
 DEFAULT_WHITE_CSV = VENDOR_DIR / 'white_pixels.csv'
@@ -194,6 +196,37 @@ class Stage1Segmenter:
             self._seg = self._mod.Pixel_Segment(str(self.green_csv), tpix=tpix,
                                                 trow=trow, twin=twin)
         self.baseline_polylines = baseline_polylines
+        # Verde dinâmico (dynamic_color.py): a LUT usada é a calibrada + as cores aprendidas.
+        self._base_lut = self._seg.lut_verde
+        self._combined_lut: Optional[np.ndarray] = None
+        self.dynamic: Optional[DynamicColorSpace] = None
+
+    def set_dynamic(self, dynamic: Optional[DynamicColorSpace]) -> None:
+        """Liga (ou desliga, com ``None``) o verde dinâmico."""
+        self.dynamic = dynamic
+        self._apply_lut()
+
+    def learn(self, result: 'Stage1Result') -> int:
+        """
+        Aprende o verde com o último frame processado (devolve as cores novas).
+
+        Usa a fronteira do campo de ``result``: só cores cercadas de campo abaixo dela
+        entram, e as que aparecem acima dela nunca entram.
+        """
+        if self.dynamic is None or not result.field_detected:
+            return 0
+        new = self.dynamic.update(self._seg.img_hsv, result.green_mask, result.field_mask_full)
+        self._apply_lut()
+        return new
+
+    def _apply_lut(self) -> None:
+        if self.dynamic is None:
+            self._seg.lut_verde = self._base_lut
+            return
+        if self._combined_lut is None:
+            self._combined_lut = np.empty_like(self._base_lut)
+        np.maximum(self._base_lut, self.dynamic.lut.reshape(HSV_SHAPE), out=self._combined_lut)
+        self._seg.lut_verde = self._combined_lut
 
     @property
     def vendor_segmenter(self) -> Any:
@@ -210,7 +243,8 @@ class Stage1Segmenter:
         lut = np.zeros((180, 256, 256), dtype=np.uint8)
         (h0, s0, v0), (h1, s1, v1) = lower, upper
         lut[int(h0):int(h1) + 1, int(s0):int(s1) + 1, int(v0):int(v1) + 1] = 255
-        self._seg.lut_verde = lut
+        self._base_lut = lut
+        self._apply_lut()
 
     def set_white_range(self, lower: Sequence[int], upper: Sequence[int]) -> None:
         """Troca o limiar do branco (``branco.lower``/``branco.up``)."""
