@@ -1,11 +1,11 @@
 # visao-cbr26 — branch ivan
 
-> Os comandos abaixo partem da raiz do repositório (a pasta que contém `requirements.txt`).
+> Os comandos abaixo partem da pasta `visao-cbr26/` (a que contém `src/` e `requirements.txt`).
 
 Visão da EDROM para a CBR 2026 (ROS 2 Humble): câmera pelo `usb_cam`, detecção com YOLO
 (`object_finder`) e projeção das detecções no chão com o IPM (`soccer_ipm`).
 
-## Pacotes (`visao-cbr26/src/`)
+## Pacotes (`src/`)
 
 | Pacote | O que faz |
 |---|---|
@@ -21,7 +21,6 @@ Visão da EDROM para a CBR 2026 (ROS 2 Humble): câmera pelo `usb_cam`, detecç�
 ```bash
 pip install -r requirements.txt
 sudo apt install ros-humble-usb-cam
-cd visao-cbr26
 colcon build --symlink-install
 source install/setup.bash
 ```
