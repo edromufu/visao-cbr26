@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!-- Robô de teste (não é a Aurea): torso a 0,30 m do chão com as pernas retas, nomes de link diferentes. -->
+<robot name="robo_teste">
+  <link name="tronco"/>
+  <link name="pescoco"/>
+  <link name="cabeca"/>
+  <link name="coxa_e"/><link name="canela_e"/><link name="pe_e"/>
+  <link name="coxa_d"/><link name="canela_d"/><link name="pe_d"/>
+
+  <joint name="pan" type="revolute">
+    <parent link="tronco"/><child link="pescoco"/>
+    <origin xyz="0 0 0.15" rpy="0 0 0"/><axis xyz="0 0 1"/>
+  </joint>
+  <joint name="tilt" type="revolute">
+    <parent link="pescoco"/><child link="cabeca"/>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/><axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="quadril_e" type="revolute">
+    <parent link="tronco"/><child link="coxa_e"/>
+    <origin xyz="0 0.05 -0.05" rpy="0 0 0"/><axis xyz="0 1 0"/>
+  </joint>
+  <joint name="joelho_e" type="revolute">
+    <parent link="coxa_e"/><child link="canela_e"/>
+    <origin xyz="0 0 -0.1" rpy="0 0 0"/><axis xyz="0 1 0"/>
+  </joint>
+  <joint name="tornozelo_e" type="revolute">
+    <parent link="canela_e"/><child link="pe_e"/>
+    <origin xyz="0 0 -0.1" rpy="0 0 0"/><axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="quadril_d" type="revolute">
+    <parent link="tronco"/><child link="coxa_d"/>
+    <origin xyz="0 -0.05 -0.05" rpy="0 0 0"/><axis xyz="0 1 0"/>
+  </joint>
+  <joint name="joelho_d" type="revolute">
+    <parent link="coxa_d"/><child link="canela_d"/>
+    <origin xyz="0 0 -0.1" rpy="0 0 0"/><axis xyz="0 1 0"/>
+  </joint>
+  <joint name="tornozelo_d" type="revolute">
+    <parent link="canela_d"/><child link="pe_d"/>
+    <origin xyz="0 0 -0.1" rpy="0 0 0"/><axis xyz="0 1 0"/>
+  </joint>
+</robot>

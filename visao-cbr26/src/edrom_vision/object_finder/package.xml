@@ -3,7 +3,8 @@
 <package format="3">
   <name>object_finder</name>
   <version>0.1.0</version>
-  <description>Visão da EDROM com o YOEO-26n (detecção + segmentação de campo e linhas) em OpenVINO.</description>
+  <description>Visão da EDROM com o YOEO-26n (detecção + segmentação de campo e linhas) em OpenVINO, e IPM
+    das detecções com a pose da câmera pela altura fixa do torso ou pela cadeia cinemática (URDF + /joint_states).</description>
   <maintainer email="edromufu@gmail.com">EDROM</maintainer>
   <license>MIT</license>
 
@@ -14,7 +15,15 @@
   <exec_depend>launch</exec_depend>
   <exec_depend>launch_ros</exec_depend>
   <exec_depend>soccer_vision_2d_msgs</exec_depend>
+  <exec_depend>soccer_vision_3d_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>visualization_msgs</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz2</exec_depend>
   <exec_depend>python3-opencv</exec_depend>
+
+  <test_depend>python3-pytest</test_depend>
 
   <export>
     <build_type>ament_python</build_type>
