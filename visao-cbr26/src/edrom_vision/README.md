@@ -50,15 +50,22 @@ ros2 run object_finder segmentar foto.png          # grava foto_segmentada.png
 ros2 run object_finder segmentar 2 --show          # câmera ao vivo
 ```
 
-## Onde fica cada coisa (`object_finder/`)
+## Funcionalidades a mais que a `ivan`
 
-| O quê | Onde |
+Caminhos dentro de `src/edrom_vision/object_finder/`.
+
+| Funcionalidade | Onde |
 |---|---|
-| Nó ROS (`finder`) | `object_finder/connecting_and_showing.py` |
-| Segmentação (sem ROS) e calibrador | `object_finder/pipeline/` |
-| Validação das detecções | `object_finder/detection_validator.py` |
-| Parâmetros | `config/vision_params.yaml` |
-| Comparar e treinar modelos | `object_finder/tools/` |
+| Segmentação por cor (sem ROS): fronteira do campo, obstáculos (vermelho, azul, branco) e pontos das linhas | `object_finder/pipeline/` |
+| Validação do YOLO: bola, trave e robô só valem com a base no campo; interseções precisam de linha branca | `object_finder/detection_validator.py` |
+| Obstáculos: o que a segmentação vê e o YOLO não explicou | `object_finder/pipeline/main_pipeline.py` |
+| Imagem de debug: campo, fronteira, obstáculos e detecções (verde = válida, vermelho = rejeitada) | `object_finder/vision_debug.py` |
+| Parâmetros mudáveis com a visão rodando (`ros2 param set /vision ...`) | `config/vision_params.yaml` |
+| Escolha dos pesos (`model_file:=`); o nó recusa modelo com outras classes | `object_finder/running_inference.py` |
+| Calibração de cor (`calibrar`) | `object_finder/pipeline/calibrate.py` |
+| Simulação no Webots (`simulacao:=true`) e TF da câmera (`publish_tf:=true`) | `launch/vision.launch.py` |
+| Segmentação sem ROS (`segmentar`), comparar e treinar modelos | `object_finder/pipeline/`, `object_finder/tools/` |
+| `robot.sh`: `setup`, `build`, `calibrate` e `run` | raiz do repositório |
 
 Tópicos publicados: `balls_in_image`, `goal_posts_in_image`, `robots_in_image`, `markings_in_image`,
 `field_boundary_in_image`, `obstacles_in_image` e `processed_image_topic` (imagem de debug).
