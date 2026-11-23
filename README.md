@@ -5,6 +5,18 @@ câmera pelo `usb_cam`, mensagens `soccer_interfaces`; os pacotes de IPM entram 
 **estrutura de linhas** (Schulz, Liu, Stückler, Behnke, *Line Structure-based Localization for
 Soccer Robots*, Humanoids 2009) integrada ao YOLO no pacote `object_finder`.
 
+## Teste rápido
+
+```bash
+pip install -r requirements.txt
+cd visao-cbr26 && colcon build --symlink-install && source install/setup.bash
+ros2 launch object_finder vision.launch.py video_device:=/dev/video2   # câmera USB (padrão: /dev/video0)
+ros2 launch object_finder vision.launch.py simulacao:=true              # ou no Webots
+```
+
+Para descobrir o dispositivo da câmera: `v4l2-ctl --list-devices`. Use o primeiro `/dev/videoN` da câmera, porque o segundo é só de metadados.
+Antes de testar no campo real, calibre o verde e o branco (`ros2 run object_finder calibrador`, ver abaixo).
+
 ## Funcionalidades
 
 | Funcionalidade | Onde (`object_finder/object_finder/`) |
