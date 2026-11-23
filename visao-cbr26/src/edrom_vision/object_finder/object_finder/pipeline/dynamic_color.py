@@ -1,5 +1,5 @@
 """
-dynamic_color.py
+Espaço de cor dinâmico do campo (dynamic_color.py).
 
 Espaço de cor DINÂMICO do campo, como na Seção 3.1 ("Color Detector") do artigo
 Fiedler et al., *An Open Source Vision Pipeline Approach for RoboCup Humanoid Soccer*
@@ -21,8 +21,8 @@ As cores aprendidas ficam numa tabela HSV exata (H 0-179, S e V 0-255) que se SO
 espaço calibrado: a calibração base nunca é alterada. Só numpy e OpenCV (sem ROS).
 """
 
-from typing import Deque, Optional
 from collections import deque
+from typing import Deque, Optional
 
 import cv2
 import numpy as np
