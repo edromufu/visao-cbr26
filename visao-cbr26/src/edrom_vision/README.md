@@ -37,8 +37,10 @@ Com outra câmera (ex.: câmera USB em `/dev/video2`) ou outra calibração (pad
 ros2 launch object_finder vision.launch.py video_device:=/dev/video2 camera_name:=verri
 ```
 
-**A imagem é girada 180° antes do YOLO** (`image_rotation`, padrão `180`), porque no robô a câmera
-fica de cabeça para baixo. Testando com a câmera na mão, ou em pé, use `image_rotation:=0`.
+**A imagem é girada 180° antes do YOLO** (`rotate_180: true` em `config/usb_cam.yaml`), porque no robô a
+câmera fica de cabeça para baixo. A janela mostra a imagem em pé; as detecções saem nas coordenadas da imagem
+original da câmera (referencial do `camera_info`, usado pelo IPM). Testando com a câmera na mão, ou em pé, use
+`rotate_180:=False` ou mude o `usb_cam.yaml` (vale também para o `aruco_record` e o `camera_calibrator`).
 
 A configuração da câmera (dispositivo, resolução, formato) fica em
 `src/edrom_vision/object_finder/config/usb_cam.yaml`. Para descobrir o dispositivo:

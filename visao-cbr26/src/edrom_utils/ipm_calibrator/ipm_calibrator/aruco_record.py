@@ -22,14 +22,6 @@ from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
 from sensor_msgs.msg import CameraInfo, Image
 
-# Rotação da janela (graus, sentido horário) -> código do cv2.rotate
-ROTACOES = {
-    90: cv2.ROTATE_90_CLOCKWISE,
-    180: cv2.ROTATE_180,
-    270: cv2.ROTATE_90_COUNTERCLOCKWISE,
-}
-
-
 class ArucoRecord(Node):
 
     def __init__(self):
@@ -37,13 +29,9 @@ class ArucoRecord(Node):
         dicionario = self.declare_parameter('dicionario', 'DICT_5X5_250').value
         pasta = self.declare_parameter('pasta_saida', '').value
         self.mostrar = self.declare_parameter('mostrar', True).value
-        # Só gira a janela (câmera montada girada). Os cantos gravados ficam
-        # sempre em pixels da imagem crua, que é o que K e D descrevem.
-        self.rotacao = int(self.declare_parameter('image_rotation', 0).value) % 360
-        if self.rotacao not in (0, *ROTACOES):
-            self.get_logger().error(
-                f'image_rotation={self.rotacao} inválido (use 0, 90, 180 ou 270); usando 0')
-            self.rotacao = 0
+        # Só gira a janela 180 graus (câmera de cabeça para baixo). Os cantos
+        # gravados ficam sempre em pixels da imagem crua, que é o que K e D descrevem.
+        self.rotate = bool(self.declare_parameter('rotate_180', False).value)
 
         dic = cv2.aruco.getPredefinedDictionary(getattr(cv2.aruco, dicionario))
         if hasattr(cv2.aruco, 'ArucoDetector'):  # OpenCV >= 4.7
@@ -101,8 +89,8 @@ class ArucoRecord(Node):
         if self.mostrar:
             if ids is not None:
                 cv2.aruco.drawDetectedMarkers(imagem, cantos, ids)
-            if self.rotacao:
-                imagem = cv2.rotate(imagem, ROTACOES[self.rotacao])
+            if self.rotate:
+                imagem = cv2.rotate(imagem, cv2.ROTATE_180)
             cv2.putText(imagem, f'frames gravados: {self.n_gravados}', (10, 25),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
             cv2.imshow('aruco_record', imagem)

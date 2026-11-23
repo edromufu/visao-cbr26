@@ -16,14 +16,15 @@ def generate_launch_description():
     usb_cam_params = os.path.join(
         get_package_share_directory('object_finder'), 'config', 'usb_cam.yaml')
     with open(usb_cam_params) as f:
-        camera_name = next(iter(yaml.safe_load(f).values()))['ros__parameters']['camera_name']
+        cam_cfg = next(iter(yaml.safe_load(f).values()))['ros__parameters']
+    camera_name = cam_cfg['camera_name']
 
     return LaunchDescription([
         DeclareLaunchArgument(
-            'image_rotation',
-            default_value='180',
-            description='Rotação (graus, sentido horário: 0, 90, 180 ou 270) da janela, '
-                        'para compensar a câmera montada girada (mesmo do vision.launch)',
+            'rotate_180',
+            default_value=str(cam_cfg.get('rotate_180', False)),
+            description='Gira a janela 180 graus (câmera de cabeça para baixo). '
+                        'Padrão: rotate_180 do config/usb_cam.yaml',
         ),
         Node(
             package='usb_cam',
@@ -41,8 +42,8 @@ def generate_launch_description():
             executable='aruco_record',
             output='screen',
             parameters=[{
-                'image_rotation': ParameterValue(
-                    LaunchConfiguration('image_rotation'), value_type=int),
+                'rotate_180': ParameterValue(
+                    LaunchConfiguration('rotate_180'), value_type=bool),
             }],
             remappings=[
                 ('image_raw', '/camera/image_raw'),

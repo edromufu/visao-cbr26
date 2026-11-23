@@ -45,9 +45,10 @@ def main():
     parser.add_argument('--size', default='8x6')
     parser.add_argument('--square', default='0.025')
     parser.add_argument(
-        '--rotation', type=int, default=180, choices=[0, 180],
+        '--rotation', type=int, default=None, choices=[0, 180],
         help='Gira a imagem mostrada no calibrador (câmera montada de cabeça para '
-             'baixo). O arquivo salvo é sempre para a imagem crua da câmera.')
+             'baixo). Padrão: rotate_180 do usb_cam.yaml. O arquivo salvo é sempre '
+             'para a imagem crua da câmera.')
     args = parser.parse_args()
 
     # <ws>/install/camera_calibrator -> <ws>
@@ -65,8 +66,10 @@ def main():
     params_file = files / 'usb_cam.yaml'
 
     # camera_name (verri ou milare) vem do usb_cam.yaml
-    params = yaml.safe_load(params_file.read_text())
-    camera_name = next(iter(params.values()))['ros__parameters']['camera_name']
+    params = next(iter(yaml.safe_load(params_file.read_text()).values()))['ros__parameters']
+    camera_name = params['camera_name']
+    if args.rotation is None:
+        args.rotation = 180 if params.get('rotate_180', False) else 0
 
     if os.path.exists(TARBALL):
         os.remove(TARBALL)

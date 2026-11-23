@@ -44,10 +44,10 @@ def generate_launch_description():
         ),
 
         DeclareLaunchArgument(
-            "image_rotation",
-            default_value="180",
-            description="Rotação (graus, sentido horário: 0, 90, 180 ou 270) aplicada "
-                        "à imagem antes do YOLO, para compensar a câmera montada girada",
+            "rotate_180",
+            default_value=str(usb_cam_cfg.get("rotate_180", False)),
+            description="Gira a imagem 180 graus antes do YOLO (câmera montada de cabeça "
+                        "para baixo). Padrão: rotate_180 do config/usb_cam.yaml",
         ),
 
         Node(
@@ -72,8 +72,8 @@ def generate_launch_description():
             output='screen',
             parameters=[{
                 "use_sim_time": False,
-                "image_rotation": ParameterValue(
-                    LaunchConfiguration("image_rotation"), value_type=int),
+                "rotate_180": ParameterValue(
+                    LaunchConfiguration("rotate_180"), value_type=bool),
             }],
         ),
         
