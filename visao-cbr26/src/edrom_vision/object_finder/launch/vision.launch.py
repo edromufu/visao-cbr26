@@ -41,6 +41,7 @@ def generate_launch_description():
         "debug_image": arg("debug_image"),
         # O IPM tira a distorção dos pixels detectados com o camera_info: a imagem vai crua para a rede.
         "undistort": False,
+        "rotate_180": arg("rotate_180"),
         "conf_ball": arg("conf_ball"),
         "conf_goalpost": arg("conf_goalpost"),
         "conf_robot": arg("conf_robot"),
@@ -58,6 +59,8 @@ def generate_launch_description():
                               default_value=["package://object_finder/config/", arg("camera_name"),
                                              "_camera-info.yaml"],
                               description="URL do YAML de calibração intrínseca (sem K = IPM usa o fov)"),
+        DeclareLaunchArgument("rotate_180", default_value=str(usb_cam_cfg.get("rotate_180", False)),
+                              description="gira a imagem 180° antes da detecção (padrão: config/usb_cam.yaml)"),
         DeclareLaunchArgument("sim_mode", default_value="False",
                               description="Webots: lê /camera/image e não sobe o usb_cam"),
         # ---------------- YOEO ----------------

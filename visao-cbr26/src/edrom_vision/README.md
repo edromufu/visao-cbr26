@@ -62,6 +62,11 @@ Câmera: `video_device`, `camera_name` (padrão `milare`, escolhe `config/<camer
 A configuração da câmera (dispositivo, resolução, formato) fica em
 `src/edrom_vision/object_finder/config/usb_cam.yaml`.
 
+**A imagem é girada 180° antes do YOEO** (`rotate_180: true` no `usb_cam.yaml`), porque no robô a câmera fica de
+cabeça para baixo. A janela e o `vision_debug` mostram a imagem em pé; as detecções e a máscara saem nas
+coordenadas da imagem original da câmera, que é o referencial do `camera_info` usado pelo IPM. Testando com a
+câmera em pé ou no Webots, use `rotate_180:=False`.
+
 ## Entradas e saídas
 | Tópico | Tipo | |
 |---|---|---|
