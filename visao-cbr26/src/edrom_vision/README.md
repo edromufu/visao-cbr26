@@ -1,6 +1,6 @@
 # visao-cbr26 — branch diego
 
-> Os comandos abaixo partem da raiz do repositório (a pasta que contém `requirements.txt`).
+> Os comandos abaixo partem da pasta `visao-cbr26/` (a que contém `src/` e `requirements.txt`).
 
 Mesma estrutura, mensagens (`soccer_interfaces`), câmera (`usb_cam`), tópicos e launch da branch `ivan`
 (base: detecção com YOLO), com a **validação das detecções pela segmentação do campo (HSV)**.
@@ -9,7 +9,7 @@ Mesma estrutura, mensagens (`soccer_interfaces`), câmera (`usb_cam`), tópicos 
 
 ```bash
 pip install -r requirements.txt
-cd visao-cbr26 && colcon build --symlink-install && source install/setup.bash
+colcon build --symlink-install && source install/setup.bash
 ros2 launch object_finder vision.launch.py video_device:=/dev/video2   # câmera USB (padrão: /dev/video0)
 ros2 launch object_finder vision.launch.py simulacao:=true              # ou no Webots
 ```
@@ -18,7 +18,7 @@ Para descobrir o dispositivo da câmera: `v4l2-ctl --list-devices`. Use o primei
 
 ## Funcionalidades a mais que a `ivan`
 
-Tudo fica em `visao-cbr26/src/edrom_vision/object_finder/`.
+Tudo fica em `src/edrom_vision/object_finder/`.
 
 - **Segmentação por cor** (`object_finder/pipeline/`, não depende de ROS): fronteira do campo (varredura de cima
   para baixo ou, com a câmera inclinada para cima, de baixo para cima), obstáculos classificados por cor
@@ -57,14 +57,13 @@ branch; será integrado depois.
 ## Rodar
 
 ```bash
-cd visao-cbr26
 colcon build && source install/setup.bash
 ros2 launch object_finder vision.launch.py                     # robô real (usb_cam)
 ros2 launch object_finder vision.launch.py simulacao:=true     # Webots
 ros2 launch object_finder vision.launch.py show_window:=false model_file:=/caminho/yolo26n_best.pt
 ```
 
-Ou, na raiz do repositório: `./robot.sh setup` (uma vez) e `./robot.sh run [argumentos do launch]`.
+Ou com o `robot.sh` (fica na raiz do repositório, um nível acima): `../robot.sh setup` (uma vez) e `../robot.sh run [argumentos do launch]`.
 
 ## Segmentação sem ROS
 
@@ -78,7 +77,7 @@ segmentar foto.png --hsv-csv meu_hsv.csv    # CSV: classe,h_min,h_max,s_min,s_ma
 ## Testes
 
 ```bash
-cd visao-cbr26 && colcon build && source install/setup.bash
+colcon build && source install/setup.bash
 cd src/edrom_vision/object_finder
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3 -m pytest test
 ```

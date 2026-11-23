@@ -32,8 +32,8 @@ cmd_setup() {
   rosdep update
   cd "$WS"
   rosdep install --from-paths src --ignore-src -r -y
-  pip3 install --user -r "$REPO/requirements.txt" \
-    || pip3 install --user --break-system-packages -r "$REPO/requirements.txt"
+  pip3 install --user -r "$WS/requirements.txt" \
+    || pip3 install --user --break-system-packages -r "$WS/requirements.txt"
   echo "setup OK. Rode ./robot.sh"
 }
 
