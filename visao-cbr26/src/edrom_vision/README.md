@@ -13,8 +13,14 @@ rm -rf build install log                 # sempre que trocar de branch
 colcon build --symlink-install && source install/setup.bash
 
 ros2 launch object_finder vision.launch.py video_device:=/dev/video2   # câmera USB (padrão: /dev/video0)
-ros2 launch object_finder vision.launch.py simulacao:=true              # Webots
+ros2 launch object_finder vision.launch.py simulacao:=true rotate_180:=false   # Webots
 ```
+
+**A imagem é girada 180° antes da visão** (`rotate_180: true` em `object_finder/config/usb_cam.yaml`), porque no
+robô a câmera fica de cabeça para baixo. O pipeline, a janela e o `processed_image_topic` usam a imagem em pé (o
+`camera_info` também é girado para a projeção própria); os tópicos `*_in_image` (inclusive fronteira, segmentos,
+elipses e `heading_rays`) saem nas coordenadas da imagem original da câmera, que é o referencial do `camera_info`
+usado pelo IPM. Com a câmera em pé ou no Webots, use `rotate_180:=false`.
 
 Para descobrir a câmera: `v4l2-ctl --list-devices` (use o primeiro `/dev/videoN` dela).
 Todos os argumentos: `ros2 launch object_finder vision.launch.py --show-args`.
