@@ -39,6 +39,11 @@ ros2 launch object_finder vision.launch.py video_device:=/dev/video2 camera_name
 Outros argumentos: `model_path`, `threads` (CPU; 0 = automático), `debug_image` (publica `vision_debug`),
 `undistort` (padrão `True`) e `conf_ball`, `conf_goalpost`, `conf_robot`, `conf_intersection` (padrão 0,45).
 
+**A imagem é girada 180° antes do YOEO** (`rotate_180: true` em `config/usb_cam.yaml`), porque no robô a câmera
+fica de cabeça para baixo. A janela e o `vision_debug` mostram a imagem em pé; as detecções e a máscara saem nas
+coordenadas da imagem original da câmera (referencial do `camera_info`). Testando com a câmera em pé ou no
+Webots, use `rotate_180:=False`.
+
 A configuração da câmera (dispositivo, resolução, formato) fica em
 `src/edrom_vision/object_finder/config/usb_cam.yaml`, e a calibração em `config/<camera_name>_camera-info.yaml`.
 Para descobrir o dispositivo: `v4l2-ctl --list-devices` (use o primeiro `/dev/videoN` da câmera).
