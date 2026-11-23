@@ -43,6 +43,8 @@ setup(
             'finder = object_finder.connecting_and_showing:main',
             # segmentação sem ROS em imagem, vídeo ou câmera (= python3 -m object_finder.pipeline)
             'segmentar = object_finder.pipeline.__main__:main',
+            # calibração de cor com a câmera do robô (= python3 -m object_finder.pipeline.calibrate)
+            'calibrar = object_finder.pipeline.calibrate:main',
             # benchmark/acurácia entre modelos e receita de treino do YOLO26n
             'comparar_modelos = object_finder.tools.compare_models:main',
             'treinar_yolo26n = object_finder.tools.train_yolo26n:main',

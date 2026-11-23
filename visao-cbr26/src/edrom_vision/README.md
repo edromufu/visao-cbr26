@@ -33,13 +33,14 @@ Tudo fica em `src/edrom_vision/object_finder/`.
   `ros2 param set /vision ...` (valores inválidos são recusados).
 - **Escolha dos pesos**: `model_file:=` (nome em `modelo/` ou caminho absoluto); o nó recusa um modelo com outro
   esquema de classes (`strict_class_check`).
-- **Calibração do verde**: a faixa do campo sai de `config/green_pixels.csv` (percentis 1 e 99 + margem), ou é
-  fixada no YAML (`hsv.field_min`, `hsv.field_max`, etc.).
+- **Calibração de cor** (`calibrar`): mede verde, branco, vermelho e azul com a câmera do robô e grava um
+  `hsv_params.yaml` para o launch (ver [Calibração de cor](#calibração-de-cor)). Sem calibrar, o verde vem de
+  `config/green_pixels.csv`, gravado no **Webots**.
 - **Simulação no Webots**: `simulacao:=true` usa a câmera do robô AUREA em vez do `usb_cam`.
 - **TF da câmera** pelo launch (`publish_tf:=true cam_z:=... cam_pitch:=...`).
 - **Ferramentas**: `segmentar` (segmentação sem ROS), `comparar_modelos` (YOLOv8n × YOLO26n: velocidade e
   acurácia) e `treinar_yolo26n`.
-- **`robot.sh`**: `setup` (dependências), `build` e `run`.
+- **`robot.sh`**: `setup` (dependências), `build`, `calibrate` e `run`.
 - **Testes** (pytest) em `object_finder/test/`.
 
 ## Tópicos publicados pelo nó `vision`
@@ -81,6 +82,43 @@ colcon build && source install/setup.bash
 cd src/edrom_vision/object_finder
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3 -m pytest test
 ```
+
+## Calibração de cor
+
+Antes da partida, com a câmera do robô, no campo e na iluminação do jogo, e com a visão parada (a câmera só abre
+em um programa por vez):
+
+```bash
+ros2 run object_finder calibrar hsv --source /dev/video2       # com tela: arraste um retângulo sobre cada cor
+```
+
+Na janela: **1** campo, **2** branco, **3** vermelho, **4** azul; arraste sobre a cor; **p** mostra a
+segmentação com as faixas novas; **x** limpa a cor; **s** salva; **q** sai.
+
+Sem tela (robô sem monitor): tire uma foto com grade, escolha as regiões em frações da imagem
+(x, y, largura, altura) e calibre:
+
+```bash
+ros2 run object_finder calibrar snapshot --source /dev/video2  # grava calibracao/snapshot_grade.png
+ros2 run object_finder calibrar hsv --source /dev/video2 \
+    --sample field=0.30,0.70,0.40,0.25 --sample white=0.10,0.72,0.20,0.02
+```
+
+O resultado vai para `calibracao/`, que não vai para o git:
+
+- `hsv_params.yaml`: só as cores calibradas. As outras ficam com o padrão do nó.
+- `hsv.csv`: para `segmentar --hsv-csv`.
+- `hsv_preview.png`: **confira** que o campo ficou verde e as linhas brancas.
+
+Use no launch:
+
+```bash
+ros2 launch object_finder vision.launch.py params_file:=calibracao/hsv_params.yaml
+```
+
+O `../robot.sh calibrate hsv ...` faz o mesmo sem precisar de build, e o `../robot.sh run` já usa
+`calibracao/hsv_params.yaml` se ele existir (`NOCALIB=1` ignora). Também dá para ajustar com a visão
+rodando: `ros2 param set /vision hsv.field_min "[35, 60, 40]"`.
 
 ## Calibração da câmera
 

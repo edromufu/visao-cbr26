@@ -4,6 +4,7 @@
 # Simulação (Webots):    ros2 launch object_finder vision.launch.py simulacao:=true
 # Outras opções:         show_window:=false  model_file:=/caminho/yolo26n_best.pt
 #                        publish_tf:=true cam_z:=0.5 cam_pitch:=0.3  (só se o robô não publica a TF da câmera)
+#                        params_file:=calibracao/hsv_params.yaml     (cores calibradas com `calibrar hsv`)
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
@@ -63,6 +64,8 @@ def generate_launch_description():
                               description="Abre a janela do OpenCV com a imagem de debug"),
         DeclareLaunchArgument("model_file", default_value="best.pt",
                               description="Pesos em modelo/ (ex.: best.pt, yolo26n_best.pt) ou caminho absoluto"),
+        DeclareLaunchArgument("params_file", default_value=vision_params,
+                              description="Faixas HSV calibradas (calibrar hsv); sobrepõem as de vision_params.yaml"),
         DeclareLaunchArgument("output_frame", default_value="base_footprint",
                               description="Frame do corpo do robô (pai da TF da câmera)"),
         DeclareLaunchArgument("camera_frame", default_value=usb_cam_cfg["frame_id"]),
@@ -115,7 +118,7 @@ def generate_launch_description():
             name='vision',
             output='screen',
             emulate_tty=True,
-            parameters=[vision_params, {
+            parameters=[vision_params, LaunchConfiguration("params_file"), {
                 "use_sim_time": ParameterValue(simulacao, value_type=bool),
                 "show_window": ParameterValue(LaunchConfiguration("show_window"), value_type=bool),
                 "model_file": ParameterValue(LaunchConfiguration("model_file"), value_type=str),

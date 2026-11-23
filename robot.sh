@@ -2,12 +2,15 @@
 # Launcher da visão no robô.
 #   ./robot.sh setup            1x (precisa de internet): dependências
 #   ./robot.sh build            compila o workspace visao-cbr26/
+#   ./robot.sh calibrate MODO   calibra as cores com a câmera do robô: hsv | snapshot (veja o README)
 #   ./robot.sh [run] [args]     compila (se preciso) e executa; args = argumentos do vision.launch.py
 # Exemplos:
 #   ./robot.sh run show_window:=false
 #   MODEL=/home/robo/pesos/best.pt ./robot.sh run
 #   ./robot.sh run simulacao:=true
+#   ./robot.sh calibrate hsv --source /dev/video2
 # Variáveis: ROS_DISTRO (humble) | MODEL (best.pt de object_finder/modelo) | NOBUILD=1
+#            CALIB_DIR (visao-cbr26/calibracao: onde o calibrate grava e o run lê) | NOCALIB=1 (run ignora a calibração)
 set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -15,6 +18,7 @@ DISTRO="${ROS_DISTRO:-humble}"
 WS="$REPO/visao-cbr26"
 PKG="object_finder"
 MODEL="${MODEL:-best.pt}"
+CALIB_DIR="${CALIB_DIR:-$WS/calibracao}"
 
 die() { echo "ERRO: $*" >&2; exit 1; }
 source_ros() {
@@ -47,15 +51,30 @@ cmd_build() {
   fi
 }
 
+cmd_calibrate() {
+  [ $# -ge 1 ] || die "uso: ./robot.sh calibrate {hsv|snapshot} [opções]  (veja o README)"
+  # sem ROS e sem build: roda direto do código-fonte
+  exec env PYTHONPATH="$WS/src/edrom_vision/$PKG${PYTHONPATH:+:$PYTHONPATH}" \
+    python3 -m "$PKG.pipeline.calibrate" "$@" --out "$CALIB_DIR"
+}
+
 cmd_run() {
   [ "${NOBUILD:-0}" = 1 ] || cmd_build
   source_ros; source_ws
-  exec ros2 launch "$PKG" vision.launch.py model_file:="$MODEL" "$@"
+  local extra=()
+  if [ "${NOCALIB:-0}" != 1 ] && [ -f "$CALIB_DIR/hsv_params.yaml" ]; then
+    extra+=("params_file:=$CALIB_DIR/hsv_params.yaml")
+    echo "calibração de cor: $CALIB_DIR/hsv_params.yaml"
+  else
+    echo "AVISO: sem calibração de cor ($CALIB_DIR/hsv_params.yaml): usando o verde do Webots." >&2
+  fi
+  exec ros2 launch "$PKG" vision.launch.py model_file:="$MODEL" ${extra[@]+"${extra[@]}"} "$@"
 }
 
 case "${1:-run}" in
   setup) cmd_setup ;;
   build) cmd_build ;;
+  calibrate) shift; cmd_calibrate "$@" ;;
   run)   shift || true; cmd_run "$@" ;;
   *)     cmd_run "$@" ;;   # ./robot.sh show_window:=false também funciona
 esac
