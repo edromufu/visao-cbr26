@@ -3,6 +3,17 @@
 Mesma estrutura, mensagens (`soccer_interfaces`), câmera (`usb_cam`), tópicos e launch da branch `ivan`
 (base: detecção com YOLO), com a **validação das detecções pela segmentação do campo (HSV)**.
 
+## Teste rápido
+
+```bash
+pip install -r requirements.txt
+cd visao-cbr26 && colcon build --symlink-install && source install/setup.bash
+ros2 launch object_finder vision.launch.py video_device:=/dev/video2   # câmera USB (padrão: /dev/video0)
+ros2 launch object_finder vision.launch.py simulacao:=true              # ou no Webots
+```
+
+Para descobrir o dispositivo da câmera: `v4l2-ctl --list-devices`. Use o primeiro `/dev/videoN` da câmera, porque o segundo é só de metadados.
+
 ## Funcionalidades a mais que a `ivan`
 
 Tudo fica em `visao-cbr26/src/edrom_vision/object_finder/`.
