@@ -1,5 +1,7 @@
 # visao-cbr26 — branch diego
 
+> Os comandos abaixo partem da raiz do repositório (a pasta que contém `requirements.txt`).
+
 Mesma estrutura, mensagens (`soccer_interfaces`), câmera (`usb_cam`), tópicos e launch da branch `ivan`
 (base: detecção com YOLO), com a **validação das detecções pela segmentação do campo (HSV)**.
 
