@@ -1,5 +1,7 @@
 # visao-cbr26 — branch ivan
 
+> Os comandos abaixo partem da raiz do repositório (a pasta que contém `requirements.txt`).
+
 Visão da EDROM para a CBR 2026 (ROS 2 Humble): câmera pelo `usb_cam`, detecção com YOLO
 (`object_finder`) e projeção das detecções no chão com o IPM (`soccer_ipm`).
 
