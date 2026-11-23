@@ -49,15 +49,25 @@ ros2 run object_finder line_vision --camera 2
 ros2 run object_finder line_vision --image foto.png --sem-janela --saida out/
 ```
 
-## Onde fica cada coisa (`object_finder/`)
+## Funcionalidades a mais que a `ivan`
 
-| O quê | Onde |
+Caminhos dentro de `src/edrom_vision/object_finder/object_finder/`.
+
+| Funcionalidade | Onde |
 |---|---|
-| Nó ROS (`finder`) | `object_finder/connecting_and_showing.py` |
-| Linhas, cruzamentos e fusão com o YOLO | `object_finder/{stage1_adapter,graph_nodes,crossings,lines,fusion}.py` |
-| Limiares | `config/params.yaml` |
-| Calibração de cor | `object_finder/calibration/` e `config/` |
-| Avaliação e métricas | `tools/` |
+| Fronteira do campo e esqueleto das linhas (código original do artigo) | `vendor/`, `stage1_adapter.py` |
+| Nós e conexões sobre o esqueleto | `graph_nodes.py` |
+| Cruzamentos L/T/X com a direção dos braços | `crossings.py` |
+| Linhas retas e elipse do círculo central | `lines.py` |
+| Fusão com o YOLO: rejeita fora do campo, confirma cruzamentos | `fusion.py` |
+| YOLO `.pt`, `.onnx` ou sem YOLO (`use_yolo:=false`) | `detector.py` |
+| Projeção ao chão própria (`publish_projection:=True`) | `camera_model.py` |
+| Todos os limiares num YAML | `params.py`, `../config/params.yaml` |
+| Imagem de debug (fronteira, esqueleto, linhas, cruzamentos, YOLO, FPS) | `overlay.py` |
+| Modo sem ROS (`line_vision`) | `__main__.py`, `pipeline.py` |
+| Calibração de cor (OpenCV, HTML, captura de fotos, importação) | `calibration/` |
+| Simulação no Webots (`simulacao:=true`) | `../launch/vision.launch.py` |
+| Campo sintético e métricas | `synthetic.py`, `evaluation.py`, `../tools/` |
 
 Tópicos publicados: `balls_in_image`, `goal_posts_in_image`, `robots_in_image`, `markings_in_image`,
 `field_boundary_in_image` e `processed_image_topic` (imagem de debug).
