@@ -13,7 +13,7 @@ Visão da EDROM para a CBR 2026 (ROS 2 Humble): câmera pelo `usb_cam`, detecç�
 | `edrom_vision/soccer_ipm` | Leva as detecções de pixels para metros, no referencial do robô |
 | `edrom_vision/ipm` | Biblioteca e serviços de IPM usados pelo `soccer_ipm` |
 | `edrom_vision/soccer_interfaces` | Mensagens (`soccer_vision_2d_msgs`, `soccer_vision_3d_msgs`, etc.) |
-| `edrom_utils/camera_calibrator` | Calibração intrínseca da câmera (ver o README do pacote) |
+| `edrom_utils/camera_calibrator` | Calibração intrínseca da câmera e medição de desempenho (ver o README do pacote) |
 | `edrom_utils/ipm_calibrator` | `aruco_record`: grava os ArUcos detectados por frame |
 
 ## Instalar e compilar
@@ -31,11 +31,14 @@ source install/setup.bash
 ros2 launch object_finder vision.launch.py
 ```
 
-Com outra câmera (ex.: câmera USB em `/dev/video2`) ou outra calibração:
+Com outra câmera (ex.: câmera USB em `/dev/video2`) ou outra calibração (padrão: `milare`):
 
 ```bash
-ros2 launch object_finder vision.launch.py video_device:=/dev/video2 camera_name:=milare
+ros2 launch object_finder vision.launch.py video_device:=/dev/video2 camera_name:=verri
 ```
+
+**A imagem é girada 180° antes do YOLO** (`image_rotation`, padrão `180`), porque no robô a câmera
+fica de cabeça para baixo. Testando com a câmera na mão, ou em pé, use `image_rotation:=0`.
 
 A configuração da câmera (dispositivo, resolução, formato) fica em
 `src/edrom_vision/object_finder/config/usb_cam.yaml`. Para descobrir o dispositivo:
@@ -44,6 +47,16 @@ A configuração da câmera (dispositivo, resolução, formato) fica em
 ## Calibração
 
 ```bash
-ros2 run camera_calibrator camera_calibrator --size 8x6 --square 0.025   # intrínseca
+ros2 run camera_calibrator camera_calibrator --size 8x6 --square 0.025   # intrínseca (--rotation 0: câmera em pé)
 ros2 launch ipm_calibrator aruco_record.launch.py                         # ArUcos para o IPM
 ```
+
+## Desempenho
+
+Com o `vision.launch` rodando, em outro terminal:
+
+```bash
+ros2 run camera_calibrator desempenho      # fps da câmera, YOLO e IPM, latência e CPU a cada 5 s
+```
+
+**Ctrl+C** mostra o resumo da sessão inteira.

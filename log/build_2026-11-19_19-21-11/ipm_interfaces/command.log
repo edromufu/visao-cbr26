@@ -1,2 +1,0 @@
-Invoking command in '/home/edrom/visao-cbr26/build/ipm_interfaces': /usr/bin/cmake /home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/ipm/ipm_interfaces -DCMAKE_INSTALL_PREFIX=/home/edrom/visao-cbr26/install/ipm_interfaces
-Invoked command in '/home/edrom/visao-cbr26/build/ipm_interfaces' returned '1': /usr/bin/cmake /home/edrom/visao-cbr26/visao-cbr26/src/edrom_vision/ipm/ipm_interfaces -DCMAKE_INSTALL_PREFIX=/home/edrom/visao-cbr26/install/ipm_interfaces
