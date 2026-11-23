@@ -26,12 +26,18 @@ Outros argumentos: `show_window:=false`, `model_file:=/caminho/pesos.pt`, `param
 
 ## Calibração de cor
 
-Sem calibrar, o verde do campo vem do Webots. **Calibre no campo real antes do jogo.** Feche o
-`vision.launch` antes, porque a câmera só abre em um programa por vez.
+Sem calibrar, o verde do campo vem do Webots. **Calibre no campo real antes do jogo.**
 
 ```bash
-ros2 run object_finder calibrar hsv --source /dev/video2
+ros2 run object_finder calibrar hsv --ros                     # pela imagem do usb_cam (recomendado)
+ros2 run object_finder calibrar hsv --source /dev/video2      # direto pelo OpenCV, sem ROS
 ```
+
+Com `--ros`, a imagem vem do `usb_cam` (`/camera/image_raw`), no mesmo formato e com os mesmos controles da
+visão. Se o `vision.launch` estiver rodando, o calibrar usa o tópico dele. Se não, sobe o `usb_cam` com o
+`config/usb_cam.yaml` e o fecha no fim (`--source /dev/videoN` troca a câmera). Sem `--ros`, feche o
+`vision.launch` antes, porque a câmera só abre em um programa por vez. Sem `--source`, o padrão é o
+`video_device` do `usb_cam.yaml`.
 
 Na janela: **1** campo, **2** branco, **3** vermelho, **4** azul. Arraste um retângulo sobre a cor,
 **p** mostra o resultado, **s** salva e **q** sai.

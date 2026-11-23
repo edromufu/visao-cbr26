@@ -1,14 +1,16 @@
 r"""
 calibrar  (= python3 -m object_finder.pipeline.calibrate)
 
-Calibração de cor feita COM A CÂMERA DO ROBÔ, antes da partida. Sem ROS e sem detector: só numpy, OpenCV e
-pandas. (Os intrínsecos da câmera são calibrados com o `camera_calibrator` e lidos pelo `usb_cam`.)
+Calibração de cor feita COM A CÂMERA DO ROBÔ, antes da partida. Abre a câmera direto pelo OpenCV (sem ROS)
+ou, com --ros, pega a imagem do `usb_cam`. (Os intrínsecos da câmera são calibrados com o `camera_calibrator`.)
 
   hsv         faixas HSV do campo (verde), do branco (linhas), do vermelho e do azul
   snapshot    uma foto com grade, para escolher as regiões do `hsv` quando o robô não tem tela
 
-Exemplos (--source: índice N de /dev/videoN, o próprio /dev/videoN, um vídeo ou uma imagem):
+Exemplos (--source: índice N de /dev/videoN, o próprio /dev/videoN, um vídeo ou uma imagem;
+padrão: o video_device do config/usb_cam.yaml):
   calibrar hsv --source 2                      # interativo (precisa de tela): arraste sobre cada cor
+  calibrar hsv --ros                           # imagem do usb_cam (/camera/image_raw); sobe o usb_cam se preciso
   calibrar snapshot --source 2                 # sem tela: foto com grade para escolher as regiões
   calibrar hsv --source 2 --sample field=0.40,0.80,0.20,0.15 --sample white=0.1,0.7,0.1,0.02
 
@@ -17,8 +19,10 @@ Saídas (pasta --out, padrão `calibracao/`):
   hsv.csv           para `segmentar --hsv-csv`
   hsv_preview.png   máscaras e segmentação com as faixas novas: CONFIRA A OLHO antes de usar
 
-A câmera abre com os padrões do `usb_cam.yaml` (640x480). Calibre com a MESMA resolução e as mesmas condições
-(iluminação, exposição) da partida, e com a visão parada (a câmera USB só abre em um programa por vez).
+Sem --ros, a câmera abre com os padrões do `usb_cam.yaml` (640x480) e a visão precisa estar parada (a câmera USB
+só abre em um programa por vez). Com --ros, a imagem vem do `usb_cam` com o mesmo formato e os mesmos controles
+da visão; se a visão estiver rodando, o calibrar usa o tópico dela sem disputar a câmera. Calibre nas mesmas
+condições (iluminação, exposição) da partida.
 """
 
 import argparse
@@ -34,6 +38,7 @@ import numpy as np
 from .color_common import DEFAULT_COLOR_SPACES, ColorSpaceHSV, build_color_detector, load_color_spaces_from_csv
 from .main_pipeline import VisionPipeline, draw_pipeline_overlay
 
+DEFAULT_ROS_TOPIC = '/camera/image_raw'   # tópico do usb_cam no vision.launch.py
 NODE_NAME = 'vision'                  # nome do nó no vision.launch.py: o YAML só vale se bater
 CLASSES = ('field', 'white', 'red', 'blue')
 DEFAULT_MARGIN = (6, 30, 40)          # folga (H, S, V) somada ao intervalo medido
@@ -42,6 +47,7 @@ PIXELS_PER_ADD = 4000                 # pixels sorteados de cada região/quadro 
 MIN_PIXELS = 2000                     # abaixo disso o resultado é pouco confiável
 TINT_BGR = {'field': (0, 200, 0), 'white': (255, 255, 0), 'red': (0, 0, 255), 'blue': (255, 0, 0)}
 GUI_WINDOW = 'calibracao HSV'
+NO_FRAME_TIMEOUT_SEC = 10.0          # interativo: câmera aberta que não entrega quadros vira erro
 
 Roi = Tuple[float, float, float, float]   # x, y, largura, altura, em fração da imagem (0 a 1)
 
@@ -257,8 +263,25 @@ def camera_index(source: str) -> Optional[int]:
     return int(name) if name.isdigit() else None
 
 
-def open_camera(source: str, width: int = 640, height: int = 480, fourcc: str = '') -> cv2.VideoCapture:
-    """Abre /dev/video<N> (ou um arquivo de vídeo) com os padrões do `usb_cam.yaml`."""
+def default_source() -> str:
+    """O video_device do config/usb_cam.yaml (o mesmo da visão); sem o arquivo, a câmera 0."""
+    try:
+        from .ros_camera import read_usb_cam_params
+        return str(read_usb_cam_params().get('video_device', '0'))
+    except Exception:  # yaml ausente ou arquivo inválido
+        return '0'
+
+
+def open_camera(source: str, width: int = 640, height: int = 480, fourcc: str = '',
+                ros_topic: Optional[str] = None):
+    """Abre /dev/video<N> (ou um arquivo de vídeo) com os padrões do `usb_cam.yaml`.
+
+    Com `ros_topic`, a imagem vem do `usb_cam` por esse tópico (`source`, se for /dev/videoN, vira o
+    video_device do usb_cam quando o calibrar precisa subi-lo).
+    """
+    if ros_topic:
+        from .ros_camera import RosCamera
+        return RosCamera(ros_topic, video_device=source if camera_index(source) is not None else None)
     index = camera_index(source)
     if index is not None:
         cap = cv2.VideoCapture(index, cv2.CAP_V4L2)
@@ -280,13 +303,13 @@ def open_camera(source: str, width: int = 640, height: int = 480, fourcc: str = 
 
 def grab_frames(source: str, count: int, skip: int, args: argparse.Namespace) -> Iterator[np.ndarray]:
     """`count` quadros BGR depois de descartar `skip` (a exposição automática precisa estabilizar)."""
-    if is_image(source):
+    if is_image(source) and not args.ros:
         image = cv2.imread(source)
         if image is None:
             raise RuntimeError(f"não foi possível ler a imagem '{source}'")
         yield image
         return
-    cap = open_camera(source, args.width, args.height, args.fourcc)
+    cap = open_camera(source, args.width, args.height, args.fourcc, ros_topic=args.ros)
     try:
         delivered, failures = 0, 0
         total = skip + count
@@ -415,7 +438,7 @@ def run_hsv_gui(args: argparse.Namespace) -> int:
                 state['saved'] = False
                 refit()
 
-    source_is_image = is_image(args.source)
+    source_is_image = is_image(args.source) and not args.ros
     cap = None
     paused = False
     try:
@@ -424,7 +447,8 @@ def run_hsv_gui(args: argparse.Namespace) -> int:
             if state['frame'] is None:
                 raise RuntimeError(f"não foi possível ler a imagem '{args.source}'")
         else:
-            cap = open_camera(args.source, args.width, args.height, args.fourcc)
+            cap = open_camera(args.source, args.width, args.height, args.fourcc, ros_topic=args.ros)
+        started = time.monotonic()
         cv2.namedWindow(GUI_WINDOW, cv2.WINDOW_NORMAL)
         cv2.setMouseCallback(GUI_WINDOW, on_mouse)
         while True:
@@ -433,6 +457,9 @@ def run_hsv_gui(args: argparse.Namespace) -> int:
                 if ok:
                     state['frame'] = frame
             if state['frame'] is None:
+                if time.monotonic() - started > NO_FRAME_TIMEOUT_SEC:
+                    raise RuntimeError(f'a câmera abriu mas não entregou nenhum quadro em {NO_FRAME_TIMEOUT_SEC:.0f} s '
+                                       '(formato/resolução não suportados? tente --fourcc MJPG ou --ros)')
                 time.sleep(0.02)
                 continue
             frame = state['frame']
@@ -502,8 +529,11 @@ def draw_gui(frame, spaces, calibrated, state, samples) -> np.ndarray:
 # --------------------------------------------------------------------------------------------------
 
 def add_camera_options(parser: argparse.ArgumentParser) -> None:
-    parser.add_argument('--source', default='0',
-                        help='câmera (N ou /dev/videoN), vídeo ou imagem (padrão: %(default)s)')
+    parser.add_argument('--source', default=None,
+                        help='câmera (N ou /dev/videoN), vídeo ou imagem (padrão: video_device do usb_cam.yaml)')
+    parser.add_argument('--ros', nargs='?', const=DEFAULT_ROS_TOPIC, default=None, metavar='TOPICO',
+                        help='pega a imagem do usb_cam pelo tópico (padrão: %s); se ninguém publica, sobe o '
+                        'usb_cam com o usb_cam.yaml (--source /dev/videoN troca o video_device)' % DEFAULT_ROS_TOPIC)
     parser.add_argument('--width', type=int, default=640, help='largura pedida à câmera (padrão: %(default)s)')
     parser.add_argument('--height', type=int, default=480, help='altura pedida à câmera (padrão: %(default)s)')
     parser.add_argument('--fourcc', default='', help='formato de captura, ex.: MJPG (padrão: o da câmera)')
@@ -531,7 +561,10 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     hsv.add_argument('--quantiles', type=float, nargs=2, default=DEFAULT_QUANTILES, metavar=('BAIXO', 'ALTO'),
                      help='percentis que definem a faixa (padrão: %(default)s)')
 
-    return parser.parse_args(argv)
+    args = parser.parse_args(argv)
+    if args.source is None:
+        args.source = '' if args.ros else default_source()
+    return args
 
 
 def main(argv: Optional[List[str]] = None) -> int:

@@ -276,3 +276,55 @@ def test_gui_x_clears_the_class_and_s_then_does_nothing(tmp_path, monkeypatch):
     out = tmp_path / 'calib'
     assert cal.main(['hsv', '--source', str(image), '--out', str(out)]) == 0
     assert not out.exists()                                       # sem classe calibrada, 's' não grava
+
+
+# --- calibrar --ros (imagem do usb_cam) ------------------------------------------------------------
+
+def test_ros_option_passes_the_topic_and_the_device_to_open_camera(tmp_path, monkeypatch):
+    calls = []
+
+    class FakeCap:
+        def read(self):
+            return True, dry_grass_frame(0)
+
+        def release(self):
+            pass
+
+    def fake_open(source, *_args, ros_topic=None):
+        calls.append((source, ros_topic))
+        return FakeCap()
+
+    monkeypatch.setattr(cal, 'open_camera', fake_open)
+    assert cal.main(['snapshot', '--ros', '--skip', '0', '--out', str(tmp_path)]) == 0
+    assert cal.main(['snapshot', '--ros', '/robo/img', '--source', '/dev/video2', '--skip', '0',
+                     '--out', str(tmp_path)]) == 0
+    assert calls == [('', cal.DEFAULT_ROS_TOPIC), ('/dev/video2', '/robo/img')]
+
+
+def test_source_defaults_to_the_video_device_of_usb_cam_yaml(monkeypatch):
+    from object_finder.pipeline import ros_camera
+    monkeypatch.setattr(ros_camera, 'read_usb_cam_params', lambda *a: {'video_device': '/dev/video7'})
+    assert cal.parse_args(['snapshot']).source == '/dev/video7'
+    assert cal.parse_args(['snapshot', '--source', '3']).source == '3'
+
+
+def test_ros_image_conversion_handles_rgb_yuyv_and_row_padding():
+    from object_finder.pipeline.ros_camera import image_to_bgr
+    bgr = np.zeros((4, 6, 3), np.uint8)
+    bgr[:] = (10, 200, 30)                                          # verde do campo
+    rgb = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
+    padded = np.zeros((4, 6 * 3 + 2), np.uint8)                     # step maior que largura*3
+    padded[:, :18] = rgb.reshape(4, 18)
+    assert np.array_equal(image_to_bgr('rgb8', 4, 6, 20, padded.tobytes()), bgr)
+    assert np.array_equal(image_to_bgr('bgr8', 4, 6, 18, bgr.tobytes()), bgr)
+
+    def yuyv(y, u, v):                                              # Y U Y V, a mesma cor em todos os pixels
+        return np.tile(np.array([y, u, y, v], np.uint8), (4, 3)).tobytes()
+
+    gray = image_to_bgr('yuv422_yuy2', 4, 6, 12, yuyv(120, 128, 128))
+    assert gray.shape == (4, 6, 3) and np.ptp(gray[0, 0].astype(int)) <= 1   # U = V = 128: sem cor
+    b, g, r = image_to_bgr('yuv422_yuy2', 4, 6, 12, yuyv(128, 70, 42))[0, 0].astype(int)
+    assert g > b + 100 and g > r + 100                              # U e V baixos: verde
+
+    with pytest.raises(RuntimeError, match='não suportado'):
+        image_to_bgr('bayer_rggb8', 4, 6, 6, bytes(24))
