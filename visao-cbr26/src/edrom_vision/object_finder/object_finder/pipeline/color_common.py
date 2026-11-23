@@ -90,9 +90,18 @@ class ColorDetector:
         self.red_color = red_color
         self.blue_color = blue_color
         self.white_color = white_color
+        # Cores do campo aprendidas durante o jogo (dynamic_color.DynamicColorSpace), somadas
+        # à faixa calibrada. O VisionPipeline liga/desliga.
+        self.dynamic_field = None
 
     def field_mask(self, image_bgr: np.ndarray) -> np.ndarray:
-        return self.field_color.mask(image_bgr)
+        return self.field_mask_hsv(cv2.cvtColor(image_bgr, cv2.COLOR_BGR2HSV))
+
+    def field_mask_hsv(self, image_hsv: np.ndarray) -> np.ndarray:
+        mask = self.field_color.mask_hsv(image_hsv)
+        if self.dynamic_field is not None:
+            mask = cv2.bitwise_or(mask, self.dynamic_field.mask(image_hsv))
+        return mask
 
     def marking_mask(self, image_bgr: np.ndarray) -> np.ndarray:
         return self.marking_color.mask(image_bgr)

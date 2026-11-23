@@ -55,6 +55,8 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser.add_argument('--head-tilted-up', action='store_true',
                         help='varredura de baixo para cima (câmera inclinada para cima)')
     parser.add_argument('--seed', type=int, help='semente do sorteio dos pontos de linha')
+    parser.add_argument('--dinamico', action='store_true',
+                        help='espaço de cor dinâmico do campo (aprende o verde ao longo do vídeo/câmera)')
     parser.add_argument('--max-frames', type=int, help='para depois de N quadros')
     parser.add_argument('--show', action='store_true', help='mostra uma janela (q para sair)')
     return parser.parse_args(argv)
@@ -65,7 +67,7 @@ def build_pipeline(args: argparse.Namespace) -> VisionPipeline:
     config = PipelineConfig(
         process_width=args.width, column_step=args.column_step,
         min_obstacle_area=args.min_obstacle_area, n_line_samples=args.line_samples,
-        head_tilted_up=args.head_tilted_up)
+        head_tilted_up=args.head_tilted_up, dynamic_color=args.dinamico)
     return VisionPipeline(build_color_detector(spaces), config, seed=args.seed)
 
 

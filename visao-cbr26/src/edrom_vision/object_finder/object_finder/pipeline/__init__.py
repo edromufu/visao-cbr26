@@ -13,6 +13,7 @@ from .color_common import (
     color_spaces_from_calibration,
     load_color_spaces_from_csv,
 )
+from .dynamic_color import DynamicColorSpace
 from .field_boundary_detector import detect_field_boundary
 from .line_detector import detect_line_points
 from .main_pipeline import (
@@ -26,6 +27,7 @@ from .main_pipeline import (
 from .obstacle_detector import Obstacle, detect_obstacles
 
 __all__ = [
+    "DynamicColorSpace",
     "ColorDetector", "ColorSpaceHSV", "DEFAULT_COLOR_SPACES", "Obstacle",
     "PipelineConfig", "PipelineResult", "VisionPipeline",
     "build_color_detector", "color_spaces_from_calibration",

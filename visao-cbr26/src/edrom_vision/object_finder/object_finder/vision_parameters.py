@@ -63,6 +63,13 @@ def declare_parameters(node: 'Node', hsv_defaults: Mapping[str, ColorSpaceHSV]) 
     node.declare_parameter('pipeline.min_obstacle_area', pipeline.min_obstacle_area)
     node.declare_parameter('pipeline.head_tilted_up', pipeline.head_tilted_up)
 
+    # Espaço de cor dinâmico do campo (artigo Bit-Bots, Seção 3.1): ligado no nó.
+    node.declare_parameter('dynamic_color.enabled', True)
+    node.declare_parameter('dynamic_color.threshold', pipeline.dynamic_threshold)
+    node.declare_parameter('dynamic_color.kernel_size', pipeline.dynamic_kernel_size)
+    node.declare_parameter('dynamic_color.history', pipeline.dynamic_history)
+    node.declare_parameter('dynamic_color.every_n_frames', pipeline.dynamic_every_n_frames)
+
     for name in HSV_CLASSES:
         low, high = hsv_defaults[name].as_min_max()
         node.declare_parameter(f'hsv.{name}_min', low)
@@ -91,6 +98,12 @@ def read_settings(node: 'Node', overrides: Optional[Mapping[str, Any]] = None) -
                 'pipeline.min_obstacle_area', value('pipeline.min_obstacle_area'), 0),
             n_line_samples=0,  # pontos de linha não são publicados nesta versão
             head_tilted_up=bool(value('pipeline.head_tilted_up')),
+            dynamic_color=bool(value('dynamic_color.enabled')),
+            dynamic_threshold=_ratio('dynamic_color.threshold', value('dynamic_color.threshold')),
+            dynamic_kernel_size=_at_least('dynamic_color.kernel_size', value('dynamic_color.kernel_size'), 1),
+            dynamic_history=_at_least('dynamic_color.history', value('dynamic_color.history'), 1),
+            dynamic_every_n_frames=_at_least(
+                'dynamic_color.every_n_frames', value('dynamic_color.every_n_frames'), 1),
         ),
         validation=ValidationConfig(
             enabled=bool(value('validation.enabled')),

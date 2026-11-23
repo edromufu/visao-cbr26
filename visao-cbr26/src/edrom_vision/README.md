@@ -43,6 +43,13 @@ visão rodando, também dá para ajustar na hora: `ros2 param set /vision hsv.fi
 Sem tela no robô: `calibrar snapshot --source /dev/video2` grava uma foto com grade. Depois
 `calibrar hsv --source /dev/video2 --sample field=x,y,largura,altura`, com as frações da imagem.
 
+**Verde dinâmico** (como no artigo dos Bit-Bots, Seção 3.1): com a visão rodando, o nó aprende sozinho os
+tons de verde que estão cercados de campo e abaixo da fronteira, e assim acompanha sombra e mudanças de luz.
+Cores que aparecem acima da fronteira nunca entram, e uma cor que some é esquecida depois de 10 atualizações.
+O aprendido se soma à calibração, que não muda. Vem ligado. Para desligar ou ajustar:
+`ros2 param set /vision dynamic_color.enabled false` (parâmetros em `config/vision_params.yaml`).
+A imagem de debug mostra quantas cores foram aprendidas. Sem ROS: `segmentar jogo.mp4 --dinamico`.
+
 ## Sem ROS
 
 ```bash
@@ -63,6 +70,7 @@ Caminhos dentro de `src/edrom_vision/object_finder/`.
 | Parâmetros mudáveis com a visão rodando (`ros2 param set /vision ...`) | `config/vision_params.yaml` |
 | Escolha dos pesos (`model_file:=`); o nó recusa modelo com outras classes | `object_finder/running_inference.py` |
 | Calibração de cor (`calibrar`) | `object_finder/pipeline/calibrate.py` |
+| Verde dinâmico: aprende o verde com a visão rodando (artigo Bit-Bots) | `object_finder/pipeline/dynamic_color.py` |
 | Simulação no Webots (`simulacao:=true`) e TF da câmera (`publish_tf:=true`) | `launch/vision.launch.py` |
 | Segmentação sem ROS (`segmentar`), comparar e treinar modelos | `object_finder/pipeline/`, `object_finder/tools/` |
 | `robot.sh`: `setup`, `build`, `calibrate` e `run` | raiz do repositório |

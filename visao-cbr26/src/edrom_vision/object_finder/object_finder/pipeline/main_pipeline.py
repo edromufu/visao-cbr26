@@ -25,6 +25,7 @@ import cv2
 import numpy as np
 
 from .color_common import ColorDetector
+from .dynamic_color import DynamicColorSpace, below_boundary_mask, maybe_create
 from .field_boundary_detector import detect_field_boundary
 from .line_detector import detect_line_points
 from .obstacle_detector import Obstacle, detect_obstacles
@@ -41,6 +42,12 @@ class PipelineConfig:
     n_line_samples: int = 800       # amostras aleatorias para os pontos de linha
     head_tilted_up: bool = False    # True -> varredura de baixo para cima
     use_previous_line_points: bool = True
+    # Espaço de cor dinâmico do campo (artigo Bit-Bots, Seção 3.1; ver dynamic_color.py)
+    dynamic_color: bool = False
+    dynamic_threshold: float = 0.6     # fração mínima de vizinhos que já são campo
+    dynamic_kernel_size: int = 3       # janela da vizinhança (px, na resolução de processamento)
+    dynamic_history: int = 10          # atualizações lembradas (uma cor some depois disso)
+    dynamic_every_n_frames: int = 3    # atualiza a cada N quadros (~10 Hz com a câmera a 30 fps)
 
 
 @dataclass
@@ -51,6 +58,7 @@ class PipelineResult:
     line_points: List[Point] = field(default_factory=list)
     hull_mask: Optional[np.ndarray] = None  # resolucao de processamento
     field_detected: bool = False
+    dynamic_colors: int = 0                 # cores do campo aprendidas (0 = espaco dinamico desligado)
 
 
 class VisionPipeline:
@@ -64,14 +72,21 @@ class VisionPipeline:
         self.config = config or PipelineConfig()
         self._rng = np.random.default_rng(seed)
         self._previous_line_points: List[Point] = []  # resolucao de processamento
+        self.dynamic_color: Optional[DynamicColorSpace] = None
+        self._frame_count = 0
 
     def set_color_detector(self, color_detector: ColorDetector) -> None:
+        # As cores aprendidas continuam valendo com a calibracao nova (sao somadas a ela).
         self.color_detector = color_detector
         self._previous_line_points = []
 
     def run(self, image_bgr: np.ndarray) -> PipelineResult:
         cfg = self.config
         h, w = image_bgr.shape[:2]
+        self._frame_count += 1
+        self.dynamic_color = maybe_create(cfg.dynamic_color, cfg.dynamic_threshold,
+                                          cfg.dynamic_kernel_size, cfg.dynamic_history, self.dynamic_color)
+        self.color_detector.dynamic_field = self.dynamic_color
 
         if cfg.process_width > 0 and w > cfg.process_width:
             pw = int(cfg.process_width)
@@ -94,7 +109,13 @@ class VisionPipeline:
             # fronteira, obstaculos nem linhas a reportar. Evita amostrar o
             # branco de paredes/fundo como se fossem linhas do campo.
             self._previous_line_points = []
-            return PipelineResult(hull_mask=hull_mask, field_detected=False)
+            return PipelineResult(hull_mask=hull_mask, field_detected=False,
+                                  dynamic_colors=self._dynamic_colors())
+
+        if self.dynamic_color is not None and self._frame_count % max(1, cfg.dynamic_every_n_frames) == 0:
+            hsv = cv2.cvtColor(small, cv2.COLOR_BGR2HSV)
+            self.dynamic_color.update(hsv, self.color_detector.field_color.mask_hsv(hsv),
+                                      below_boundary_mask(small.shape, boundary))
 
         obstacles = detect_obstacles(
             small,
@@ -130,7 +151,11 @@ class VisionPipeline:
             line_points=[(int(round(x * sx)), int(round(y * sy))) for x, y in line_points],
             hull_mask=hull_mask,
             field_detected=True,
+            dynamic_colors=self._dynamic_colors(),
         )
+
+    def _dynamic_colors(self) -> int:
+        return self.dynamic_color.n_colors if self.dynamic_color is not None else 0
 
 
 # ---------------------------------------------------------------------------
@@ -234,6 +259,8 @@ def draw_pipeline_overlay(image_bgr: np.ndarray, result: PipelineResult) -> np.n
         )
 
     status = "Pipeline: campo OK" if result.field_detected else "Pipeline: sem campo"
+    if result.dynamic_colors:
+        status += f" | verde aprendido: {result.dynamic_colors}"
     cv2.putText(
         debug, status, (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7,
         (0, 255, 0) if result.field_detected else (0, 0, 255), 2,

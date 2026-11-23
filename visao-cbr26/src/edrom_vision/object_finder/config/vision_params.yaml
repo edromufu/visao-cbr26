@@ -27,6 +27,16 @@ vision:
       min_obstacle_area: 150       # px² na resolução de processamento
       head_tilted_up: false        # true = varredura de baixo para cima
 
+    # Espaço de cor dinâmico do campo (artigo Bit-Bots, Seção 3.1): com a visão rodando, aprende
+    # tons de verde (sombra, luz) cercados de campo e abaixo da fronteira; cores que aparecem acima
+    # da fronteira nunca entram. Soma-se às faixas HSV abaixo (que não mudam).
+    dynamic_color:
+      enabled: true
+      threshold: 0.6               # fração mínima de vizinhos que já são campo
+      kernel_size: 3               # janela da vizinhança (px, na resolução de processamento)
+      history: 10                  # atualizações lembradas: uma cor que some sai depois disso
+      every_n_frames: 3            # atualiza a cada N quadros (~10 Hz a 30 fps; ~2 ms por quadro)
+
     # Faixas HSV (OpenCV: H 0-179, S/V 0-255), SEMPRE inteiros.
     # Padrão: campo derivado de share/object_finder/config/green_pixels.csv (+ margem); branco S/V de
     # def_white_threshold.py com hue livre. Descomente para fixar valores.
