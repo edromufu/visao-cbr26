@@ -82,9 +82,9 @@
     <div>
       <button id="bSave" class="save">Gerar arquivos <kbd>S</kbd></button>
       <p class="mut">Baixa <code>calib_AAAAMMDD_HHMMSS.json</code>, <code>green_pixels.csv</code> e
-        <code>white_pixels.csv</code>. Coloque os três numa pasta <code>calibracoes/calib_AAAAMMDD_HHMMSS/</code>
-        (ou rode <code>python3 -m object_finder.calibration.importar_json calib_*.json</code>, que recria tudo e
-        atualiza <code>calibracoes/ultima/</code>).</p>
+        <code>white_pixels.csv</code>. Para usar no robô, rode
+        <code>ros2 run object_finder importar_calibracao calib_*.json</code>: grava a calibração em
+        <code>object_finder/config/</code>, que é a que o <code>vision.launch</code> lê.</p>
     </div>
   </aside>
 </main>
@@ -281,7 +281,7 @@
     var stamp = t.getFullYear() + pad(t.getMonth() + 1) + pad(t.getDate()) + '_' + pad(t.getHours()) + pad(t.getMinutes()) + pad(t.getSeconds());
     var im = S.imgs[S.cur], m = S.metrics, nG = 1;
     for (var c = 0; c < 3; c++) nG *= S.green.upper[c] - S.green.lower[c] + 1;
-    var j = { versao: 1, formato: 'object_finder.calib', origem: 'calibrador.html', criada_em: t.toISOString().slice(0, 19),
+    var j = { versao: 1, formato: 'object_finder.calib', origem: 'calibrador.html', criada_em: t.getFullYear() + '-' + pad(t.getMonth() + 1) + '-' + pad(t.getDate()) + 'T' + pad(t.getHours()) + ':' + pad(t.getMinutes()) + ':' + pad(t.getSeconds()),
       imagens: Array.from(new Set(S.samples.map(function (s) { return s.imagem; }))), resolucao: [im.w, im.h],
       verde: S.green, branco: S.white, ajuste_manual: S.manual, amostras: S.samples, observacoes: '',
       metricas: { campo_detectado: m.campo_detectado, verde_no_campo: m.verde_no_campo, branco_cobre_campo: m.branco_cobre_campo,

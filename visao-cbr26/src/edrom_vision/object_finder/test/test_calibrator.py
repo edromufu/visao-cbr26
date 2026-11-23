@@ -132,3 +132,37 @@ def test_importar_json_do_html(tmp_path):
     lower, up = white_thresholds_from_csv(d / 'white_pixels.csv')
     assert lower.tolist() == [0, 0, 241] and up.tolist() == [179, 37, 255]
     assert (tmp_path / 'cal' / 'ultima' / 'green_pixels.csv').is_file()
+
+
+def test_avaliar_so_precisa_dos_csvs(tmp_path):
+    # o comando do README (`calibrador --avaliar --calib config/`) não pode exigir um calib*.json
+    import shutil
+    from pathlib import Path
+    from object_finder.calibration.calibrator_cv import avaliar
+    config = Path(__file__).resolve().parents[1] / 'config'
+    pasta = tmp_path / 'so_csv'
+    pasta.mkdir()
+    for nome in ('green_pixels.csv', 'white_pixels.csv'):
+        shutil.copy(config / nome, pasta / nome)
+    res = avaliar(pasta, {'campo.png': campo_sintetico()}, tmp_path / 'rel')
+    assert 'campo.png' in res and (tmp_path / 'rel' / 'campo_calib.png').exists()
+
+
+def test_config_tem_calib_json_coerente_com_os_csvs():
+    # o calibrador começa do config/calib.json; ele tem de existir e bater com o branco do white_pixels.csv
+    import json
+    from pathlib import Path
+    config = Path(__file__).resolve().parents[1] / 'config'
+    cal = core.Calibration.from_dict(json.loads((config / 'calib.json').read_text(encoding='utf-8')))
+    lower, upper = white_thresholds_from_csv(str(config / 'white_pixels.csv'))
+    assert list(cal.white.lower[1:]) == [int(v) for v in lower[1:]]
+    assert list(cal.white.upper[1:]) == [int(v) for v in upper[1:]]
+
+
+def test_importar_sem_config_da_erro(tmp_path, monkeypatch):
+    import pytest
+    from object_finder.calibration import importar_json
+    monkeypatch.setattr(core, 'config_dirs', lambda: [])
+    with pytest.raises(SystemExit) as erro:
+        importar_json.main([str(tmp_path / 'calib.json')])
+    assert erro.value.code == 2

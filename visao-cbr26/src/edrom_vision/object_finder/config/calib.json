@@ -1,0 +1,41 @@
+{
+  "versao": 1,
+  "formato": "object_finder.calib",
+  "criada_em": "",
+  "imagens": [],
+  "resolucao": null,
+  "verde": {
+    "lower": [
+      55,
+      154,
+      128
+    ],
+    "upper": [
+      58,
+      174,
+      159
+    ]
+  },
+  "branco": {
+    "lower": [
+      45,
+      0,
+      213
+    ],
+    "upper": [
+      164,
+      43,
+      255
+    ]
+  },
+  "ajuste_manual": false,
+  "amostras": [],
+  "metricas": {},
+  "observacoes": "padrao Webots (mesmos CSVs de calib/padrao_webots); recalibre no campo real",
+  "arquivos": {
+    "verde": "green_pixels.csv",
+    "branco": "white_pixels.csv"
+  },
+  "n_triades_verde": 382,
+  "n_linhas_branco": 1921
+}

@@ -57,7 +57,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument('--sem-config', action='store_true', help='não grava em object_finder/config')
     a = ap.parse_args(argv)
     if not a.sem_config:
-        for d in importar_para_config(Path(a.json), core.config_dirs()):
+        dirs = core.config_dirs()
+        if not dirs:
+            ap.error('object_finder/config nao encontrado (pacote compilado?); use --saida PASTA')
+        for d in importar_para_config(Path(a.json), dirs):
             print(f'calibracao gravada em {d}')
     if a.saida:
         d = importar(Path(a.json), Path(a.saida))

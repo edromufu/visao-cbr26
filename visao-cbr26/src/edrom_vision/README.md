@@ -112,6 +112,7 @@ como referência); no campo real, calibre antes do jogo.
 
 ```bash
 ros2 run object_finder calibrador          # sobe o usb_cam junto (feche o vision.launch antes)
+ros2 run object_finder calibrador --video-device /dev/video2   # outra câmera (padrão: a do usb_cam.yaml)
 ```
 
 Recalibração rápida: **R**, clique no carpete verde, clique no meio de uma linha branca, confira o

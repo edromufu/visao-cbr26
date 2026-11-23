@@ -612,8 +612,8 @@ def load_images(patterns: Sequence[str]) -> Dict[str, np.ndarray]:
 
 def avaliar(calib_dir: Path, images: Dict[str, np.ndarray], out_dir: Optional[Path]) -> Dict[str, Any]:
     """Avalia uma calibração salva nas imagens (sem janela)."""
-    cal, gcsv, wcsv = core.load_calibration_dir(calib_dir)
-    seg = Stage1Segmenter(gcsv, wcsv)
+    calib_dir = Path(calib_dir)
+    seg = Stage1Segmenter(calib_dir / 'green_pixels.csv', calib_dir / 'white_pixels.csv')
     res: Dict[str, Any] = {}
     for name, img in images.items():
         s1 = seg.process(img)
@@ -633,6 +633,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument('--largura', type=int, default=0)
     ap.add_argument('--altura', type=int, default=0)
     ap.add_argument('--ros-topico', default=None, help='topico sensor_msgs/Image (opcional)')
+    ap.add_argument('--video-device', default=None,
+                    help='dispositivo do usb_cam (ex.: /dev/video2); padrao: o do config/usb_cam.yaml')
     ap.add_argument('--saida', default=None,
                     help='opcional: tambem guarda um historico datado nesta pasta (calib_<data>/ + ultima/)')
     ap.add_argument('--sem-config', action='store_true',
@@ -669,7 +671,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         source = RosImageSource(a.ros_topico)
     elif not images:
         # padrão: sobe o usb_cam (mesma config do vision.launch) e lê /camera/image_raw
-        camera_proc = _start_usb_cam()
+        camera_proc = _start_usb_cam(a.video_device)
         from .ros_image import RosImageSource
         source = RosImageSource('/camera/image_raw')
     try:
@@ -685,12 +687,15 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     return 0
 
 
-def _start_usb_cam() -> Any:  # pragma: no cover - precisa de ROS 2 e câmera
+def _start_usb_cam(video_device: Optional[str] = None) -> Any:  # pragma: no cover - precisa de ROS 2 e câmera
     """Sobe o usb_cam com o config/usb_cam.yaml do object_finder (namespace /camera)."""
     from ament_index_python.packages import get_package_share_directory
     params = Path(get_package_share_directory('object_finder')) / 'config' / 'usb_cam.yaml'
-    proc = subprocess.Popen(['ros2', 'run', 'usb_cam', 'usb_cam_node_exe', '--ros-args',
-                             '-r', '__ns:=/camera', '--params-file', str(params)])
+    cmd = ['ros2', 'run', 'usb_cam', 'usb_cam_node_exe', '--ros-args',
+           '-r', '__ns:=/camera', '--params-file', str(params)]
+    if video_device:
+        cmd += ['-p', f'video_device:={video_device}']
+    proc = subprocess.Popen(cmd)
     time.sleep(2)
     if proc.poll() is not None:
         raise SystemExit('usb_cam nao iniciou. A camera ja esta em uso (vision.launch rodando?)')
