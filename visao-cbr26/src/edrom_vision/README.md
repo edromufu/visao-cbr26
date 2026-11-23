@@ -1,5 +1,7 @@
 # visao-cbr26 — branch giovanna
 
+> Os comandos abaixo partem da raiz do repositório (a pasta que contém `requirements.txt`).
+
 Mesma estrutura da branch `ivan` (`visao-cbr26/src/edrom_vision/{object_finder, soccer_interfaces}`,
 câmera pelo `usb_cam`, mensagens `soccer_interfaces`; os pacotes de IPM entram depois), com a visão por
 **estrutura de linhas** (Schulz, Liu, Stückler, Behnke, *Line Structure-based Localization for
