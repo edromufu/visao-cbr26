@@ -130,3 +130,43 @@ def _intersection(detection: Detection) -> sv2dm.MarkingIntersection:
     intersection.heading_rays = []  # o modelo não estima a direção dos raios
     intersection.confidence.confidence = float(detection.confidence)
     return intersection
+
+
+# ----------------------------------------------------------------------
+# Câmera de cabeça para baixo
+# ----------------------------------------------------------------------
+
+def rotate_message_180(message, width: float, height: float):
+    """Leva os pixels de uma mensagem `*_in_image` da imagem girada 180 graus para a original.
+
+    O nó processa a imagem em pé (girada), mas publica nas coordenadas da imagem
+    original da câmera, que é o referencial do camera_info usado pelo soccer_ipm.
+    Girar 180 graus: x -> width - x, y -> height - y; os tamanhos não mudam.
+    """
+    def point(p):
+        p.x, p.y = float(width - p.x), float(height - p.y)
+
+    def box(b):
+        point(b.center.position)
+
+    if isinstance(message, sv2dm.BallArray):
+        for ball in message.balls:
+            point(ball.center)
+            box(ball.bb)
+    elif isinstance(message, sv2dm.GoalpostArray):
+        for post in message.posts:
+            box(post.bb)
+    elif isinstance(message, sv2dm.RobotArray):
+        for robot in message.robots:
+            box(robot.bb)
+    elif isinstance(message, sv2dm.MarkingArray):
+        for intersection in message.intersections:
+            point(intersection.center)
+    elif isinstance(message, sv2dm.FieldBoundary):
+        for p in message.points:
+            point(p)
+        message.points = list(message.points)[::-1]   # mantém a ordem da esquerda para a direita
+    elif isinstance(message, sv2dm.ObstacleArray):
+        for obstacle in message.obstacles:
+            box(obstacle.bb)
+    return message

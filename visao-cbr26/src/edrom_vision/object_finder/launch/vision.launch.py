@@ -58,6 +58,9 @@ def generate_launch_description():
             description="URL do YAML de calibração intrínseca da câmera",
         ),
 
+        DeclareLaunchArgument("rotate_180", default_value=str(usb_cam_cfg.get("rotate_180", False)),
+                              description="Gira a imagem 180 graus antes da visão (câmera de cabeça para baixo). "
+                                          "Padrão: rotate_180 do config/usb_cam.yaml; no Webots use false"),
         DeclareLaunchArgument("simulacao", default_value="false",
                               description="true = câmera do Webots (AUREA) em vez do usb_cam"),
         DeclareLaunchArgument("show_window", default_value="true",
@@ -122,6 +125,7 @@ def generate_launch_description():
                 "use_sim_time": ParameterValue(simulacao, value_type=bool),
                 "show_window": ParameterValue(LaunchConfiguration("show_window"), value_type=bool),
                 "model_file": ParameterValue(LaunchConfiguration("model_file"), value_type=str),
+                "rotate_180": ParameterValue(LaunchConfiguration("rotate_180"), value_type=bool),
             }],
             remappings=[
                 ("/camera/image_raw", PythonExpression([

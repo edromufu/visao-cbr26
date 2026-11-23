@@ -42,6 +42,7 @@ from object_finder.vision_messages import (
     build_detection_messages,
     build_field_boundary_message,
     build_obstacle_array_message,
+    rotate_message_180,
 )
 from object_finder.vision_parameters import (
     VisionSettings,
@@ -77,6 +78,12 @@ class YoloSimulacao(Node):
         # 2. Ponte CV <-> ROS
         self.bridge = CvBridge()
 
+        # Câmera de cabeça para baixo (rotate_180 em config/usb_cam.yaml): o frame é girado
+        # 180 graus antes de tudo e as mensagens voltam para a imagem original da câmera.
+        self.rotate = bool(self.declare_parameter('rotate_180', False).value)
+        self.image_size = (0, 0)
+        self.get_logger().info(f'Rotação da imagem: {"180 graus" if self.rotate else "nenhuma"}')
+
         # 3. Parâmetros, segmentação e validação
         declare_parameters(self, default_hsv_ranges(green_csv))
         self.settings: VisionSettings = read_settings(self)
@@ -106,6 +113,9 @@ class YoloSimulacao(Node):
     def image_callback(self, image_msg: ROS_Image) -> None:
         try:
             frame = self.bridge.imgmsg_to_cv2(image_msg, desired_encoding='bgr8')
+            if self.rotate:
+                frame = cv2.rotate(frame, cv2.ROTATE_180)
+            self.image_size = (frame.shape[1], frame.shape[0])
 
             detections = self._detect(frame)
             segmentation = self.pipeline.run(frame)
@@ -128,10 +138,10 @@ class YoloSimulacao(Node):
         accepted = [verdict.detection for verdict in verdicts if verdict.accepted]
 
         messages = build_detection_messages(header, accepted)
-        self.pub_ball.publish(messages.balls)
-        self.pub_goal.publish(messages.goalposts)
-        self.pub_robot.publish(messages.robots)
-        self.pub_inter.publish(messages.markings)
+        self.pub_ball.publish(self._to_camera_image(messages.balls))
+        self.pub_goal.publish(self._to_camera_image(messages.goalposts))
+        self.pub_robot.publish(self._to_camera_image(messages.robots))
+        self.pub_inter.publish(self._to_camera_image(messages.markings))
 
         if self.settings.publish_segmentation:
             self._publish_segmentation(header, segmentation, accepted)
@@ -146,12 +156,18 @@ class YoloSimulacao(Node):
     ) -> None:
         boundary = build_field_boundary_message(header, segmentation.field_boundary)
         if boundary is not None:  # fronteira vazia derruba o soccer_ipm
-            self.pub_boundary.publish(boundary)
+            self.pub_boundary.publish(self._to_camera_image(boundary))
 
         # Obstáculo = o que a segmentação viu e o YOLO não explicou como bola/trave/robô.
         known_boxes = [d.xyxy for d in accepted if d.yolo_class in FIELD_OBJECT_CLASSES]
         obstacles = fuse_obstacles_with_detections(segmentation.obstacles, known_boxes)
-        self.pub_obstacles.publish(build_obstacle_array_message(header, obstacles))
+        self.pub_obstacles.publish(self._to_camera_image(build_obstacle_array_message(header, obstacles)))
+
+    def _to_camera_image(self, message):
+        """Pixels da imagem em pé -> imagem original da câmera (só com rotate_180)."""
+        if not self.rotate:
+            return message
+        return rotate_message_180(message, *self.image_size)
 
     def _publish_debug(self, header: Header, frame, segmentation: PipelineResult,
                        verdicts: Sequence[Verdict]) -> None:
