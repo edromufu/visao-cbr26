@@ -1,8 +1,8 @@
 # visao-cbr26 — branch giovanna
 
-> Os comandos abaixo partem da raiz do repositório (a pasta que contém `requirements.txt`).
+> Os comandos abaixo partem da pasta `visao-cbr26/` (a que contém `src/` e `requirements.txt`).
 
-Mesma estrutura da branch `ivan` (`visao-cbr26/src/edrom_vision/{object_finder, soccer_interfaces}`,
+Mesma estrutura da branch `ivan` (`src/edrom_vision/{object_finder, soccer_interfaces}`,
 câmera pelo `usb_cam`, mensagens `soccer_interfaces`; os pacotes de IPM entram depois), com a visão por
 **estrutura de linhas** (Schulz, Liu, Stückler, Behnke, *Line Structure-based Localization for
 Soccer Robots*, Humanoids 2009) integrada ao YOLO no pacote `object_finder`.
@@ -11,7 +11,7 @@ Soccer Robots*, Humanoids 2009) integrada ao YOLO no pacote `object_finder`.
 
 ```bash
 pip install -r requirements.txt
-cd visao-cbr26 && colcon build --symlink-install && source install/setup.bash
+colcon build --symlink-install && source install/setup.bash
 ros2 launch object_finder vision.launch.py video_device:=/dev/video2   # câmera USB (padrão: /dev/video0)
 ros2 launch object_finder vision.launch.py simulacao:=true              # ou no Webots
 ```
@@ -70,7 +70,6 @@ Independente dele, o nó projeta sozinho cruzamentos e linhas com `publish_proje
 
 ```bash
 pip install -r requirements.txt      # + onnxruntime se for usar modelo .onnx sem ultralytics
-cd visao-cbr26
 colcon build
 source install/setup.bash
 
@@ -99,7 +98,7 @@ ros2 run object_finder line_vision --camera 0      # janela ao vivo (calibraçã
 ros2 run object_finder line_vision --image foto.png pasta/ --sem-janela --saida out/   # overlays + JSON
 ros2 run object_finder line_vision --video jogo.mp4 --sem-yolo
 ```
-(ou `python3 -m object_finder ...` a partir de `visao-cbr26/src/edrom_vision/object_finder`).
+(ou `python3 -m object_finder ...` a partir de `src/edrom_vision/object_finder`).
 
 ## Calibração de cor
 
@@ -131,7 +130,7 @@ ros2 run object_finder calibrador --imagens ~/frames
 `--sem-config` grava só nele. **H** mostra todas as teclas
 (**G**/**B** pintar verde/branco, **A** ajusta o branco da borda, **F** congela, **V** troca a vista,
 **U** desfaz...). Para conferir uma calibração sem janela:
-`ros2 run object_finder calibrador --avaliar --calib visao-cbr26/src/edrom_vision/object_finder/config --imagens ~/frames --relatorio conferencia/`.
+`ros2 run object_finder calibrador --avaliar --calib src/edrom_vision/object_finder/config --imagens ~/frames --relatorio conferencia/`.
 
 **Calibrador HTML** (sem câmera no computador, offline): capture frames onde a câmera funciona
 
@@ -165,6 +164,6 @@ Para usar outra pasta (ex.: um histórico): `calib_dir:=~/calibracoes/ultima` (l
 ## Testes
 
 ```bash
-cd visao-cbr26/src/edrom_vision/object_finder
+cd src/edrom_vision/object_finder
 python3 -m pytest test        # inclui o nó ROS com rclpy simulado e os linters do ament
 ```
