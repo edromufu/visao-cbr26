@@ -1,0 +1,8 @@
+# Gerado por `calibrar hsv`. Use: ros2 launch object_finder vision.launch.py params_file:=<este arquivo>
+vision:
+  ros__parameters:
+    hsv:
+      field_min: [42, 14, 187]
+      field_max: [61, 91, 255]
+      white_min: [0, 0, 206]
+      white_max: [179, 30, 255]
