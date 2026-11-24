@@ -123,6 +123,9 @@ class YoeoVision(Node):
         self.pub_debug = self.create_publisher(Image, 'vision/debug_image', 1)
 
         self.n = 0
+        self.last_frame_time = None
+        # Sem imagem nenhuma o no fica mudo (e a janela nao abre): avisa no log
+        self.create_timer(3.0, self.check_camera)
         self.t_det = 0.0
         self.t_seg = 0.0
         self.t_total = 0.0
@@ -134,7 +137,15 @@ class YoeoVision(Node):
         except Exception as e:  # nao derruba o no por causa de um frame ruim
             self.get_logger().error(f'Erro processando frame: {e}')
 
+    def check_camera(self):
+        now = time.monotonic()
+        if self.last_frame_time is None or now - self.last_frame_time > 3.0:
+            self.get_logger().warn(
+                f'Nenhuma imagem chegando em {self.image_topic}. A camera esta conectada '
+                f'(ls /dev/video*) e o usb_cam subiu sem erro? Confira o video_device.')
+
     def process(self, msg):
+        self.last_frame_time = time.monotonic()
         t0 = time.perf_counter()
         frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
         w = frame.shape[1]
