@@ -3,7 +3,7 @@
 <package format="3">
   <name>object_finder</name>
   <version>0.0.1</version>
-  <description>Pacote de detecção de objetos para a EDROM usando YOLO, com detecções validadas pela segmentação do campo (HSV), fronteira do campo e obstáculos.</description>
+  <description>Pacote de detecção de objetos para a EDROM usando YOLO, com detecções validadas pela segmentação do campo (HSV) e fronteira do campo.</description>
   <maintainer email="edromufu@gmail.com">EDROM</maintainer>
   <license>MIT</license>
 

@@ -1,7 +1,7 @@
 """
 vision_debug.py
 
-Imagem de debug: campo segmentado, fronteira, obstáculos e o veredito da
+Imagem de debug: campo segmentado, fronteira e o veredito da
 validação de cada detecção do YOLO. Independente de ROS.
 
 Legenda: verde = detecção válida; vermelho = rejeitada (com o motivo);

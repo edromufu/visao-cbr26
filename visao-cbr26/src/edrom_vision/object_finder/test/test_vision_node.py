@@ -69,17 +69,9 @@ def test_segmentation_topics_and_debug_image(make_harness):
 
     (boundary,) = out['field_boundary_in_image']
     assert len(boundary.points) > 50
-    # trave e robô já foram explicados pelo YOLO, então não sobram obstáculos
-    assert out['obstacles_in_image'][0].obstacles == []
 
     (debug,) = out['processed_image_topic']
     assert (debug.height, debug.width) == make_scene().shape[:2]
-
-
-def test_unexplained_obstacle_is_published_when_yolo_misses_it(make_harness):
-    harness = make_harness(scripted=[])   # YOLO não viu a trave nem o robô
-    out = harness.process(make_scene())
-    assert len(out['obstacles_in_image'][0].obstacles) == 2
 
 
 def test_without_field_arrays_are_empty_and_boundary_is_not_published(make_harness):

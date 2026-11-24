@@ -1,7 +1,7 @@
 r"""
 python3 -m object_finder.pipeline
 
-Executa a segmentação (fronteira do campo, obstáculos e pontos de linha) em uma imagem, um vídeo
+Executa a segmentação (fronteira do campo e pontos de linha) em uma imagem, um vídeo
 ou uma câmera, SEM ROS e SEM detector de objetos: só precisa de numpy, OpenCV e pandas.
 
 Exemplos:
@@ -48,8 +48,6 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
                         help='largura de processamento em px; 0 = sem redução (padrão: %(default)s)')
     parser.add_argument('--column-step', type=int, default=PipelineConfig.column_step,
                         help='1 coluna a cada N na varredura da fronteira (padrão: %(default)s)')
-    parser.add_argument('--min-obstacle-area', type=int, default=PipelineConfig.min_obstacle_area,
-                        help='área mínima de obstáculo em px² (padrão: %(default)s)')
     parser.add_argument('--line-samples', type=int, default=PipelineConfig.n_line_samples,
                         help='amostras para os pontos de linha; 0 desliga (padrão: %(default)s)')
     parser.add_argument('--head-tilted-up', action='store_true',
@@ -66,7 +64,7 @@ def build_pipeline(args: argparse.Namespace) -> VisionPipeline:
     spaces = load_color_spaces_from_csv(str(args.hsv_csv)) if args.hsv_csv else DEFAULT_COLOR_SPACES
     config = PipelineConfig(
         process_width=args.width, column_step=args.column_step,
-        min_obstacle_area=args.min_obstacle_area, n_line_samples=args.line_samples,
+        n_line_samples=args.line_samples,
         head_tilted_up=args.head_tilted_up, dynamic_color=args.dinamico)
     return VisionPipeline(build_color_detector(spaces), config, seed=args.seed)
 

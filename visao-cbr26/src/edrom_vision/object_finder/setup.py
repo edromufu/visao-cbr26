@@ -34,7 +34,7 @@ setup(
     
     zip_safe=True,
     description='Pacote de detecção de objetos para a EDROM',
-    long_description='Detecta bola, robôs e interseções com YOLO, valida as detecções pela segmentação do campo (HSV) e publica a fronteira do campo e os obstáculos.',
+    long_description='Detecta bola, robôs e interseções com YOLO, valida as detecções pela segmentação do campo (HSV) e publica a fronteira do campo.',
     license='MIT',
     
     entry_points={

@@ -22,16 +22,14 @@ from .main_pipeline import (
     VisionPipeline,
     draw_pipeline_overlay,
     filter_points_in_boxes,
-    fuse_obstacles_with_detections,
 )
-from .obstacle_detector import Obstacle, detect_obstacles
 
 __all__ = [
     "DynamicColorSpace",
-    "ColorDetector", "ColorSpaceHSV", "DEFAULT_COLOR_SPACES", "Obstacle",
+    "ColorDetector", "ColorSpaceHSV", "DEFAULT_COLOR_SPACES",
     "PipelineConfig", "PipelineResult", "VisionPipeline",
     "build_color_detector", "color_spaces_from_calibration",
-    "detect_field_boundary", "detect_line_points", "detect_obstacles",
+    "detect_field_boundary", "detect_line_points",
     "draw_pipeline_overlay", "filter_points_in_boxes",
-    "fuse_obstacles_with_detections", "load_color_spaces_from_csv",
+    "load_color_spaces_from_csv",
 ]

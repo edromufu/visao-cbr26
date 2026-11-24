@@ -8,11 +8,9 @@ sv2dm = pytest.importorskip('soccer_vision_2d_msgs.msg')
 from std_msgs.msg import Header  # noqa: E402
 
 from object_finder.detections import Detection, YoloClass  # noqa: E402
-from object_finder.pipeline import Obstacle  # noqa: E402
 from object_finder.vision_messages import (  # noqa: E402
     build_detection_messages,
     build_field_boundary_message,
-    build_obstacle_array_message,
     rotate_message_180,
 )
 
@@ -75,15 +73,6 @@ def test_field_boundary_is_none_when_empty_and_float_points_otherwise():
     assert [(p.x, p.y) for p in message.points] == [(0.0, 360.0), (4.0, 361.0)]
 
 
-def test_obstacle_message_uses_box_center():
-    obstacle = Obstacle(x=10, y=20, width=30, height=40, color_class='white')
-    message = build_obstacle_array_message(make_header(), [obstacle])
-    bb = message.obstacles[0].bb
-    assert (bb.center.position.x, bb.center.position.y) == (25.0, 40.0)
-    assert (bb.size_x, bb.size_y) == (30.0, 40.0)
-    assert build_obstacle_array_message(make_header(), []).obstacles == []
-
-
 def test_rotate_180_goes_back_to_camera_image():
     messages = build_detection_messages(make_header(), [
         make_detection(YoloClass.BALL, cx=100, cy=200, w=40, h=60),
@@ -102,7 +91,3 @@ def test_rotate_180_goes_back_to_camera_image():
     boundary = rotate_message_180(
         build_field_boundary_message(make_header(), [(0, 100), (640, 120)]), 640, 480)
     assert [(p.x, p.y) for p in boundary.points] == [(0.0, 360.0), (640.0, 380.0)]
-
-    obstacles = rotate_message_180(
-        build_obstacle_array_message(make_header(), [Obstacle(10, 20, 30, 40, "unknown")]), 640, 480)
-    assert (obstacles.obstacles[0].bb.center.position.x, obstacles.obstacles[0].bb.center.position.y) == (615.0, 440.0)

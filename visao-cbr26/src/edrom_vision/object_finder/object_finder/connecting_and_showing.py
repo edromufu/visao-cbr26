@@ -5,7 +5,7 @@ connecting_and_showing.py
 Nó de visão (object_finder). Fluxo de cada frame da câmera:
 
     imagem -> YOLOv8 (detecções) ----------------------+
-          \\-> pipeline de segmentação (campo, obstáculos) -> validação -> tópicos ROS 2
+          \\-> pipeline de segmentação (campo) -> validação -> tópicos ROS 2
 
 Uma detecção só é publicada se estiver dentro da área segmentada (veja
 `detection_validator`). Os tópicos `*_in_image` são consumidos pelo
@@ -28,10 +28,9 @@ from sensor_msgs.msg import Image as ROS_Image
 from std_msgs.msg import Header
 
 import object_finder.running_inference as ri
-from object_finder.pipeline import PipelineResult, VisionPipeline, fuse_obstacles_with_detections
+from object_finder.pipeline import PipelineResult, VisionPipeline
 from object_finder.detection_validator import DetectionValidator
 from object_finder.detections import (
-    FIELD_OBJECT_CLASSES,
     Detection,
     Verdict,
     class_name_mismatches,
@@ -41,7 +40,6 @@ from object_finder.vision_debug import draw_debug_image
 from object_finder.vision_messages import (
     build_detection_messages,
     build_field_boundary_message,
-    build_obstacle_array_message,
     rotate_message_180,
 )
 from object_finder.vision_parameters import (
@@ -98,8 +96,6 @@ class YoloSimulacao(Node):
         self.pub_inter = self.create_publisher(sv2dm.MarkingArray, 'markings_in_image', 1)
         self.pub_boundary = self.create_publisher(
             sv2dm.FieldBoundary, 'field_boundary_in_image', 1)
-        self.pub_obstacles = self.create_publisher(
-            sv2dm.ObstacleArray, 'obstacles_in_image', 1)
 
         # 5. Debug e entrada da câmera
         self.debug_pub = self.create_publisher(ROS_Image, 'processed_image_topic', 10)
@@ -144,24 +140,17 @@ class YoloSimulacao(Node):
         self.pub_inter.publish(self._to_camera_image(messages.markings))
 
         if self.settings.publish_segmentation:
-            self._publish_segmentation(header, segmentation, accepted)
+            self._publish_segmentation(header, segmentation)
 
         self.get_logger().info(
             f'YOLO: {len(verdicts)} | válidas: {len(accepted)} | '
             f'campo: {"sim" if segmentation.field_detected else "não"}',
             throttle_duration_sec=LOG_PERIOD_SEC)
 
-    def _publish_segmentation(
-        self, header: Header, segmentation: PipelineResult, accepted: Sequence[Detection],
-    ) -> None:
+    def _publish_segmentation(self, header: Header, segmentation: PipelineResult) -> None:
         boundary = build_field_boundary_message(header, segmentation.field_boundary)
         if boundary is not None:  # fronteira vazia derruba o soccer_ipm
             self.pub_boundary.publish(self._to_camera_image(boundary))
-
-        # Obstáculo = o que a segmentação viu e o YOLO não explicou como bola/trave/robô.
-        known_boxes = [d.xyxy for d in accepted if d.yolo_class in FIELD_OBJECT_CLASSES]
-        obstacles = fuse_obstacles_with_detections(segmentation.obstacles, known_boxes)
-        self.pub_obstacles.publish(self._to_camera_image(build_obstacle_array_message(header, obstacles)))
 
     def _to_camera_image(self, message):
         """Pixels da imagem em pé -> imagem original da câmera (só com rotate_180)."""

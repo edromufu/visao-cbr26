@@ -1,7 +1,7 @@
 # visao-cbr26 — branch diego
 
 Detecção com YOLO (bola, trave, robô, interseções) **validada pela segmentação do campo** (cores HSV), no
-pacote `object_finder`. Também publica a fronteira do campo e os obstáculos. Câmera pelo `usb_cam`.
+pacote `object_finder`. Também publica a fronteira do campo. Câmera pelo `usb_cam`.
 
 > Os comandos partem da pasta `visao-cbr26/` (a que contém `src/` e `requirements.txt`).
 
@@ -18,7 +18,7 @@ ros2 launch object_finder vision.launch.py simulacao:=true rotate_180:=false   #
 
 **A imagem é girada 180° antes da visão** (`rotate_180: true` em `object_finder/config/usb_cam.yaml`), porque no
 robô a câmera fica de cabeça para baixo. A janela e o `processed_image_topic` mostram a imagem em pé; os tópicos
-`*_in_image` (inclusive fronteira e obstáculos) saem nas coordenadas da imagem original da câmera, que é o
+`*_in_image` (inclusive a fronteira) saem nas coordenadas da imagem original da câmera, que é o
 referencial do `camera_info` usado pelo IPM. Com a câmera em pé ou no Webots, use `rotate_180:=false`.
 
 Para descobrir a câmera: `v4l2-ctl --list-devices` (use o primeiro `/dev/videoN` dela).
@@ -74,10 +74,9 @@ Caminhos dentro de `src/edrom_vision/object_finder/`.
 
 | Funcionalidade | Onde |
 |---|---|
-| Segmentação por cor (sem ROS): fronteira do campo, obstáculos (vermelho, azul, branco) e pontos das linhas | `object_finder/pipeline/` |
+| Segmentação por cor (sem ROS): fronteira do campo e pontos das linhas | `object_finder/pipeline/` |
 | Validação do YOLO: bola, trave e robô só valem com a base no campo; interseções precisam de linha branca | `object_finder/detection_validator.py` |
-| Obstáculos: o que a segmentação vê e o YOLO não explicou | `object_finder/pipeline/main_pipeline.py` |
-| Imagem de debug: campo, fronteira, obstáculos e detecções (verde = válida, vermelho = rejeitada) | `object_finder/vision_debug.py` |
+| Imagem de debug: campo, fronteira e detecções (verde = válida, vermelho = rejeitada) | `object_finder/vision_debug.py` |
 | Parâmetros mudáveis com a visão rodando (`ros2 param set /vision ...`) | `config/vision_params.yaml` |
 | Escolha dos pesos (`model_file:=`); o nó recusa modelo com outras classes | `object_finder/running_inference.py` |
 | Calibração de cor (`calibrar`) | `object_finder/pipeline/calibrate.py` |
@@ -87,7 +86,7 @@ Caminhos dentro de `src/edrom_vision/object_finder/`.
 | `robot.sh`: `setup`, `build`, `calibrate` e `run` | raiz do repositório |
 
 Tópicos publicados: `balls_in_image`, `goal_posts_in_image`, `robots_in_image`, `markings_in_image`,
-`field_boundary_in_image`, `obstacles_in_image` e `processed_image_topic` (imagem de debug).
+`field_boundary_in_image` e `processed_image_topic` (imagem de debug).
 
 O `config/verri_camera-info.yaml` é provisório: gere o real com o `camera_calibrator` da branch `ivan`.
 

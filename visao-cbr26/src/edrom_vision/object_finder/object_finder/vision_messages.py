@@ -16,7 +16,6 @@ from std_msgs.msg import Header
 from vision_msgs.msg import BoundingBox2D, Point2D
 
 from .detections import Detection, YoloClass
-from object_finder.pipeline import Obstacle
 
 # Número de raios (linhas que saem do ponto) de cada tipo de interseção.
 INTERSECTION_NUM_RAYS = {
@@ -69,22 +68,6 @@ def build_field_boundary_message(
         return None
     message = sv2dm.FieldBoundary(header=header)
     message.points = [Point2D(x=float(x), y=float(y)) for x, y in points]
-    return message
-
-
-def build_obstacle_array_message(
-    header: Header,
-    obstacles: Iterable[Obstacle],
-) -> sv2dm.ObstacleArray:
-    """Obstáculos da segmentação (lista vazia é uma mensagem válida)."""
-    message = sv2dm.ObstacleArray(header=header)
-    for obstacle in obstacles:
-        item = sv2dm.Obstacle()
-        item.bb.center.position.x = float(obstacle.x + obstacle.width / 2.0)
-        item.bb.center.position.y = float(obstacle.y + obstacle.height / 2.0)
-        item.bb.size_x = float(obstacle.width)
-        item.bb.size_y = float(obstacle.height)
-        message.obstacles.append(item)
     return message
 
 
@@ -166,7 +149,4 @@ def rotate_message_180(message, width: float, height: float):
         for p in message.points:
             point(p)
         message.points = list(message.points)[::-1]   # mantém a ordem da esquerda para a direita
-    elif isinstance(message, sv2dm.ObstacleArray):
-        for obstacle in message.obstacles:
-            box(obstacle.bb)
     return message

@@ -26,7 +26,6 @@ OUTPUT_TOPICS = {
     'robots_in_image': sv2dm.RobotArray,
     'markings_in_image': sv2dm.MarkingArray,
     'field_boundary_in_image': sv2dm.FieldBoundary,
-    'obstacles_in_image': sv2dm.ObstacleArray,
     'processed_image_topic': Image,
 }
 
@@ -114,7 +113,7 @@ class Harness:
                 raise TimeoutError(f'tempo esgotado esperando: {what}')
             self.executor.spin_once(timeout_sec=0.1)
 
-    def process(self, frame, last_topic='obstacles_in_image'):
+    def process(self, frame, last_topic='processed_image_topic'):
         """Publica um frame e devolve as mensagens recebidas em cada tópico."""
         for messages in self.received.values():
             messages.clear()

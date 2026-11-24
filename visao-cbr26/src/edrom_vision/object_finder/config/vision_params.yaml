@@ -14,7 +14,7 @@ vision:
     # Só na partida. Evita ler IDs com o significado trocado (ex.: modelo do robô real).
     strict_class_check: true
 
-    publish_segmentation: true     # publica field_boundary_in_image e obstacles_in_image
+    publish_segmentation: true     # publica field_boundary_in_image
 
     validation:
       enabled: true                # false = publica tudo que o YOLO detectou (sem validar)
@@ -24,7 +24,6 @@ vision:
     pipeline:
       process_width: 540           # largura de processamento (câmera = 1080); 0 = sem redução
       column_step: 4               # 1 coluna a cada N na varredura da fronteira
-      min_obstacle_area: 150       # px² na resolução de processamento
       head_tilted_up: false        # true = varredura de baixo para cima
 
     # Espaço de cor dinâmico do campo (artigo Bit-Bots, Seção 3.1): com a visão rodando, aprende

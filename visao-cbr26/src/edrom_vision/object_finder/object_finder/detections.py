@@ -43,13 +43,6 @@ INTERSECTION_CLASSES = frozenset({
     YoloClass.X_INTERSECTION,
 })
 
-# Objetos que ficam em pé no campo; "explicam" um obstáculo da segmentação.
-FIELD_OBJECT_CLASSES = frozenset({
-    YoloClass.BALL,
-    YoloClass.GOALPOST,
-    YoloClass.ROBOT,
-})
-
 
 @dataclass(frozen=True)
 class Detection:

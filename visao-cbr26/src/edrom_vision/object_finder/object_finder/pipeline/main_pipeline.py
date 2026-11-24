@@ -1,8 +1,8 @@
 """
 main_pipeline.py
 
-Orquestra os tres filtros (fronteira do campo -> obstaculos -> pontos de
-linha), equivalente ao "main vision module" do artigo Bit-Bots (Fig. 2).
+Orquestra os filtros (fronteira do campo -> pontos de linha), equivalente
+ao "main vision module" do artigo Bit-Bots (Fig. 2).
 
 Diferencas em relacao ao repositorio original do pipeline:
   * Nao ha mais efeitos colaterais no import (detector global / imagem fixa):
@@ -10,9 +10,7 @@ Diferencas em relacao ao repositorio original do pipeline:
   * A imagem e reduzida para `process_width` antes de rodar os filtros (a
     camera do Webots e 1080x720) e os resultados voltam em coordenadas da
     imagem ORIGINAL, que e o que o IPM espera (camera_info = 1080x720).
-  * Funcoes de fusao com o YOLO: obstaculos ja explicados por uma detecao do
-    YOLO (trave/robo/bola) sao descartados e pontos de linha que caem sobre
-    detecoes ou obstaculos tambem.
+  * Fusao com o YOLO: pontos de linha que caem sobre detecoes sao descartados.
 
 Uso offline (ajuste de HSV em imagens salvas):
     python3 -m object_finder.pipeline.main_pipeline imagem.png [valores_hsv.csv]   # ou: python3 -m object_finder.pipeline (veja __main__.py)
@@ -28,7 +26,6 @@ from .color_common import ColorDetector
 from .dynamic_color import DynamicColorSpace, below_boundary_mask, maybe_create
 from .field_boundary_detector import detect_field_boundary
 from .line_detector import detect_line_points
-from .obstacle_detector import Obstacle, detect_obstacles
 
 Point = Tuple[int, int]
 BoxXYXY = Tuple[float, float, float, float]
@@ -38,7 +35,6 @@ BoxXYXY = Tuple[float, float, float, float]
 class PipelineConfig:
     process_width: int = 540        # largura de processamento (0 = sem reducao)
     column_step: int = 4            # 1 coluna a cada N na varredura da fronteira
-    min_obstacle_area: int = 150    # area minima (px^2, na resolucao de processamento)
     n_line_samples: int = 800       # amostras aleatorias para os pontos de linha
     head_tilted_up: bool = False    # True -> varredura de baixo para cima
     use_previous_line_points: bool = True
@@ -54,7 +50,6 @@ class PipelineConfig:
 class PipelineResult:
     """Todos os pontos/caixas estao em coordenadas da imagem ORIGINAL."""
     field_boundary: List[Point] = field(default_factory=list)
-    obstacles: List[Obstacle] = field(default_factory=list)
     line_points: List[Point] = field(default_factory=list)
     hull_mask: Optional[np.ndarray] = None  # resolucao de processamento
     field_detected: bool = False
@@ -106,7 +101,7 @@ class VisionPipeline:
 
         if len(boundary) < 3:
             # Sem campo na imagem (ex.: camera virada para a parede): nao ha
-            # fronteira, obstaculos nem linhas a reportar. Evita amostrar o
+            # fronteira nem linhas a reportar. Evita amostrar o
             # branco de paredes/fundo como se fossem linhas do campo.
             self._previous_line_points = []
             return PipelineResult(hull_mask=hull_mask, field_detected=False,
@@ -117,13 +112,6 @@ class VisionPipeline:
             self.dynamic_color.update(hsv, self.color_detector.field_color.mask_hsv(hsv),
                                       below_boundary_mask(small.shape, boundary))
 
-        obstacles = detect_obstacles(
-            small,
-            self.color_detector,
-            boundary,
-            hull_mask,
-            min_area=int(cfg.min_obstacle_area),
-        )
         line_points = detect_line_points(
             small,
             self.color_detector,
@@ -138,16 +126,6 @@ class VisionPipeline:
 
         return PipelineResult(
             field_boundary=[(int(round(x * sx)), int(round(y * sy))) for x, y in boundary],
-            obstacles=[
-                Obstacle(
-                    x=int(round(o.x * sx)),
-                    y=int(round(o.y * sy)),
-                    width=int(round(o.width * sx)),
-                    height=int(round(o.height * sy)),
-                    color_class=o.color_class,
-                )
-                for o in obstacles
-            ],
             line_points=[(int(round(x * sx)), int(round(y * sy))) for x, y in line_points],
             hull_mask=hull_mask,
             field_detected=True,
@@ -161,49 +139,6 @@ class VisionPipeline:
 # ---------------------------------------------------------------------------
 # Fusao com as deteccoes do YOLO
 # ---------------------------------------------------------------------------
-
-def _obstacle_xyxy(o: Obstacle) -> BoxXYXY:
-    return (o.x, o.y, o.x + o.width, o.y + o.height)
-
-
-def fuse_obstacles_with_detections(
-    obstacles: Sequence[Obstacle],
-    detections_xyxy: Iterable[BoxXYXY],
-    coverage_threshold: float = 0.3,
-    footpoint_margin: float = 0.1,
-) -> List[Obstacle]:
-    """
-    Mantem so os obstaculos NAO explicados por uma deteccao conhecida.
-
-    Na mensagem soccer_vision_2d_msgs/Obstacle, "obstaculo" e tudo que nao foi
-    classificado como robo/trave. Um obstaculo do pipeline e descartado se:
-      * pelo menos `coverage_threshold` da sua area esta dentro de uma caixa
-        do YOLO, ou
-      * o ponto de apoio dele (centro da base) cai dentro de uma caixa do YOLO
-        (expandida em `footpoint_margin`).
-    """
-    dets = list(detections_xyxy)
-    kept: List[Obstacle] = []
-    for o in obstacles:
-        ox0, oy0, ox1, oy1 = _obstacle_xyxy(o)
-        area = max(1.0, float((ox1 - ox0) * (oy1 - oy0)))
-        foot_x, foot_y = (ox0 + ox1) / 2.0, oy1
-
-        explained = False
-        for x0, y0, x1, y1 in dets:
-            iw = max(0.0, min(ox1, x1) - max(ox0, x0))
-            ih = max(0.0, min(oy1, y1) - max(oy0, y0))
-            if iw * ih / area >= coverage_threshold:
-                explained = True
-                break
-            mx, my = footpoint_margin * (x1 - x0), footpoint_margin * (y1 - y0)
-            if x0 - mx <= foot_x <= x1 + mx and y0 - my <= foot_y <= y1 + my:
-                explained = True
-                break
-        if not explained:
-            kept.append(o)
-    return kept
-
 
 def filter_points_in_boxes(
     points: Sequence[Point],
@@ -229,18 +164,12 @@ def filter_points_in_boxes(
 # Debug
 # ---------------------------------------------------------------------------
 
-_OBSTACLE_COLORS = {
-    "red": (0, 0, 255),
-    "blue": (255, 0, 0),
-    "white": (255, 255, 255),
-    "unknown": (0, 255, 255),
-}
 BOUNDARY_COLOR = (0, 165, 255)   # laranja (BGR)
 LINE_POINT_COLOR = (255, 255, 0)  # ciano (BGR)
 
 
 def draw_pipeline_overlay(image_bgr: np.ndarray, result: PipelineResult) -> np.ndarray:
-    """Desenha fronteira, obstaculos e pontos de linha (similar a Fig. 1 do artigo)."""
+    """Desenha fronteira e pontos de linha (similar a Fig. 1 do artigo)."""
     debug = image_bgr.copy()
 
     if len(result.field_boundary) >= 2:
@@ -249,14 +178,6 @@ def draw_pipeline_overlay(image_bgr: np.ndarray, result: PipelineResult) -> np.n
 
     for x, y in result.line_points:
         cv2.circle(debug, (x, y), 2, LINE_POINT_COLOR, -1)
-
-    for o in result.obstacles:
-        color = _OBSTACLE_COLORS.get(o.color_class, _OBSTACLE_COLORS["unknown"])
-        cv2.rectangle(debug, (o.x, o.y), (o.x + o.width, o.y + o.height), color, 2)
-        cv2.putText(
-            debug, f"obs:{o.color_class}", (o.x, max(12, o.y - 4)),
-            cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 1,
-        )
 
     status = "Pipeline: campo OK" if result.field_detected else "Pipeline: sem campo"
     if result.dynamic_colors:
@@ -291,9 +212,6 @@ def _demo(argv: Sequence[str]) -> int:
 
     print(f"Campo detectado: {result.field_detected}")
     print(f"Pontos de fronteira: {len(result.field_boundary)}")
-    print(f"Obstaculos: {len(result.obstacles)}")
-    for o in result.obstacles:
-        print(f"  - {o.color_class} em {o.bbox}")
     print(f"Pontos de linha: {len(result.line_points)}")
     cv2.imwrite("debug_output.jpg", draw_pipeline_overlay(image, result))
     print("Imagem de debug salva em debug_output.jpg")

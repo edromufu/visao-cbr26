@@ -60,7 +60,6 @@ def declare_parameters(node: 'Node', hsv_defaults: Mapping[str, ColorSpaceHSV]) 
     pipeline = PipelineConfig()
     node.declare_parameter('pipeline.process_width', pipeline.process_width)
     node.declare_parameter('pipeline.column_step', pipeline.column_step)
-    node.declare_parameter('pipeline.min_obstacle_area', pipeline.min_obstacle_area)
     node.declare_parameter('pipeline.head_tilted_up', pipeline.head_tilted_up)
 
     # Espaço de cor dinâmico do campo (artigo Bit-Bots, Seção 3.1): ligado no nó.
@@ -94,8 +93,6 @@ def read_settings(node: 'Node', overrides: Optional[Mapping[str, Any]] = None) -
         pipeline=PipelineConfig(
             process_width=_at_least('pipeline.process_width', value('pipeline.process_width'), 0),
             column_step=_at_least('pipeline.column_step', value('pipeline.column_step'), 1),
-            min_obstacle_area=_at_least(
-                'pipeline.min_obstacle_area', value('pipeline.min_obstacle_area'), 0),
             n_line_samples=0,  # pontos de linha não são publicados nesta versão
             head_tilted_up=bool(value('pipeline.head_tilted_up')),
             dynamic_color=bool(value('dynamic_color.enabled')),
