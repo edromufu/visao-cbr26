@@ -29,9 +29,6 @@ class ArucoRecord(Node):
         dicionario = self.declare_parameter('dicionario', 'DICT_5X5_250').value
         pasta = self.declare_parameter('pasta_saida', '').value
         self.mostrar = self.declare_parameter('mostrar', True).value
-        # Só gira a janela 180 graus (câmera de cabeça para baixo). Os cantos
-        # gravados ficam sempre em pixels da imagem crua, que é o que K e D descrevem.
-        self.rotate = bool(self.declare_parameter('rotate_180', False).value)
 
         dic = cv2.aruco.getPredefinedDictionary(getattr(cv2.aruco, dicionario))
         if hasattr(cv2.aruco, 'ArucoDetector'):  # OpenCV >= 4.7
@@ -89,8 +86,6 @@ class ArucoRecord(Node):
         if self.mostrar:
             if ids is not None:
                 cv2.aruco.drawDetectedMarkers(imagem, cantos, ids)
-            if self.rotate:
-                imagem = cv2.rotate(imagem, cv2.ROTATE_180)
             cv2.putText(imagem, f'frames gravados: {self.n_gravados}', (10, 25),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
             cv2.imshow('aruco_record', imagem)

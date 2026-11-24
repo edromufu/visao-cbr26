@@ -4,7 +4,6 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
-from launch_ros.parameter_descriptions import ParameterValue
 from launch.conditions import IfCondition, UnlessCondition
 from ament_index_python.packages import get_package_share_directory
 import os
@@ -43,13 +42,6 @@ def generate_launch_description():
             description="URL do YAML de calibração intrínseca da câmera",
         ),
 
-        DeclareLaunchArgument(
-            "rotate_180",
-            default_value=str(usb_cam_cfg.get("rotate_180", False)),
-            description="Gira a imagem 180 graus antes do YOLO (câmera montada de cabeça "
-                        "para baixo). Padrão: rotate_180 do config/usb_cam.yaml",
-        ),
-
         Node(
             package="usb_cam",
             executable="usb_cam_node_exe",
@@ -72,8 +64,6 @@ def generate_launch_description():
             output='screen',
             parameters=[{
                 "use_sim_time": False,
-                "rotate_180": ParameterValue(
-                    LaunchConfiguration("rotate_180"), value_type=bool),
             }],
         ),
         

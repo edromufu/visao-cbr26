@@ -16,25 +16,10 @@ from cv_bridge import CvBridge
 from ament_index_python.packages import get_package_share_directory
 
 
-def box_para_imagem_original(box, w, h):
-    """
-    Converte uma caixa [cx, cy, bw, bh] detectada na imagem girada 180 graus de
-    volta para as coordenadas da imagem original da câmera (w x h), que é o que o
-    camera_info e o TF descrevem — assim o IPM continua correto.
-    """
-    cx, cy, bw, bh = box
-    return [w - cx, h - cy, bw, bh]
-
-
 class YoloSimulacao(Node):
 
     def __init__(self):
         super().__init__('vision')
-
-        # Câmera montada de cabeça para baixo: gira a imagem 180 graus antes do
-        # YOLO (rotate_180 em config/usb_cam.yaml).
-        self.rotate = bool(self.declare_parameter('rotate_180', False).value)
-        self.get_logger().info(f'Rotação da imagem: {"180 graus" if self.rotate else "nenhuma"}')
 
         self.bridge = CvBridge()
         model_path = (
@@ -64,18 +49,9 @@ class YoloSimulacao(Node):
         try:
             # Converte o frame para cv2
             frame = self.bridge.imgmsg_to_cv2(ros_image_msg,desired_encoding="bgr8")
-            h, w = frame.shape[:2]
-
-            # Desfaz a rotação física da câmera para o YOLO ver a imagem em pé
-            if self.rotate:
-                frame = cv2.rotate(frame, cv2.ROTATE_180)
 
             # Roda o YOLO
             classes, scores, boxes, inference_frame = ri.detect_model(self.model, frame)
-
-            # Caixas de volta para as coordenadas da imagem original (IPM)
-            if self.rotate:
-                boxes = [box_para_imagem_original(b, w, h) for b in boxes]
 
             # ROS Header
     
