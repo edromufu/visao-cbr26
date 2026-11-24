@@ -23,6 +23,7 @@ A câmera vem do `usb_cam` e as saídas usam só as mensagens do `soccer_interfa
 ```bash
 pip install -r requirements.txt          # YOLO26 precisa da ultralytics 8.4+
 sudo apt install ros-humble-usb-cam ros-humble-vision-msgs ros-humble-cv-bridge
+source /opt/ros/humble/setup.bash        # obrigatório em todo terminal novo (senão: "ament_cmake" não encontrado)
 colcon build --symlink-install
 source install/setup.bash
 ```
