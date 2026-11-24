@@ -1,4 +1,4 @@
 numpy>=1.23.0,<2.0
 opencv-python>=4.7.0,<4.12.0
-ultralytics==8.3.189
-pytest
+# YOLO26 precisa da ultralytics 8.4+ (testado com 8.4.178)
+ultralytics==8.4.178
