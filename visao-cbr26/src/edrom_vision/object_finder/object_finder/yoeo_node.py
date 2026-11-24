@@ -16,9 +16,6 @@ Publica (header = header da imagem):
 Com undistort=True (padrão) e calibração no camera_info, a imagem é corrigida antes da rede e as
 coordenadas publicadas são em pixels sem distorção.
 
-Com rotate_180=True (câmera de cabeça para baixo, ligado em config/usb_cam.yaml) a imagem é girada 180° antes
-da rede e a janela/vision_debug mostram a imagem em pé. As detecções e a máscara são publicadas nas coordenadas
-da imagem ORIGINAL da câmera (referencial do camera_info). Quem precisa da imagem em pé faz (w - x, h - y).
 """
 import array
 import os
@@ -75,8 +72,6 @@ class YOEOVision(Node):
         class_conf.update({n: conf_pt for n in NUM_RAYS})
         self.show = p('img_output', False).value
         self.undistort = p('undistort', True).value
-        self.rotate = p('rotate_180', False).value
-        self.get_logger().info(f'rotação da imagem: {"180°" if self.rotate else "nenhuma"}')
         self.net = YOEOInfer(model_path, device=device, threads=p('threads', 0).value, class_conf=class_conf,
                              max_det=30, cache_dir=os.path.expanduser('~/.cache/yoeo_ov'))
         self.get_logger().info(f'YOEO-26n: {model_path} em {device} (entrada {self.net.w}x{self.net.h}), '
@@ -125,23 +120,17 @@ class YOEOVision(Node):
                 maps = self.undistort_maps(frame.shape[1], frame.shape[0])
                 if maps is not None:
                     frame = cv2.remap(frame, *maps, interpolation=cv2.INTER_LINEAR)
-            if self.rotate:
-                frame = cv2.rotate(frame, cv2.ROTATE_180)
             res = self.net(frame)
         except Exception as e:      # noqa: BLE001 - não derrubar o nó por um frame ruim
             self.get_logger().error(f'falha ao processar o frame: {e}', throttle_duration_sec=5)
             return
-        if self.show or self.pub_debug:     # desenha na imagem em pé, antes de desfazer a rotação
+        if self.show or self.pub_debug:
             vis = draw(frame, res, names=self.net.names)
             if self.pub_debug:
                 self.pub_debug.publish(array_to_image_msg(vis, 'bgr8', msg.header))
             if self.show:
                 cv2.imshow('YOEO', vis)
                 cv2.waitKey(1)
-        if self.rotate:     # caixas de volta para a imagem original da câmera
-            h, w = frame.shape[:2]
-            res.boxes = np.stack([w - res.boxes[:, 2], h - res.boxes[:, 3],
-                                  w - res.boxes[:, 0], h - res.boxes[:, 1]], axis=1)
         self.publish_detections(res, msg.header)
         self.publish_mask(res, msg.header)
         self.latency.append(res.times_ms['total'])
@@ -196,8 +185,6 @@ class YOEOVision(Node):
         rows, cols = np.where(valid.any(1))[0], np.where(valid.any(0))[0]
         if len(rows) and len(cols):
             mask = res.mask[rows[0]:rows[-1] + 1, cols[0]:cols[-1] + 1]
-            if self.rotate:
-                mask = mask[::-1, ::-1]
             self.pub_seg.publish(array_to_image_msg(mask, 'mono8', header))
 
 
