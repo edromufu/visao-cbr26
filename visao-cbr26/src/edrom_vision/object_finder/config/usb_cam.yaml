@@ -7,4 +7,7 @@
     framerate: 30.0
     pixel_format: "yuyv2rgb"
     frame_id: "camera_optical_frame"
+    # -1 = não mexe no brilho da câmera. Sem isto o usb_cam aplica 50, que nesta câmera (escala -64 a 64,
+    # padrão 0) é quase o máximo: o preto vira cinza e as cores desbotam.
+    brightness: -1
     rotate_180: true              # câmera montada de cabeça para baixo: gira a imagem 180° antes da visão

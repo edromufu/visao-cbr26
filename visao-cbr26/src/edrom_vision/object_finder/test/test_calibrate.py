@@ -245,11 +245,12 @@ def drag(handlers, start, end):
     return action
 
 
-def test_gui_drag_samples_a_region_and_s_saves(tmp_path, monkeypatch):
+def test_gui_drag_samples_a_region_and_s_saves_and_closes(tmp_path, monkeypatch):
     image = tmp_path / 'campo.png'
     cv2.imwrite(str(image), dry_grass_frame())
+    # sem 'q' depois do 's': se a janela continuasse aberta, o próximo waitKey levantaria StopIteration
     fake_window(monkeypatch, lambda h: [lambda: -1, drag(h, (100, 300), (400, 420)), lambda: ord('p'),
-                                        lambda: ord('s'), lambda: ord('q')])
+                                        lambda: ord('s')])
     out = tmp_path / 'calib'
     assert cal.main(['hsv', '--source', str(image), '--out', str(out)]) == 0
     spaces = load_color_spaces_from_csv(str(out / 'hsv.csv'))
@@ -275,7 +276,7 @@ def test_gui_x_clears_the_class_and_s_then_does_nothing(tmp_path, monkeypatch):
                                         lambda: ord('s'), lambda: ord('q')])
     out = tmp_path / 'calib'
     assert cal.main(['hsv', '--source', str(image), '--out', str(out)]) == 0
-    assert not out.exists()                                       # sem classe calibrada, 's' não grava
+    assert not out.exists()                                       # sem classe calibrada, 's' não grava nem fecha
 
 
 # --- calibrar --ros (imagem do usb_cam) ------------------------------------------------------------

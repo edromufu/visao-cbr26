@@ -40,7 +40,7 @@ visão. Se o `vision.launch` estiver rodando, o calibrar usa o tópico dele. Se 
 `video_device` do `usb_cam.yaml`.
 
 Na janela: **1** campo, **2** branco, **3** vermelho, **4** azul. Arraste um retângulo sobre a cor,
-**p** mostra o resultado, **s** salva e **q** sai.
+**p** mostra o resultado, **s** salva e fecha, **q** sai sem salvar.
 
 O resultado vai para `calibracao/hsv_params.yaml` e **não altera** o `config/`. Para usar:
 

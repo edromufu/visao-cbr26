@@ -486,6 +486,7 @@ def run_hsv_gui(args: argparse.Namespace) -> int:
                 _, _, warnings = fit_spaces(samples, base, args.margin, args.quantiles)
                 finish_hsv(args, spaces, calibrated, warnings, frame, boxes)
                 state['saved'] = True
+                break                              # salvou: fecha o calibrar
     except cv2.error as error:
         print(f'ERRO do OpenCV ({error}). Seu OpenCV pode não ter janelas (opencv-python-headless?).', file=sys.stderr)
         return 2
@@ -517,7 +518,7 @@ def draw_gui(frame, spaces, calibrated, state, samples) -> np.ndarray:
     lines = [f'[1]field [2]white [3]red [4]blue   classe: {name.upper()}   amostras: {samples.count(name)}',
              f'H {s.h_min}-{s.h_max}  S {s.s_min}-{s.s_max}  V {s.v_min}-{s.v_max}'
              + ('' if name in calibrated else '  (padrao, nao calibrado)'),
-             'arraste=amostrar  espaco=pausa  x=limpa classe  p=pipeline  s=salvar  q=sair']
+             'arraste=amostrar  espaco=pausa  x=limpa classe  p=pipeline  s=salvar e sair  q=sair']
     for i, text in enumerate(lines):
         cv2.putText(canvas, text, (10, 24 + 24 * i), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 0), 4)
         cv2.putText(canvas, text, (10, 24 + 24 * i), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1)
