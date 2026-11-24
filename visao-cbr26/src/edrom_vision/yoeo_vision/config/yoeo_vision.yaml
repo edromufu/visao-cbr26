@@ -22,8 +22,4 @@
       min_length: 12
       max_gap: 4
 
-    # Balanço de branco fixo (gerado pelo `ros2 run yoeo_vision wb_calib`). Vazio = desligado
-    wb_file: ""
-
-    show_window: false     # janela do OpenCV (precisa de monitor); prefira vision/debug_image
     print_every: 150       # a cada N frames loga os tempos (0 desliga)

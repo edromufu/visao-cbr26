@@ -26,8 +26,6 @@ setup(
     entry_points={
         'console_scripts': [
             'vision = yoeo_vision.vision_node:main',
-            'wb_calib = yoeo_vision.white_balance:main',
-            'field_seg = yoeo_vision.field_seg:main',
         ],
     },
 )

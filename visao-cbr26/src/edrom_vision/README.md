@@ -16,7 +16,7 @@ A câmera vem do `usb_cam` e as saídas usam só as mensagens do `soccer_interfa
 | Pacote | O que faz |
 |---|---|
 | `yoeo_vision` | Nó `vision`: YOLO26n + segmentação clássica; publica tudo em `soccer_vision_2d_msgs` |
-| `soccer_interfaces` | Mensagens (`soccer_vision_2d_msgs`, `soccer_vision_3d_msgs`, etc.) |
+| `soccer_interfaces` | Só as mensagens usadas: `soccer_vision_2d_msgs` e `soccer_vision_attribute_msgs` |
 
 ## Instalar e compilar
 
@@ -42,8 +42,6 @@ Sobe o `usb_cam` (namespace `camera`) e o nó `vision`. Argumentos úteis:
 | `rotate_180` | do `usb_cam.yaml` | câmera de cabeça para baixo (ver abaixo) |
 | `model_path` | `modelo/yolov26n-edrom.pt` | outro `.pt` ou uma pasta `*_openvino_model` |
 | `classic_seg` | `true` | `false` desliga campo/borda/linhas (só detecção) |
-| `wb_file` | vazio | balanço de branco fixo (ver abaixo) |
-| `show_window` | `false` | janela do OpenCV com o overlay (precisa de monitor) |
 
 Os demais parâmetros do nó (`imgsz`, `conf`, `iou`, `device`, `seg_width`, Hough das linhas...) ficam em
 `src/edrom_vision/yoeo_vision/config/yoeo_vision.yaml`. A configuração da câmera (dispositivo, resolução,
@@ -83,22 +81,4 @@ O nó loga a cada 150 frames o tempo médio de detecção, segmentação e total
 yolo export model=src/edrom_vision/yoeo_vision/modelo/yolov26n-edrom.pt format=openvino imgsz=416
 ros2 launch yoeo_vision vision.launch.py \
     model_path:=$PWD/src/edrom_vision/yoeo_vision/modelo/yolov26n-edrom_openvino_model
-```
-
-## Balanço de branco (opcional)
-
-Para câmeras com cor ruim (imagem roxa/esverdeada mesmo com o white balance da câmera ajustado). Com o launch
-rodando, segure uma folha branca/cinza cobrindo o **centro** da imagem e, em outro terminal:
-
-```bash
-ros2 run yoeo_vision wb_calib --ros-args -p out:=$HOME/wb_gains.json
-ros2 launch yoeo_vision vision.launch.py wb_file:=$HOME/wb_gains.json
-```
-
-O `wb_calib` também salva `wb_gains_check.jpg` (antes | depois).
-
-## Testar a segmentação em fotos
-
-```bash
-ros2 run yoeo_vision field_seg foto1.png foto2.png    # salva foto1_seg.png com o mosaico de depuração
 ```

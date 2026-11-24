@@ -32,7 +32,6 @@ import soccer_vision_2d_msgs.msg as sv2dm
 from vision_msgs.msg import Point2D
 
 from yoeo_vision.field_seg import LINES, FieldSegmenter
-from yoeo_vision.white_balance import apply_wb, load_wb_lut
 
 DEFAULT_MODEL = 'yolov26n-edrom.pt'
 
@@ -73,12 +72,10 @@ class YoeoVision(Node):
         self.rotate = bool(p('rotate_180', False).value)
         self.classic_seg = bool(p('classic_seg', True).value)
         seg_width = int(p('seg_width', 320).value)
-        wb_file = p('wb_file', '').value
         # Segmentos de linha (HoughLinesP sobre a mascara de linhas)
         self.hough_threshold = int(p('lines.hough_threshold', 15).value)
         self.hough_min_length = int(p('lines.min_length', 12).value)
         self.hough_max_gap = int(p('lines.max_gap', 4).value)
-        self.show_window = bool(p('show_window', False).value)
         self.print_every = int(p('print_every', 150).value)
 
         if threads > 0:
@@ -106,14 +103,6 @@ class YoeoVision(Node):
         self.get_logger().info(
             f'Segmentacao classica: {f"ligada ({seg_width}px)" if self.segmenter else "desligada"}')
 
-        self.wb_lut = None
-        if wb_file:
-            self.wb_lut, gains = load_wb_lut(wb_file)
-            if self.wb_lut is None:
-                self.get_logger().warn(f'Balanco de branco: nao consegui ler {wb_file}, ignorando')
-            else:
-                self.get_logger().info(
-                    f'Balanco de branco de {wb_file}: ganhos B,G,R = {[round(g, 3) for g in gains]}')
         self.get_logger().info(f'Rotacao da imagem: {"180 graus" if self.rotate else "nenhuma"}')
 
         # ---------- ROS ----------
@@ -149,7 +138,6 @@ class YoeoVision(Node):
         h, w = frame.shape[:2]
         if self.rotate:
             frame = cv2.rotate(frame, cv2.ROTATE_180)
-        frame = apply_wb(frame, self.wb_lut)
 
         # ---------- deteccao (YOLO26n, end-to-end) ----------
         r = self.model.predict(frame, imgsz=self.imgsz, conf=self.conf, iou=self.iou,
@@ -230,18 +218,13 @@ class YoeoVision(Node):
         t3 = time.perf_counter()
 
         # ---------- depuracao ----------
-        want_debug = self.pub_debug.get_subscription_count() > 0
-        if want_debug or self.show_window:
+        if self.pub_debug.get_subscription_count() > 0:
             fps = 1.0 / (t3 - t0) if t3 > t0 else 0.0
             out = self.draw_overlay(frame, boxes, seg, segments, fps,
                                     (t1 - t0) * 1e3, (t2 - t1) * 1e3)
-            if want_debug:
-                dbg = self.bridge.cv2_to_imgmsg(out, encoding='bgr8')
-                dbg.header = header
-                self.pub_debug.publish(dbg)
-            if self.show_window:
-                cv2.imshow('yoeo_vision', out)
-                cv2.waitKey(1)
+            dbg = self.bridge.cv2_to_imgmsg(out, encoding='bgr8')
+            dbg.header = header
+            self.pub_debug.publish(dbg)
 
         # ---------- estatisticas ----------
         self.n += 1
@@ -312,8 +295,6 @@ def main(args=None):
     except KeyboardInterrupt:
         pass
     finally:
-        if node.show_window:
-            cv2.destroyAllWindows()
         node.destroy_node()
         if rclpy.ok():
             rclpy.shutdown()

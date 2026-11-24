@@ -21,11 +21,7 @@ B-Human e NimbRo:
 
 Rotulos na saida:
   0=background  1=lines  2=field
-
-Teste isolado em imagens, salvando um mosaico de depuracao ao lado:
-    python3 -m yoeo_vision.field_seg frame.png [outra.png ...]
 """
-import sys
 from collections import namedtuple
 
 import cv2
@@ -35,7 +31,7 @@ BACKGROUND, LINES, FIELD = 0, 1, 2
 
 # label: (h,w) uint8 na resolucao de trabalho | hull: (K,1,2) int32 em pixels do
 # frame original, ou None | params: (h_lo, h_hi, s_min, v_min) da cor do campo
-SegResult = namedtuple("SegResult", "label hull params debug")
+SegResult = namedtuple("SegResult", "label hull params")
 
 
 class FieldSegmenter:
@@ -80,7 +76,7 @@ class FieldSegmenter:
 
         label = np.zeros((sh, sw), np.uint8)
         if self.params is None:  # ainda nao viu verde suficiente para calibrar
-            return SegResult(label, None, None, {})
+            return SegResult(label, None, None)
 
         h_lo, h_hi, s_min, v_min = self.params
         green_raw = cv2.inRange(hsv, (int(h_lo), int(s_min), int(v_min)), (int(h_hi), 255, 255))
@@ -91,17 +87,16 @@ class FieldSegmenter:
 
         hull = self._field_hull(green)
         if hull is None:
-            return SegResult(label, None, tuple(self.params), {"green": green_raw})
+            return SegResult(label, None, tuple(self.params))
         inside = np.zeros_like(green)
         cv2.fillConvexPoly(inside, hull, 255)
 
-        lines, tophat = self._lines(S, V, green_raw, inside, excl)
+        lines = self._lines(S, V, green_raw, inside, excl)
         label[inside > 0] = FIELD
         label[lines] = LINES
 
         hull_frame = np.round(hull / scale).astype(np.int32)
-        debug = {"green": green_raw, "tophat": tophat}
-        return SegResult(label, hull_frame, tuple(self.params), debug)
+        return SegResult(label, hull_frame, tuple(self.params))
 
     def _calibrate(self, H, S, V, excl):
         top = int(H.shape[0] * self.CALIB_ROI_TOP)
@@ -156,39 +151,5 @@ class FieldSegmenter:
         n, lab, stats, _ = cv2.connectedComponentsWithStats(cand, connectivity=8)
         keep = stats[:, cv2.CC_STAT_AREA] >= self.line_min_area
         keep[0] = False
-        return keep[lab], tophat
+        return keep[lab]
 
-
-def colorize(label, colors):
-    return np.asarray(colors, np.uint8)[label]
-
-
-def main():
-    if len(sys.argv) < 2:
-        sys.exit(__doc__)
-    colors = [(0, 0, 0), (255, 0, 0), (40, 160, 40)]  # BGR: fundo, linhas (azul), campo
-    for path in sys.argv[1:]:
-        img = cv2.imread(path)
-        if img is None:
-            print(f"[!] nao consegui ler {path}")
-            continue
-        seg = FieldSegmenter()
-        res = seg(img)
-        h, w = img.shape[:2]
-        over = cv2.addWeighted(
-            img, 0.6, cv2.resize(colorize(res.label, colors), (w, h),
-                                 interpolation=cv2.INTER_NEAREST), 0.4, 0)
-        over[cv2.resize(res.label, (w, h), interpolation=cv2.INTER_NEAREST) == LINES] = colors[LINES]
-        if res.hull is not None:
-            cv2.polylines(over, [res.hull], True, (255, 0, 255), 2)
-        panels = [over]
-        for key in ("green", "tophat"):
-            if key in res.debug:
-                panels.append(cv2.cvtColor(cv2.resize(res.debug[key], (w, h)), cv2.COLOR_GRAY2BGR))
-        out_path = path.rsplit(".", 1)[0] + "_seg.png"
-        cv2.imwrite(out_path, np.hstack(panels))
-        print(f"{path}: params(h_lo,h_hi,s_min,v_min)={res.params} -> {out_path}")
-
-
-if __name__ == "__main__":
-    main()

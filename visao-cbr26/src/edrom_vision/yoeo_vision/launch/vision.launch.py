@@ -40,12 +40,6 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'classic_seg', default_value='true',
             description='Liga a segmentação clássica de campo, borda e linhas'),
-        DeclareLaunchArgument(
-            'wb_file', default_value='',
-            description='JSON de balanço de branco do wb_calib (vazio = desligado)'),
-        DeclareLaunchArgument(
-            'show_window', default_value='false',
-            description='Abre janela do OpenCV com o overlay (precisa de monitor)'),
 
         Node(
             package='usb_cam',
@@ -72,8 +66,6 @@ def generate_launch_description():
                 'rotate_180': ParameterValue(LaunchConfiguration('rotate_180'), value_type=bool),
                 'model_path': ParameterValue(LaunchConfiguration('model_path'), value_type=str),
                 'classic_seg': ParameterValue(LaunchConfiguration('classic_seg'), value_type=bool),
-                'wb_file': ParameterValue(LaunchConfiguration('wb_file'), value_type=str),
-                'show_window': ParameterValue(LaunchConfiguration('show_window'), value_type=bool),
             }],
         ),
     ])
