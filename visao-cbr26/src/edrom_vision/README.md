@@ -40,7 +40,6 @@ Sobe o `usb_cam` (namespace `camera`) e o nó `vision`. Argumentos úteis:
 |---|---|---|
 | `video_device` | do `usb_cam.yaml` | ex.: `video_device:=/dev/video0` |
 | `camera_name` | do `usb_cam.yaml` | escolhe `config/<nome>_camera-info.yaml` (calibração intrínseca) |
-| `rotate_180` | do `usb_cam.yaml` | câmera de cabeça para baixo (ver abaixo) |
 | `model_path` | `modelo/yolov26n-edrom.pt` | outro `.pt` ou uma pasta `*_openvino_model` |
 | `classic_seg` | `true` | `false` desliga campo/borda/linhas (só detecção) |
 
@@ -48,11 +47,6 @@ Os demais parâmetros do nó (`imgsz`, `conf`, `iou`, `device`, `seg_width`, Hou
 `src/edrom_vision/yoeo_vision/config/yoeo_vision.yaml`. A configuração da câmera (dispositivo, resolução,
 formato) fica em `config/usb_cam.yaml`. Para descobrir o dispositivo: `v4l2-ctl --list-devices`. Use o
 primeiro `/dev/videoN` da câmera, porque o segundo é só de metadados.
-
-**A imagem é girada 180° antes da visão** (`rotate_180: true` em `config/usb_cam.yaml`), porque no robô a
-câmera fica de cabeça para baixo. O YOLO e a segmentação veem a imagem em pé, mas **todas as saídas estão nas
-coordenadas da imagem original da câmera** (referencial do `camera_info`). Testando com a câmera na mão, use
-`rotate_180:=False`.
 
 ## Tópicos publicados
 

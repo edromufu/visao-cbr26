@@ -1,4 +1,4 @@
-# Parâmetros do nó `vision` (yoeo_vision). O rotate_180 vem do usb_cam.yaml.
+# Parâmetros do nó `vision` (yoeo_vision).
 /**:
   ros__parameters:
     image_topic: "/camera/image_raw"

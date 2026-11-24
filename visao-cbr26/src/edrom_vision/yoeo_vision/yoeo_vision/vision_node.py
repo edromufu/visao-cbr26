@@ -8,7 +8,7 @@ No de visao `vision` (pipeline hibrido do yoeopth):
       campo, borda do campo (convex hull) e linhas
 
 Entrada:  /camera/image_raw (sensor_msgs/Image, publicado pelo usb_cam)
-Saidas (soccer_vision_2d_msgs, coordenadas em pixels da imagem ORIGINAL da camera):
+Saidas (soccer_vision_2d_msgs, coordenadas em pixels da imagem da camera):
   balls_in_image           BallArray
   goal_posts_in_image      GoalpostArray
   robots_in_image          RobotArray
@@ -67,9 +67,6 @@ class YoeoVision(Node):
         self.max_det = int(p('max_det', 20).value)
         device = p('device', 'cpu').value
         threads = int(p('threads', 0).value)
-        # Camera montada de cabeca para baixo: gira a imagem 180 graus antes do
-        # YOLO e da segmentacao (rotate_180 em config/usb_cam.yaml).
-        self.rotate = bool(p('rotate_180', False).value)
         self.classic_seg = bool(p('classic_seg', True).value)
         seg_width = int(p('seg_width', 320).value)
         # Segmentos de linha (HoughLinesP sobre a mascara de linhas)
@@ -103,7 +100,6 @@ class YoeoVision(Node):
         self.get_logger().info(
             f'Segmentacao classica: {f"ligada ({seg_width}px)" if self.segmenter else "desligada"}')
 
-        self.get_logger().info(f'Rotacao da imagem: {"180 graus" if self.rotate else "nenhuma"}')
 
         # ---------- ROS ----------
         self.bridge = CvBridge()
@@ -135,14 +131,12 @@ class YoeoVision(Node):
     def process(self, msg):
         t0 = time.perf_counter()
         frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
-        h, w = frame.shape[:2]
-        if self.rotate:
-            frame = cv2.rotate(frame, cv2.ROTATE_180)
+        w = frame.shape[1]
 
         # ---------- deteccao (YOLO26n, end-to-end) ----------
         r = self.model.predict(frame, imgsz=self.imgsz, conf=self.conf, iou=self.iou,
                                max_det=self.max_det, device=self.device, verbose=False)[0]
-        boxes = r.boxes.data.cpu().numpy()  # (N,6) x1,y1,x2,y2,conf,cls (frame em pe)
+        boxes = r.boxes.data.cpu().numpy()  # (N,6) x1,y1,x2,y2,conf,cls
         t1 = time.perf_counter()
 
         # ---------- segmentacao classica ----------
@@ -154,11 +148,6 @@ class YoeoVision(Node):
             segments = self.line_segments(seg.label, w)
         t2 = time.perf_counter()
 
-        # ---------- volta para as coordenadas da imagem original ----------
-        # O camera_info/TF descrevem a imagem como sai da camera: desfaz a rotacao.
-        def to_orig(x, y):
-            return (w - x, h - y) if self.rotate else (x, y)
-
         header = msg.header
         msg_ball = sv2dm.BallArray(header=header)
         msg_goal = sv2dm.GoalpostArray(header=header)
@@ -169,7 +158,7 @@ class YoeoVision(Node):
         for x1, y1, x2, y2, conf, cls in boxes:
             cls = int(cls)
             name = self.names[cls] if cls < len(self.names) else f'cls{cls}'
-            cx, cy = to_orig((x1 + x2) / 2, (y1 + y2) / 2)
+            cx, cy = (x1 + x2) / 2, (y1 + y2) / 2
             bw, bh = float(x2 - x1), float(y2 - y1)
 
             if name == 'ball':
@@ -199,13 +188,13 @@ class YoeoVision(Node):
 
         for (x1, y1, x2, y2) in segments:
             s = sv2dm.MarkingSegment()
-            s.start = point2d(*to_orig(x1, y1))
-            s.end = point2d(*to_orig(x2, y2))
+            s.start = point2d(x1, y1)
+            s.end = point2d(x2, y2)
             s.confidence.confidence = 1.0
             msg_mark.segments.append(s)
 
         if seg is not None and seg.hull is not None:
-            msg_bound.points = [point2d(*to_orig(x, y)) for x, y in seg.hull.reshape(-1, 2)]
+            msg_bound.points = [point2d(x, y) for x, y in seg.hull.reshape(-1, 2)]
             msg_bound.confidence.confidence = 1.0
         else:
             msg_bound.confidence.confidence = 0.0
@@ -241,7 +230,7 @@ class YoeoVision(Node):
 
     # ------------------------------------------------------------------
     def line_segments(self, label, frame_w):
-        """Segmentos de reta (x1,y1,x2,y2 em pixels do frame em pe) da mascara de linhas."""
+        """Segmentos de reta (x1,y1,x2,y2 em pixels do frame) da mascara de linhas."""
         mask = (label == LINES).astype(np.uint8) * 255
         if not mask.any():
             return []
@@ -254,7 +243,7 @@ class YoeoVision(Node):
         return (found.reshape(-1, 4).astype(np.float32) * scale).tolist()
 
     def draw_overlay(self, frame, boxes, seg, segments, fps, det_ms, seg_ms):
-        """Desenha segmentacao + borda + segmentos + caixas no frame em pe."""
+        """Desenha segmentacao + borda + segmentos + caixas no frame."""
         h, w = frame.shape[:2]
         if seg is not None:
             lab = cv2.resize(seg.label, (w, h), interpolation=cv2.INTER_NEAREST)

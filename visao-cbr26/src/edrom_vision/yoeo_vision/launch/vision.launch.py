@@ -31,10 +31,6 @@ def generate_launch_description():
                            LaunchConfiguration('camera_name'), '_camera-info.yaml'],
             description='URL do YAML de calibração intrínseca da câmera'),
         DeclareLaunchArgument(
-            'rotate_180', default_value=str(usb_cam_cfg.get('rotate_180', False)),
-            description='Gira a imagem 180 graus antes da visão (câmera de cabeça para baixo). '
-                        'Padrão: rotate_180 do config/usb_cam.yaml'),
-        DeclareLaunchArgument(
             'model_path', default_value='',
             description='Modelo .pt ou pasta *_openvino_model (vazio = modelo/yolov26n-edrom.pt)'),
         DeclareLaunchArgument(
@@ -63,7 +59,6 @@ def generate_launch_description():
             output='screen',
             parameters=[vision_params, {
                 'use_sim_time': False,
-                'rotate_180': ParameterValue(LaunchConfiguration('rotate_180'), value_type=bool),
                 'model_path': ParameterValue(LaunchConfiguration('model_path'), value_type=str),
                 'classic_seg': ParameterValue(LaunchConfiguration('classic_seg'), value_type=bool),
             }],
