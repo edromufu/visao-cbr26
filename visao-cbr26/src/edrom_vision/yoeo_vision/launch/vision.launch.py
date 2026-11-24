@@ -34,6 +34,9 @@ def generate_launch_description():
             'model_path', default_value='',
             description='Modelo .pt ou pasta *_openvino_model (vazio = modelo/yolov26n-edrom.pt)'),
         DeclareLaunchArgument(
+            'show_window', default_value='true',
+            description='Abre a janela do OpenCV com o overlay (false no robô sem monitor)'),
+        DeclareLaunchArgument(
             'classic_seg', default_value='true',
             description='Liga a segmentação clássica de campo, borda e linhas'),
 
@@ -61,6 +64,7 @@ def generate_launch_description():
                 'use_sim_time': False,
                 'model_path': ParameterValue(LaunchConfiguration('model_path'), value_type=str),
                 'classic_seg': ParameterValue(LaunchConfiguration('classic_seg'), value_type=bool),
+                'show_window': ParameterValue(LaunchConfiguration('show_window'), value_type=bool),
             }],
         ),
     ])

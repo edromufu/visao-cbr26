@@ -22,4 +22,5 @@
       min_length: 12
       max_gap: 4
 
+    show_window: true      # janela do OpenCV (o launch sobrescreve; sem monitor ela se desliga sozinha)
     print_every: 150       # a cada N frames loga os tempos (0 desliga)

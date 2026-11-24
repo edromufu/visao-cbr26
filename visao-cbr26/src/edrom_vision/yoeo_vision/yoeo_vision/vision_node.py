@@ -14,7 +14,8 @@ Saidas (soccer_vision_2d_msgs, coordenadas em pixels da imagem da camera):
   robots_in_image          RobotArray
   markings_in_image        MarkingArray (intersecoes L/T/X + segmentos das linhas)
   field_boundary_in_image  FieldBoundary (pontos da borda do campo)
-Depuracao: vision/debug_image (sensor_msgs/Image, so e gerado se alguem assinar)
+Depuracao: janela do OpenCV (show_window) e vision/debug_image (sensor_msgs/Image, so
+e gerado se alguem assinar)
 """
 import os
 import time
@@ -74,6 +75,11 @@ class YoeoVision(Node):
         self.hough_min_length = int(p('lines.min_length', 12).value)
         self.hough_max_gap = int(p('lines.max_gap', 4).value)
         self.print_every = int(p('print_every', 150).value)
+        self.show_window = bool(p('show_window', True).value)
+        if self.show_window and not os.environ.get('DISPLAY') and not os.environ.get('WAYLAND_DISPLAY'):
+            self.get_logger().warn('show_window: sem monitor (DISPLAY vazio), janela desligada. '
+                                   'Use o topico vision/debug_image.')
+            self.show_window = False
 
         if threads > 0:
             import torch
@@ -207,13 +213,18 @@ class YoeoVision(Node):
         t3 = time.perf_counter()
 
         # ---------- depuracao ----------
-        if self.pub_debug.get_subscription_count() > 0:
+        want_topic = self.pub_debug.get_subscription_count() > 0
+        if want_topic or self.show_window:
             fps = 1.0 / (t3 - t0) if t3 > t0 else 0.0
             out = self.draw_overlay(frame, boxes, seg, segments, fps,
                                     (t1 - t0) * 1e3, (t2 - t1) * 1e3)
-            dbg = self.bridge.cv2_to_imgmsg(out, encoding='bgr8')
-            dbg.header = header
-            self.pub_debug.publish(dbg)
+            if want_topic:
+                dbg = self.bridge.cv2_to_imgmsg(out, encoding='bgr8')
+                dbg.header = header
+                self.pub_debug.publish(dbg)
+            if self.show_window:
+                cv2.imshow('yoeo_vision', out)
+                cv2.waitKey(1)
 
         # ---------- estatisticas ----------
         self.n += 1
@@ -284,6 +295,8 @@ def main(args=None):
     except KeyboardInterrupt:
         pass
     finally:
+        if node.show_window:
+            cv2.destroyAllWindows()
         node.destroy_node()
         if rclpy.ok():
             rclpy.shutdown()

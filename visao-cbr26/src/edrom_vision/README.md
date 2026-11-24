@@ -42,6 +42,7 @@ Sobe o `usb_cam` (namespace `camera`) e o nó `vision`. Argumentos úteis:
 | `camera_name` | do `usb_cam.yaml` | escolhe `config/<nome>_camera-info.yaml` (calibração intrínseca) |
 | `model_path` | `modelo/yolov26n-edrom.pt` | outro `.pt` ou uma pasta `*_openvino_model` |
 | `classic_seg` | `true` | `false` desliga campo/borda/linhas (só detecção) |
+| `show_window` | `true` | janela `yoeo_vision` com o overlay; `false` no robô sem monitor |
 
 Os demais parâmetros do nó (`imgsz`, `conf`, `iou`, `device`, `seg_width`, Hough das linhas...) ficam em
 `src/edrom_vision/yoeo_vision/config/yoeo_vision.yaml`. A configuração da câmera (dispositivo, resolução,
