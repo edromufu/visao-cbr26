@@ -78,9 +78,6 @@ class LineVisionNode(Node):
         self.camera_height = float(P('camera.altura_m', 0.70).value)
         self.camera_pitch = float(P('camera.pitch_rad', 0.0).value)
         self.publish_debug = bool(P('publish_debug_image', True).value)
-        # Câmera de cabeça para baixo (rotate_180 em config/usb_cam.yaml): o frame é girado 180 graus
-        # antes do pipeline; as mensagens *_in_image voltam para a imagem original da câmera.
-        self.rotate = bool(P('rotate_180', False).value)
 
         params = load_params(params_file or None)
         detector = None
@@ -94,8 +91,7 @@ class LineVisionNode(Node):
         white = Path(calib_dir) / 'white_pixels.csv'
         self.pipeline = LineVisionPipeline(params, str(green), str(white), detector)
         self.get_logger().info(
-            f'calibracao: {calib_dir} | modelo: {model_path if detector else "sem YOLO"}'
-            f' | rotacao: {"180 graus" if self.rotate else "nenhuma"}')
+            f'calibracao: {calib_dir} | modelo: {model_path if detector else "sem YOLO"}')
 
         self.pub = {
             'balls': self.create_publisher(sv2d.BallArray, t['balls'], 1),
@@ -119,8 +115,6 @@ class LineVisionNode(Node):
     # ------------------------------------------------------------ entradas
     def _on_camera_info(self, info: Any) -> None:
         if self.pipeline.camera is None or self.pipeline.camera.nome == 'camera_info':
-            if self.rotate:  # o pipeline vê a imagem girada: a intrínseca também
-                info = mc.rotate_camera_info_180(info)
             self.pipeline.camera = mc.camera_info_to_model(
                 info, self.camera_height, self.camera_pitch)
             self.pipeline._camera_auto = False
@@ -130,8 +124,6 @@ class LineVisionNode(Node):
             return  # limita a taxa de processamento
         try:
             frame = image_msg_to_bgr(msg)
-            if self.rotate:
-                frame = cv2.rotate(frame, cv2.ROTATE_180)
         except ValueError as exc:
             self.get_logger().error(str(exc))
             return
@@ -145,18 +137,14 @@ class LineVisionNode(Node):
         self._fps = 0.9 * self._fps + 0.1 / \
             max(1e-6, now - self._last) if self._fps else 1.0 / max(1e-6, now - self._last)
         self._last = now
-        h, w = frame.shape[:2]
-
-        def to_camera(m: Any) -> Any:  # imagem em pé -> imagem original da câmera
-            return mc.rotate_message_180(m, w, h) if self.rotate else m
 
         for k, msg in mc.detections_to_msgs(r.detections, header, sv2d, vm, attr).items():
-            self.pub[k].publish(to_camera(msg))
-        self.pub['markings'].publish(to_camera(mc.markings_to_msg(
-            r.crossings, r.lines, r.ellipses, header, sv2d, vm, attr)))
+            self.pub[k].publish(msg)
+        self.pub['markings'].publish(mc.markings_to_msg(
+            r.crossings, r.lines, r.ellipses, header, sv2d, vm, attr))
         if r.stage1.field_detected:  # fronteira vazia derruba o IPM (soccer_ipm)
-            self.pub['field_boundary'].publish(to_camera(mc.field_boundary_to_msg(
-                r.stage1.boundary_image_points(), r.stage1.field_detected, header, sv2d, vm, attr)))
+            self.pub['field_boundary'].publish(mc.field_boundary_to_msg(
+                r.stage1.boundary_image_points(), r.stage1.field_detected, header, sv2d, vm, attr))
         if self.publish_projection:
             h3 = type(header)(stamp=header.stamp, frame_id=self.projection_frame)
             self.pub['projection'].publish(mc.projection_to_msg(

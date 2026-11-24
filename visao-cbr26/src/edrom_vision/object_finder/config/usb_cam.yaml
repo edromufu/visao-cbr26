@@ -7,4 +7,3 @@
     framerate: 30.0
     pixel_format: "yuyv2rgb"
     frame_id: "camera_optical_frame"
-    rotate_180: true              # câmera montada de cabeça para baixo: gira a imagem 180° antes da visão
